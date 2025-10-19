@@ -1,0 +1,42 @@
+digraph matrix_calculator_cfg {
+    node [shape=box, style=rounded];
+    B0 [label="B0:\n// main function, variable declarations..."];
+    B1 [label="B1:\nwhile(1)"];
+    B2 [label="B2:\n// print menu, get choice..."];
+    B3 [label="B3:\nif (choice == 4) break;"];
+    B4 [label="B4:\n// Get dimensions for matrix A..."];
+    B5 [label="B5:\n// Get elements for matrix A (nested for loop)..."];
+    B6 [label="B6:\n// Get dimensions for matrix B..."];
+    B7 [label="B7:\n// Get elements for matrix B (nested for loop)..."];
+    B8 [label="B8:\nif (choice == 1)"];
+    B9 [label="B9:\n// Addition logic (nested for loop)..."];
+    B10 [label="B10:\nelse if (choice == 2)"];
+    B11 [label="B11:\n// Multiplication logic (triple nested for loop)..."];
+    B12 [label="B12:\nelse if (choice == 3)"];
+    B13 [label="B13:\n// Transpose logic (nested for loop)..."];
+    B14 [label="B14:\nelse"];
+    B15 [label="B15:\nprintf(\"Invalid Option\\n\");"];
+    B16 [label="B16:\n// End of operation selection"];
+    B17 [label="B17:\n// End of main while loop"];
+    B18 [label="B18:\nreturn 0;"];
+
+    B0 -> B1;
+    B1 -> B2 [label="loop"];
+    B2 -> B3;
+    B3 -> B17 [label="true"];
+    B3 -> B4 [label="false"];
+    B4 -> B5 -> B6 -> B7 -> B8;
+    B8 -> B9 [label="true"];
+    B8 -> B10 [label="false"];
+    B9 -> B16;
+    B10 -> B11 [label="true"];
+    B10 -> B12 [label="false"];
+    B11 -> B16;
+    B12 -> B13 [label="true"];
+    B12 -> B14 [label="false"];
+    B13 -> B16;
+    B14 -> B15;
+    B15 -> B16;
+    B16 -> B1;
+    B17 -> B18;
+}

@@ -1,0 +1,40 @@
+digraph log_analyzer_cfg {
+    node [shape=box, style=rounded];
+    B0 [label="B0:\n// main function start\nFILE *fp;\nchar line[MAX_LINE_LENGTH];\nint err_count=0, warn_count=0, info_count=0;"];
+    B1 [label="B1:\nfp = fopen(\"system.log\", \"r\");"];
+    B2 [label="B2:\nif (fp == NULL)"];
+    B3 [label="B3:\nperror(\"Error opening file\");\nreturn 1;"];
+    B4 [label="B4:\nwhile (fgets(line, sizeof(line), fp) != NULL)"];
+    B5 [label="B5:\nif (strstr(line, \"[ERROR]\"))"];
+    B6 [label="B6:\nerr_count++;"];
+    B7 [label="B7:\nelse if (strstr(line, \"[WARNING]\"))"];
+    B8 [label="B8:\nwarn_count++;"];
+    B9 [label="B9:\nelse if (strstr(line, \"[INFO]\"))"];
+    B10 [label="B10:\ninfo_count++;"];
+    B11 [label="B11:\n// End of classification if-else"];
+    B12 [label="B12:\n// End of while loop"];
+    B13 [label="B13:\nfclose(fp);"];
+    B14 [label="B14:\n// print summary..."];
+    B15 [label="B15:\nreturn 0;"];
+
+    B0 -> B1;
+    B1 -> B2;
+    B2 -> B3 [label="true"];
+    B2 -> B4 [label="false"];
+    B3 -> B15;
+    B4 -> B5 [label="loop body"];
+    B5 -> B6 [label="true"];
+    B5 -> B7 [label="false"];
+    B6 -> B11;
+    B7 -> B8 [label="true"];
+    B7 -> B9 [label="false"];
+    B8 -> B11;
+    B9 -> B10 [label="true"];
+    B9 -> B11 [label="false"];
+    B10 -> B11;
+    B11 -> B4; // Back edge
+    B4 -> B12 [label="loop exit"];
+    B12 -> B13;
+    B13 -> B14;
+    B14 -> B15;
+}
