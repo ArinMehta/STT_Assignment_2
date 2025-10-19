@@ -1,0 +1,1385 @@
+[2025-10-19 02:00:38] This is codeql database create ../gunicorn-db --language=python --command=python3 -m compileall .
+[2025-10-19 02:00:38] Log file was started late.
+[2025-10-19 02:00:38] [PROGRESS] database create> Initializing database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db.
+[2025-10-19 02:00:38] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/qlconfig.yml --source-root=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn --allow-missing-source-root=false --allow-already-existing -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db
+[2025-10-19 02:00:38] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/homebrew/Caskroom/codeql/2.23.3/codeql/.codeqlmanifest.json
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/go/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/rust/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/java/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/html/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/xml/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/properties/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/cpp/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/swift/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/csv/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/csharp/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript/codeql-extractor.yml.
+[2025-10-19 02:00:38] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/ruby/codeql-extractor.yml.
+[2025-10-19 02:00:38] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "rust" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/html"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/xml"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/properties"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-10-19 02:00:38] [PROGRESS] database init> Calculating baseline information in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn
+[2025-10-19 02:00:38] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-10-19 02:00:38] [DETAILS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: /opt/homebrew/Caskroom/codeql/2.23.3/codeql/tools/osx64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-10-19 02:00:38] Using configure-baseline script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/tools/configure-baseline.sh.
+[2025-10-19 02:00:38] [PROGRESS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/tools/configure-baseline.sh]
+[2025-10-19 02:00:38] [SPAMMY] database init> Ignored an additional 3 files when processing baseline information for YAML due to paths and paths-ignore configuration.
+[2025-10-19 02:00:38] Using configure-baseline script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript/tools/configure-baseline.sh.
+[2025-10-19 02:00:38] [PROGRESS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript/tools/configure-baseline.sh]
+[2025-10-19 02:00:38] [SPAMMY] database init> Found 197 baseline files for python.
+[2025-10-19 02:00:38] [SPAMMY] database init> Found 2 baseline files for actions.
+[2025-10-19 02:00:38] [SPAMMY] database init> Found 1 baseline files for javascript.
+[2025-10-19 02:00:38] [PROGRESS] database init> Calculated baseline information for languages: actions, javascript, python (415ms).
+[2025-10-19 02:00:39] [PROGRESS] database init> Resolving extractor python.
+[2025-10-19 02:00:39] [DETAILS] database init> Found candidate extractor root for python: /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python.
+[2025-10-19 02:00:39] [PROGRESS] database init> Successfully loaded extractor Python (python) from /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python.
+[2025-10-19 02:00:39] [SPAMMY] database init> Determining macOS System Integrity Protection status...
+[2025-10-19 02:00:39] [SPAMMY] database init> Running command [/usr/bin/csrutil, status].
+[2025-10-19 02:00:39] [SPAMMY] database init> SIP is enabled.
+[2025-10-19 02:00:39] [PROGRESS] database init> Created skeleton CodeQL database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db. This in-progress database is ready to be populated by an extractor.
+[2025-10-19 02:00:39] Plumbing command codeql database init completed.
+[2025-10-19 02:00:39] [PROGRESS] database create> Running build command: [python3, -m, compileall, .]
+[2025-10-19 02:00:39] Running plumbing command: codeql database trace-command --working-dir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn --index-traceless-dbs --no-db-cluster -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db python3 -m compileall .
+[2025-10-19 02:00:39] Using autobuild script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/autobuild.sh.
+[2025-10-19 02:00:39] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/autobuild.sh]
+[2025-10-19 02:00:39] [build-stderr] /bin/sh: python2: command not found
+[2025-10-19 02:00:39] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2025-10-19 02:00:39] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-10-19 02:00:39] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-10-19 02:00:39] [build-stdout] Did not find setup.py (expected it to be at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/setup.py)
+[2025-10-19 02:00:39] [build-stdout] Trying to guess Python version based on travis file
+[2025-10-19 02:00:39] [build-stdout] Did not find any travis files (expected them at either ['/Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/.travis.yml', '/Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/travis.yml'])
+[2025-10-19 02:00:39] [build-stdout] Trying to guess Python version based on installed versions
+[2025-10-19 02:00:39] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-10-19 02:00:39] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-10-19 02:00:39] [build-stdout] Could not guess Python version, will use default: Python 3
+[2025-10-19 02:00:39] [build-stdout] Calling python3 -S /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/working/trap_cache -R /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn
+[2025-10-19 02:00:39] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-10-19 02:00:39] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-10-19 02:00:39] [build-stdout] [INFO] sys_path is: ['/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python310.zip', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/lib-dynload']
+[2025-10-19 02:00:39] [build-stdout] [INFO] Python version 3.10.13
+[2025-10-19 02:00:39] [build-stdout] [INFO] Python extractor version 7.1.5
+[2025-10-19 02:00:39] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_invalid_requests.py in 17ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/config/test_cfg_alt.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/config/test_cfg.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/config/test_cfg_with_wsgi_app.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/config/__init__.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/config in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/support.py in 42ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/008.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/018.py in 18ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/029.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/pp_01.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_pidfile.py in 42ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/028.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/009.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/006.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/002.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/019.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/025.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/compat_obs_fold_huge.py in 15ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/os.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/012.py in 13ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/006.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_systemd.py in 43ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_02.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/026.py in 16ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/instrument/__init__.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_04.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/004.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/021.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_06.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/compat_obs_fold.py in 12ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/001.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/027.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/__init__.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/scripts/update_thanks.py in 24ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/012.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/018.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/glob.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/errors.py in 21ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/echo.py in 25ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_13.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/031.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/pyramidapp.py in 18ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/040.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/timeout.py in 17ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/019.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/prefix_04.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/040_compat.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/alt_spec.py in 18ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/005.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/multidomainapp.py in 47ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_07.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_01.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/wsgi.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_util.py in 97ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/prefix_06.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_statsd.py in 118ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_08.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/014.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/flaskapp_aiohttp_wsgi.py in 14ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/031compat.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_03.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/025_line.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/010.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/099.py in 23ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/debug.py in 75ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/standalone_app.py in 51ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/workertmp.py in 37ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/longpoll.py in 23ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/workers/__init__.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/030.py in 15ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_logger.py in 98ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_reload.py in 80ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_arbiter.py in 141ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/020.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp/middleware.py in 21ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/008.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/gtornado.py in 123ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/version_01.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/023.py in 13ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/docs in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_10.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/002.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/nonascii_02.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/base_async.py in 157ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/workers/test_ggevent.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_valid_requests.py in 14ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/024.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/prefix_05.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/test.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_12.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/unittest/mock.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/log_app.py in 15ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/app/base.py in 158ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/wsgiref/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp/urls.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib/parse.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_11.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/app in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/instrument in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/base.py in 233ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/013.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/shutil.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/024.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/__init__.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/023.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_http.py in 232ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/pp_02.py in 17ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/003.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/systemd.py in 32ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/reloader.py in 81ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/tempfile.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/wsgiref/validate.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/multiapp.py in 27ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/read_django_settings.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/version_02.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/invalid_field_value_01.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/re.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/015.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/pidfile.py in 55ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/slowclient.py in 13ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/cherryapp.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/traceback.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/body.py in 204ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/deep/test.py in 12ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/unittest in 0ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/007.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/email in 0ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/sendfile.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/urls.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/platform.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/instrument/statsd.py in 126ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/docs/gunicorn_ext.py in 84ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/004.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib/machinery.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/003c.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/deep/__init__.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/io.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/wsgiref in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/signal.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/manage.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/inspect.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/003b.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/websocket/gevent_websocket.py in 364ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/016.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/glogging.py in 380ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/webpyapp.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/deep in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/nonascii_03.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/gthread.py in 418ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/003.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/wsgi.py in 325ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/prefix_03.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/pp_02.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/031compat2.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp/tests.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/100.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/functools.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted module time in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/flask_sendfile.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/readline_app.py in 18ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/sync.py in 219ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted module errno in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/contextlib.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/022.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/email/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/prefix_01.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted module sys in 0ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/020.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/__init__.py in 10ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/threading.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/settings.py in 33ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/tornadoapp.py in 12ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/linecache.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib/util.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/__init__.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/types.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/021.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/010.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/socket.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/nonascii_01.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/014.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/obs_fold_01.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/app/__init__.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/workers in 0ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/pp_01.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/007.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/docs/sitemap_gen.py in 109ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/unittest/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/app/wsgiapp.py in 42ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/docs/source/conf.py in 26ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_05.py in 3ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/chunked_09.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/selectors.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/sock.py in 248ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/040.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/__main__.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/017.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/prefix_02.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/001.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/parser.py in 30ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/example_config.py in 56ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing in 2ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/util.py in 416ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/datetime.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/t.py in 43ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/boot_fail.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/ssl.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/bad.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/email/utils.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/hashlib.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_sock.py in 40ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/005.py in 8ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http in 0ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/015.py in 11ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/nonascii_04.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/websocket in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/flaskapp.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/unreader.py in 73ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/errors.py in 74ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/app/pasterapp.py in 37ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/geventlet.py in 107ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/random.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/test/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_ssl.py in 36ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/009.py in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/when_ready.conf.py in 26ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/022.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/workers/test_geventlet.py in 9ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/multiprocessing/Process.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/docs/source in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/__init__.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/struct.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/017.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/arbiter.py in 526ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/http/message.py in 304ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp/__init__.py in 2ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/011.py in 6ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/011.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/scripts in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/invalid/013.py in 5ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/json in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/json/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/base64.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/test in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp/models.py in 2ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging/config.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/concurrent/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted module binascii in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/requests/valid/padding_01.py in 7ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/websocket/websocket.py in 334ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/concurrent in 1ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/ast.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/stat.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/textwrap.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/workers/ggevent.py in 95ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/examples/frameworks/django/testing/testing/apps/someapp/views.py in 31ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/html/__init__.py
+[2025-10-19 02:00:40] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections in 0ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [4] Extracted module pwd in 4ms
+[2025-10-19 02:00:40] [build-stdout] [INFO] [1] Extracted module select in 5ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib/metadata in 1ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures in 1ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/warnings.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/html in 1ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree/__init__.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib/metadata/__init__.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/__init__.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree/ElementTree.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/csv.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/subprocess.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/configparser.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree in 1ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml in 1ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [6] Extracted module fcntl in 4ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/treq.py in 176ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/tests/test_config.py in 259ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn/gunicorn/config.py in 753ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/shlex.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/argparse.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/ipaddress.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/copy.py
+[2025-10-19 02:00:41] [build-stdout] [INFO] [3] Extracted module grp in 11ms
+[2025-10-19 02:00:41] [build-stdout] [INFO] Processed 305 modules in 1.75s
+[2025-10-19 02:00:41] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: [python3, -m, compileall, .]
+[2025-10-19 02:00:41] [build-stdout] Listing '.'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/hooks'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/info'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/logs'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/logs/refs'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/logs/refs/heads'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/logs/refs/remotes'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/logs/refs/remotes/origin'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/objects'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/objects/info'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/objects/pack'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/refs'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/refs/heads'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/refs/remotes'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/refs/remotes/origin'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.git/refs/tags'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.github'...
+[2025-10-19 02:00:41] [build-stdout] Listing './.github/workflows'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './docs/gunicorn_ext.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/logo'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/site'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/site/css'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/site/images'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/site/js'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './docs/sitemap_gen.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/source'...
+[2025-10-19 02:00:41] [build-stdout] Listing './docs/source/_static'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './docs/source/conf.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/alt_spec.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/bad.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/boot_fail.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/deep'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/deep/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/deep/test.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/echo.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/example_config.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/cherryapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks/django'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks/django/testing'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/manage.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks/django/testing/testing'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks/django/testing/testing/apps'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks/django/testing/testing/apps/someapp'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/someapp/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/someapp/middleware.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/someapp/models.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/frameworks/django/testing/testing/apps/someapp/templates'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/someapp/tests.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/someapp/urls.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/apps/someapp/views.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/settings.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/urls.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/django/testing/testing/wsgi.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/flask_sendfile.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/flaskapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/flaskapp_aiohttp_wsgi.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/pyramidapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/tornadoapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/frameworks/webpyapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/log_app.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/longpoll.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/multiapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/multidomainapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/read_django_settings.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/readline_app.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/sendfile.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/slowclient.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/standalone_app.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/test.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/timeout.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './examples/websocket'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/websocket/gevent_websocket.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/websocket/websocket.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './examples/when_ready.conf.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './gunicorn'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/__main__.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './gunicorn/app'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/app/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/app/base.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/app/pasterapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/app/wsgiapp.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/arbiter.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/config.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/debug.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/errors.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/glogging.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './gunicorn/http'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/body.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/errors.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/message.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/parser.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/unreader.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/http/wsgi.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './gunicorn/instrument'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/instrument/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/instrument/statsd.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/pidfile.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/reloader.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/sock.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/systemd.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/util.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './gunicorn/workers'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/base.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/base_async.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/geventlet.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/ggevent.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/gthread.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/gtornado.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/sync.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './gunicorn/workers/workertmp.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './scripts'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './scripts/update_thanks.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './tests'...
+[2025-10-19 02:00:41] [build-stdout] Listing './tests/config'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/config/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/config/test_cfg.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/config/test_cfg_alt.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/config/test_cfg_with_wsgi_app.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './tests/requests'...
+[2025-10-19 02:00:41] [build-stdout] Listing './tests/requests/invalid'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/001.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/002.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/003.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/003b.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/003c.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/004.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/005.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/006.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/007.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/008.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/009.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/010.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/011.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/012.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/013.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/014.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/015.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/016.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/017.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/018.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/019.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/020.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/021.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/022.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/023.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/024.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/040.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_02.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_03.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_04.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_05.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_06.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_07.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_08.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_09.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_10.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_11.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_12.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/chunked_13.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/invalid_field_value_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/nonascii_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/nonascii_02.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/nonascii_03.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/nonascii_04.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/obs_fold_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/pp_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/pp_02.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/prefix_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/prefix_02.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/prefix_03.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/prefix_04.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/prefix_05.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/prefix_06.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/version_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/invalid/version_02.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './tests/requests/valid'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/001.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/002.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/003.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/004.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/005.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/006.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/007.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/008.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/009.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/010.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/011.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/012.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/013.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/014.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/015.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/017.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/018.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/019.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/020.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/021.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/022.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/023.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/024.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/025.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/025_line.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/026.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/027.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/028.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/029.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/030.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/031.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/031compat.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/031compat2.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/040.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/040_compat.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/099.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/100.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/compat_obs_fold.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/compat_obs_fold_huge.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/padding_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/pp_01.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/requests/valid/pp_02.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/support.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/t.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_arbiter.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_config.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_http.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_invalid_requests.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_logger.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_pidfile.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_reload.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_sock.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_ssl.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_statsd.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_systemd.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_util.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/test_valid_requests.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/treq.py'...
+[2025-10-19 02:00:41] [build-stdout] Listing './tests/workers'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/workers/__init__.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/workers/test_geventlet.py'...
+[2025-10-19 02:00:41] [build-stdout] Compiling './tests/workers/test_ggevent.py'...
+[2025-10-19 02:00:41] Plumbing command codeql database trace-command completed.
+[2025-10-19 02:00:41] [PROGRESS] database create> Finalizing database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db.
+[2025-10-19 02:00:41] Running plumbing command: codeql database finalize --no-db-cluster -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db
+[2025-10-19 02:00:41] Using pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh.
+[2025-10-19 02:00:41] [PROGRESS] database finalize> Running pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn.
+[2025-10-19 02:00:41] Running plumbing command: codeql database trace-command --working-dir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn --no-tracing -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh
+[2025-10-19 02:00:41] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh]
+[2025-10-19 02:00:41] [build-stderr] Scanning for files in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn...
+[2025-10-19 02:00:42] [build-stderr] /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db: Indexing files in in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn...
+[2025-10-19 02:00:42] [build-stderr] Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml/tools/index-files.sh, /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/working/files-to-index9163530856780903263.list]
+[2025-10-19 02:00:42] Plumbing command codeql database trace-command completed.
+[2025-10-19 02:00:42] [PROGRESS] database finalize> Pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh completed in 823 ms.
+[2025-10-19 02:00:42] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db...
+[2025-10-19 02:00:42] Running plumbing command: codeql dataset import --dbscheme=/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/semmlecode.python.dbscheme -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/trap/python
+[2025-10-19 02:00:42] Clearing disk cache since the version file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python/default/cache/version does not exist
+[2025-10-19 02:00:42] Tuple pool not found. Clearing relations with cached strings
+[2025-10-19 02:00:42] Trimming disk cache at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python/default/cache in mode clear.
+[2025-10-19 02:00:42] Sequence stamp origin is -5991224074844845648
+[2025-10-19 02:00:42] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-10-19 02:00:42] Unpausing evaluation
+[2025-10-19 02:00:42] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-10-19 02:00:42] Unpausing evaluation
+[2025-10-19 02:00:42] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-10-19 02:00:42] Unpausing evaluation
+[2025-10-19 02:00:42] Trimming completed (3ms): Purged everything.
+[2025-10-19 02:00:42] Scanning for files in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/trap/python
+[2025-10-19 02:00:42] Found 266 TRAP files (3.73 MiB)
+[2025-10-19 02:00:42] [PROGRESS] dataset import> Importing TRAP files
+[2025-10-19 02:00:42] Importing $files.8KPioV8HcMQX7ZZv237fH8t2Pug=.trap.gz (1 of 266)
+[2025-10-19 02:00:42] Importing $files.8Qobl71qwCKd2d2RKbtYZjn4xr0=.trap.gz (2 of 266)
+[2025-10-19 02:00:42] Importing $files.BnVhdOElJhU3JnWEZYEsbjhPwG4=.trap.gz (3 of 266)
+[2025-10-19 02:00:42] Importing $files.TQ5zfEVG3N-BcvvPC91CGtQLucM=.trap.gz (4 of 266)
+[2025-10-19 02:00:42] Importing $files.XC644XFDHx85WOdTBZBskiRiJuw=.trap.gz (5 of 266)
+[2025-10-19 02:00:42] Importing $files.XDwdXYgD_t960E9gojobwogbtHU=.trap.gz (6 of 266)
+[2025-10-19 02:00:42] Importing $files.dT7AdWnVyS1GUgKmPkgOLzINkuM=.trap.gz (7 of 266)
+[2025-10-19 02:00:42] Importing $files.dV2wpbCLcvo7DnPizvq83MPQ3Jg=.trap.gz (8 of 266)
+[2025-10-19 02:00:42] Importing $files.eEGboltB6sPE3bOxZS4iYSB2AQo=.trap.gz (9 of 266)
+[2025-10-19 02:00:42] Importing $files.kP43qhITe9HYjziS4MCunffwZEA=.trap.gz (10 of 266)
+[2025-10-19 02:00:42] Importing $files.y9GbfNhj4sku1D2M3jrXK8tq2O4=.trap.gz (11 of 266)
+[2025-10-19 02:00:42] Importing $flags.6AO5DMrMV7-eE73u5Lxc2L7fatU=.trap.gz (12 of 266)
+[2025-10-19 02:00:42] Importing $interpreter3.qmEh1mUY_4Clm3qK-Ctazuak8ds=.trap.gz (13 of 266)
+[2025-10-19 02:00:42] Importing $stdlib_33.JQIuO9Fob5fwrHCNZwrcaxD8eQw=.trap (14 of 266)
+[2025-10-19 02:00:42] Importing 001.py.lHveeiweHs7G1CBHtPVW9FIGtrY=.trap.gz (15 of 266)
+[2025-10-19 02:00:42] Importing 001.py.p82QPYg22zF_Vvzy1gN5Or8dLJw=.trap.gz (16 of 266)
+[2025-10-19 02:00:42] Importing 002.py.afNOmDuzeUbP1Esv5Ruze1w1fMw=.trap.gz (17 of 266)
+[2025-10-19 02:00:42] Importing 002.py.i45g7U28jqCH7_j2ZxisbbRjXXw=.trap.gz (18 of 266)
+[2025-10-19 02:00:42] Importing 003.py.Dwpbfv7ztClCa5eC9_D_SokaSxo=.trap.gz (19 of 266)
+[2025-10-19 02:00:42] Importing 003.py.k1GRhiC7dqsVx7OU_ZdkCUA1Ixc=.trap.gz (20 of 266)
+[2025-10-19 02:00:42] Importing 003b.py.KycEpFGwxlOpmHH_iWut47URrpM=.trap.gz (21 of 266)
+[2025-10-19 02:00:42] Importing 003c.py.e54wE09ZaoUbGxKTVyt_B9-H08U=.trap.gz (22 of 266)
+[2025-10-19 02:00:42] Importing 004.py.-APS_KvuoQJwPPttLf_dKT-_1A8=.trap.gz (23 of 266)
+[2025-10-19 02:00:42] Importing 004.py.M6DLnZY9_QVuzYcRc8O0mxt7_Eo=.trap.gz (24 of 266)
+[2025-10-19 02:00:42] Importing 005.py.4G3yrc6fv5wDsIGNsukIxsWR5d0=.trap.gz (25 of 266)
+[2025-10-19 02:00:42] Importing 005.py.C6TWRSOs-5ArfAKYAztE7Ks0EzQ=.trap.gz (26 of 266)
+[2025-10-19 02:00:42] Importing 006.py.HDWhBTHhtRyYgrHCKX9jprtutlQ=.trap.gz (27 of 266)
+[2025-10-19 02:00:42] Importing 006.py.vj8PIt18JMWxWpvgYzfNt8hp5Vc=.trap.gz (28 of 266)
+[2025-10-19 02:00:42] Importing 007.py.XTn335b2N5ajIXh8rUMzZPi7aZs=.trap.gz (29 of 266)
+[2025-10-19 02:00:42] Importing 007.py.f9PjLR_EoRHTso4OniS031pal78=.trap.gz (30 of 266)
+[2025-10-19 02:00:42] Importing 008.py.Fe4Ag1CQOvHW55n1ickRkd2Fy1w=.trap.gz (31 of 266)
+[2025-10-19 02:00:42] Importing 008.py.hb85pmV5G0gkW2QYXATXsCPg-kc=.trap.gz (32 of 266)
+[2025-10-19 02:00:42] Importing 009.py.cNY04iP7rkO5lsZBGBo6RbIWFHE=.trap.gz (33 of 266)
+[2025-10-19 02:00:42] Importing 009.py.pFLhp91w8ms_YPvD7HV0UB4TlW8=.trap.gz (34 of 266)
+[2025-10-19 02:00:42] Importing 010.py.fke5QgmrRzmTdV2W1k4GdWB5pYg=.trap.gz (35 of 266)
+[2025-10-19 02:00:42] Importing 010.py.ymUffHtE05OMdkGt8AqzftU2dBw=.trap.gz (36 of 266)
+[2025-10-19 02:00:42] Importing 011.py.3NkTo_NjLlH05npp_B3-e9ylK5c=.trap.gz (37 of 266)
+[2025-10-19 02:00:42] Importing 011.py.hnv3dhGFFjfTi6IHKEQPB9TkFrM=.trap.gz (38 of 266)
+[2025-10-19 02:00:42] Importing 012.py.FrJBolGguuPj7gNx7dfsNgE3ohw=.trap.gz (39 of 266)
+[2025-10-19 02:00:42] Importing 012.py.vXtZveCawx1AxXuRK7N2YRc2_rY=.trap.gz (40 of 266)
+[2025-10-19 02:00:42] Importing 013.py.fw8Zg4-6mXmDnr3HK1_kdXYev2E=.trap.gz (41 of 266)
+[2025-10-19 02:00:42] Importing 013.py.ldLbnyzKlv6N9Vav7xwoUKbo0_w=.trap.gz (42 of 266)
+[2025-10-19 02:00:42] Importing 014.py.371UaJVWazbK7gIVI9Os2DQAS7I=.trap.gz (43 of 266)
+[2025-10-19 02:00:42] Importing 014.py.kJEjXC9IU-Y479VKF2kBG8xTaj0=.trap.gz (44 of 266)
+[2025-10-19 02:00:42] Importing 015.py.89Pq_5pPlKi2rMHQ0TKuuJsNHR0=.trap.gz (45 of 266)
+[2025-10-19 02:00:42] Importing 015.py._joUjttdhHycwRZTtXrtQ8GEdfE=.trap.gz (46 of 266)
+[2025-10-19 02:00:42] Importing 016.py.2oAVfsiiPMgNzgEUQgUkcLJkCWU=.trap.gz (47 of 266)
+[2025-10-19 02:00:42] Importing 017.py.4N3BCEZdY0Ma4aif7_0QO51vbAs=.trap.gz (48 of 266)
+[2025-10-19 02:00:42] Importing 017.py.J6-X3YJIJqU0rqctmLZwffiRnKs=.trap.gz (49 of 266)
+[2025-10-19 02:00:42] Importing 018.py.JGtgRo4_hqMKLBojKAggEHbtrJU=.trap.gz (50 of 266)
+[2025-10-19 02:00:42] Importing 018.py.dRejEIWkxDnRRDl4KxUpdRHJDso=.trap.gz (51 of 266)
+[2025-10-19 02:00:42] Importing 019.py.UpfTqQdnajxCn76zRy1MXeIPv14=.trap.gz (52 of 266)
+[2025-10-19 02:00:42] Importing 019.py.gWfqSy62Lk13v3K87rrcR7M8TSk=.trap.gz (53 of 266)
+[2025-10-19 02:00:42] Importing 020.py.QPUwGd_x0AhgbBBtp_Jo9sB3O1E=.trap.gz (54 of 266)
+[2025-10-19 02:00:42] Importing 020.py.aMOhTz6e36zcA5UdgXX5yv3ZJrs=.trap.gz (55 of 266)
+[2025-10-19 02:00:42] Importing 021.py.Zv9EeXKSJZpcOrFdI2jLB1RfPJE=.trap.gz (56 of 266)
+[2025-10-19 02:00:42] Importing 021.py.qgjuQQVH_rMJuD0blNvkhUk-VrQ=.trap.gz (57 of 266)
+[2025-10-19 02:00:42] Importing 022.py.EOtIDNC-KGYNJ6N4UDg81INZH6k=.trap.gz (58 of 266)
+[2025-10-19 02:00:42] Importing 022.py.RPAHsUsxS_X0XjE-EdBx8FlB-mU=.trap.gz (59 of 266)
+[2025-10-19 02:00:42] Importing 023.py.K_u3rZFC6sse3OMmrQs43SzDRPY=.trap.gz (60 of 266)
+[2025-10-19 02:00:42] Importing 023.py.uQlt-9ff_i1x4nSd4raBSvP-ZbQ=.trap.gz (61 of 266)
+[2025-10-19 02:00:42] Importing 024.py.9xw7mN93DHNmgZ15RFAE58uF7pQ=.trap.gz (62 of 266)
+[2025-10-19 02:00:42] Importing 024.py.JJxPTRTEXinAlSOC2aujXwSLXXY=.trap.gz (63 of 266)
+[2025-10-19 02:00:42] Importing 025.py.SC88cAkupKtZJnkPsQaZrAeLnIs=.trap.gz (64 of 266)
+[2025-10-19 02:00:42] Importing 025_line.py.zYwn0woihy_Xc2Oajvmfn1sJDtY=.trap.gz (65 of 266)
+[2025-10-19 02:00:42] Importing 026.py.fxR_f_IQ5MiBYE8htWosscapnH0=.trap.gz (66 of 266)
+[2025-10-19 02:00:42] Importing 027.py.Y1jEHOGPz4vqeVC-AmDUpZIbqXw=.trap.gz (67 of 266)
+[2025-10-19 02:00:42] Importing 028.py.ojRXZCyaSMwluU1WNnYD-nfJU9U=.trap.gz (68 of 266)
+[2025-10-19 02:00:42] Importing 029.py.jiNbRBEMAAFSyPZ6btvspMUzzL8=.trap.gz (69 of 266)
+[2025-10-19 02:00:42] Importing 030.py.XJRclxRbFam9Se86NmZYhYvFIow=.trap.gz (70 of 266)
+[2025-10-19 02:00:42] Importing 031.py.xv-NjTIYjrsUg4LQgHCYFeDTFcQ=.trap.gz (71 of 266)
+[2025-10-19 02:00:42] Importing 031compat.py.gecni4mNH-FrpkZ4ld4ua1qU0-A=.trap.gz (72 of 266)
+[2025-10-19 02:00:42] Importing 031compat2.py.K6pAQTIqLgQiO-ASt3UrPp0mZpU=.trap.gz (73 of 266)
+[2025-10-19 02:00:42] Importing 040.py.jARNuyvEwHNJY09naxRRwJ-qf_U=.trap.gz (74 of 266)
+[2025-10-19 02:00:42] Importing 040.py.q7uB88e5bIloXL-F5TAZxOzR5aw=.trap.gz (75 of 266)
+[2025-10-19 02:00:42] Importing 040_compat.py.p8_bHPU7tWCukSXgh3h6KHC5XGI=.trap.gz (76 of 266)
+[2025-10-19 02:00:42] Importing 099.py.M-UuIVnlLMCVhhTIHvaP0KtWK08=.trap.gz (77 of 266)
+[2025-10-19 02:00:42] Importing 100.py.8_wQNJFe7YVOGJ63nEi32ejJStE=.trap.gz (78 of 266)
+[2025-10-19 02:00:42] Importing dependabot.yml.trap.gz (79 of 266)
+[2025-10-19 02:00:42] Importing lint.yml.trap.gz (80 of 266)
+[2025-10-19 02:00:42] Importing tox.yml.trap.gz (81 of 266)
+[2025-10-19 02:00:42] Importing .readthedocs.yaml.trap.gz (82 of 266)
+[2025-10-19 02:00:42] Importing appveyor.yml.trap.gz (83 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.87VKg99ovtvKjIf4CQbItQCYQow=.trap.gz (84 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.HpYXLdvqu5UonC-ov4OwBKepgEA=.trap.gz (85 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.JL2e7BIgPGVAguabPwUtOvU9Ex0=.trap.gz (86 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.LCKrJ3rFsZ6a9FOTsrHKyXlyiMw=.trap.gz (87 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.MLTq-EJueyxpOYIWi4SuJjiaD1Q=.trap.gz (88 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.XzBjKot0oBvnvdaep6FwMxNYV68=.trap.gz (89 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.ZB4HUnQkBsfNfPsGkZoW7ht5uV4=.trap.gz (90 of 266)
+[2025-10-19 02:00:42] Importing __init__.py._GjZCN6hFA98YNJ0Unc2aOYWtgc=.trap.gz (91 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.aE6KThXnrbUQq5oWnkWPb6JGa_k=.trap.gz (92 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.pQE4fcboQbLm9GwI7AIURt4PTzM=.trap.gz (93 of 266)
+[2025-10-19 02:00:42] Importing __init__.py.r0X2mXVFaSl3LTOZdlnOSjNWp_8=.trap.gz (94 of 266)
+[2025-10-19 02:00:42] Importing __main__.py.elnnynVNuMi33loGNnFFdtnmo7k=.trap.gz (95 of 266)
+[2025-10-19 02:00:42] Importing alt_spec.py.0fCNdcAFKRZeI5JyIPQoFa_8kQM=.trap.gz (96 of 266)
+[2025-10-19 02:00:42] Importing app.nwsZX4y8qvZIn0MBbDXRSAIsFzU=.trap.gz (97 of 266)
+[2025-10-19 02:00:42] Importing apps.xXQ9NzCFhEjKh8-XoK05iR8TdUY=.trap.gz (98 of 266)
+[2025-10-19 02:00:42] Importing arbiter.py.r_pfF0igx7rP6r20-1CyBb0bLqc=.trap.gz (99 of 266)
+[2025-10-19 02:00:42] Importing bad.py.ZEHIXyIbgF_3b9wzV6nGMWDILTI=.trap.gz (100 of 266)
+[2025-10-19 02:00:42] Importing base.py.QAjoQ860134lliM-el2wAh_XNoE=.trap.gz (101 of 266)
+[2025-10-19 02:00:42] Importing base.py.R9juRNJABtZI-2q_AbsPcXTVKSU=.trap.gz (102 of 266)
+[2025-10-19 02:00:42] Importing base_async.py.YwKwsMSi0xEtLTHm_6jCqWgyCtE=.trap.gz (103 of 266)
+[2025-10-19 02:00:42] Importing binascii.8xkg_r4Ynaj6ERJ76rPBQlsJ9YY=.trap.gz (104 of 266)
+[2025-10-19 02:00:42] Importing body.py.IFd4t9OyRfaCqEyiImsdxOIgIgw=.trap.gz (105 of 266)
+[2025-10-19 02:00:42] Importing boot_fail.py.45VbHrOJ_S7K8F3Hs_BYLCVWa-A=.trap.gz (106 of 266)
+[2025-10-19 02:00:42] Importing cherryapp.py.Pf65rr3R4drcHjVpZs0uVfGm5w4=.trap.gz (107 of 266)
+[2025-10-19 02:00:42] Importing chunked_01.py.peuDCqSZYKorBcw9uPo9kNZ_LXw=.trap.gz (108 of 266)
+[2025-10-19 02:00:42] Importing chunked_02.py.lWl3rgEU6ld0Ln-59nXwKFtCYN4=.trap.gz (109 of 266)
+[2025-10-19 02:00:42] Importing chunked_03.py.IgdfchOb3Q5u2Kfma7O8NBqMd48=.trap.gz (110 of 266)
+[2025-10-19 02:00:42] Importing chunked_04.py.kpzrPe6XfeW05NQAu-wO-N0Ny94=.trap.gz (111 of 266)
+[2025-10-19 02:00:42] Importing chunked_05.py.UAbq636qRxt62X5tRn-OkEuKe0k=.trap.gz (112 of 266)
+[2025-10-19 02:00:42] Importing chunked_06.py.taGD3ZAFRi-WQMrsJwbfcT7NTqE=.trap.gz (113 of 266)
+[2025-10-19 02:00:42] Importing chunked_07.py.iqR9Du87EcUWsAPGkjTWvIYwyDo=.trap.gz (114 of 266)
+[2025-10-19 02:00:42] Importing chunked_08.py.FrdqSNMGMWjXIBxIZXx1yNcGrFs=.trap.gz (115 of 266)
+[2025-10-19 02:00:42] Importing chunked_09.py.hbQ5Q-e7D3ChaSuY7ufk8xfC7Jc=.trap.gz (116 of 266)
+[2025-10-19 02:00:42] Importing chunked_10.py.SGTqTwp-LbvaTTlE0k8hX2vb_bg=.trap.gz (117 of 266)
+[2025-10-19 02:00:42] Importing chunked_11.py.bPWfWNTaFGPNNOwCA8Cc8hVkjJE=.trap.gz (118 of 266)
+[2025-10-19 02:00:42] Importing chunked_12.py.JUKjKTNYp1xqQzPao_HX-9e3rNo=.trap.gz (119 of 266)
+[2025-10-19 02:00:42] Importing chunked_13.py._5dZpECQ08SM0W0jy1r4f9lZXoM=.trap.gz (120 of 266)
+[2025-10-19 02:00:42] Importing collections.76vJVtKBLzpLPcmbdy2IPXRttxc=.trap.gz (121 of 266)
+[2025-10-19 02:00:42] Importing compat_obs_fold.py.BehKm91hricDy-H2owl-PFwmoko=.trap.gz (122 of 266)
+[2025-10-19 02:00:42] Importing compat_obs_fold_huge.py.o-MfTr5zbEaiR2FuTrHPPFi35W0=.trap.gz (123 of 266)
+[2025-10-19 02:00:42] Importing concurrent.32B7wZ9vBXA1zwjF0mzJCAKh4a0=.trap.gz (124 of 266)
+[2025-10-19 02:00:42] Importing conf.py.VPNroNKYC6P02oIRPwlJ0Xct1cs=.trap.gz (125 of 266)
+[2025-10-19 02:00:42] Importing config.fFBySWGai8hILAuSKxm5L0Wu-Fs=.trap.gz (126 of 266)
+[2025-10-19 02:00:42] Importing config.py.Rp_J6_w4IfMCBGht9dEYyntxhtg=.trap.gz (127 of 266)
+[2025-10-19 02:00:42] Importing debug.py.zgBomNAqaOD75PlLm0EQk3jysdw=.trap.gz (128 of 266)
+[2025-10-19 02:00:42] Importing deep.OAxEYhIh4QTaYNwzSUZt3xGoB0c=.trap.gz (129 of 266)
+[2025-10-19 02:00:42] Importing django.5yUX1i535Li3TUVTM2sVAlcwnKs=.trap.gz (130 of 266)
+[2025-10-19 02:00:42] Importing docs.B03MktFUPjczAwSrsk9x4dehu8U=.trap.gz (131 of 266)
+[2025-10-19 02:00:42] Importing echo.py.0H5CfUM3cFchtplEMcuyJqhyYl8=.trap.gz (132 of 266)
+[2025-10-19 02:00:42] Importing email.CWqhcXbS6BdkjzUm2zNNkmjb2ig=.trap.gz (133 of 266)
+[2025-10-19 02:00:42] Importing errno.mpRsS003iChnZS43MJPSZ6lmub8=.trap.gz (134 of 266)
+[2025-10-19 02:00:42] Importing errors.py.-4h-kEt178gAOVEv4RmIHYOZ-7A=.trap.gz (135 of 266)
+[2025-10-19 02:00:42] Importing errors.py.4HeCZTlS6_zCwZiqLfozzlHNAxc=.trap.gz (136 of 266)
+[2025-10-19 02:00:42] Importing etree.2T04k40030b7niAqEa-LXlNdhWo=.trap.gz (137 of 266)
+[2025-10-19 02:00:42] Importing example_config.py.D5z6yd4klDrTzoNvYIZaDi4FkcA=.trap.gz (138 of 266)
+[2025-10-19 02:00:42] Importing examples.Moeau04mavv1e9wFd1TdX5y8qss=.trap.gz (139 of 266)
+[2025-10-19 02:00:42] Importing fcntl.wqR0dabPWfZqFFeqztZ8Sf6IlZ0=.trap.gz (140 of 266)
+[2025-10-19 02:00:42] Importing flask_sendfile.py.ePMUsYWjJEWxwYeLovIpx7emNnw=.trap.gz (141 of 266)
+[2025-10-19 02:00:42] Importing flaskapp.py.QTXIM9olS36xAA25zvnHeuz6gbU=.trap.gz (142 of 266)
+[2025-10-19 02:00:42] Importing flaskapp_aiohttp_wsgi.py.0ByJfMAmvzdrDrKXF9kVnLroADk=.trap.gz (143 of 266)
+[2025-10-19 02:00:42] Importing frameworks.tepPpANPgMoa1Wh1vr0OQYCkM6I=.trap.gz (144 of 266)
+[2025-10-19 02:00:42] Importing futures.3X8CeSLQJrJ-cLvjhOgagpOMwWc=.trap.gz (145 of 266)
+[2025-10-19 02:00:42] Importing gevent_websocket.py.4FdMmMWf4Va_P8NGVXaxRevldTQ=.trap.gz (146 of 266)
+[2025-10-19 02:00:42] Importing geventlet.py.-DV6wGweCzPN7-Kv0jpx9ghN0d0=.trap.gz (147 of 266)
+[2025-10-19 02:00:42] Importing ggevent.py.m425Nxr1ZFlCmctKkH-eLooMMj4=.trap.gz (148 of 266)
+[2025-10-19 02:00:42] Importing glogging.py.XX6XaK0B9fWREnsfB7ivC_InywE=.trap.gz (149 of 266)
+[2025-10-19 02:00:42] Importing grp.DKKUl_VPy1xB__erW1A1ZA7HYxw=.trap.gz (150 of 266)
+[2025-10-19 02:00:42] Importing gthread.py.j1m_phkeCKIa_qe6MJ_Av3O7_7s=.trap.gz (151 of 266)
+[2025-10-19 02:00:42] Importing gtornado.py.aFGJbjZ9dpndbOpK7o7SgTmQb4w=.trap.gz (152 of 266)
+[2025-10-19 02:00:42] Importing gunicorn.bT4waU70uqT0BFL5Nkvb2I4qtRg=.trap.gz (153 of 266)
+[2025-10-19 02:00:42] Importing gunicorn_ext.py.lliKsKVZVVNVKEhaL0VgVxIHD60=.trap.gz (154 of 266)
+[2025-10-19 02:00:42] Importing html.08uRbG3tOn9a7sY9CFDvvqVgExE=.trap.gz (155 of 266)
+[2025-10-19 02:00:42] Importing http.zQRryRxd734OkZM3lHnP9BF2Yro=.trap.gz (156 of 266)
+[2025-10-19 02:00:42] Importing importlib.BzpYF_wEmiSDodGSPWmD22Nxd3U=.trap.gz (157 of 266)
+[2025-10-19 02:00:42] Importing instrument.xgBbzHM21JznsaqQN8f_GI1GMzg=.trap.gz (158 of 266)
+[2025-10-19 02:00:42] Importing invalid.XH4VYzjxvY-zyb6teyBuJJgSYrI=.trap.gz (159 of 266)
+[2025-10-19 02:00:42] Importing invalid_field_value_01.py.M5PD5Y61SJXqkmN15gaIe2Sqzp4=.trap.gz (160 of 266)
+[2025-10-19 02:00:42] Importing json.M6KIg-PQbc0yvlg9_CivmEL8aWE=.trap.gz (161 of 266)
+[2025-10-19 02:00:42] Importing log_app.py.yE0gQ_HQbIB3unWsGcAnQQqeShU=.trap.gz (162 of 266)
+[2025-10-19 02:00:42] Importing logging.gpiFtaMU8aumvullNu0-pt_UMIY=.trap.gz (163 of 266)
+[2025-10-19 02:00:42] Importing longpoll.py.8i1qACVU2VeDOrBqFPV-56siL8E=.trap.gz (164 of 266)
+[2025-10-19 02:00:42] Importing manage.py.WjcDoWBwrBOc7QrBTaG1DkS7700=.trap.gz (165 of 266)
+[2025-10-19 02:00:42] Importing message.py.EIwj4A1bdURMlwwO1-54KCTfWJ8=.trap.gz (166 of 266)
+[2025-10-19 02:00:42] Importing metadata.ATvpuwL159iJF7vYpDe9QZd0jmw=.trap.gz (167 of 266)
+[2025-10-19 02:00:42] Importing metadata.trap.gz (168 of 266)
+[2025-10-19 02:00:42] Importing middleware.py.WqO0ex7xrh9bgBa82HWexUpbIKg=.trap.gz (169 of 266)
+[2025-10-19 02:00:42] Importing models.py.yR-6GNnl41VSpLexx_ZnCMidt-o=.trap.gz (170 of 266)
+[2025-10-19 02:00:42] Importing multiapp.py.F14zkNHDcChiBGOfQ0nATkCTtzw=.trap.gz (171 of 266)
+[2025-10-19 02:00:42] Importing multidomainapp.py.SrPX6gusyi_JgS0rCeM-5_CYBIY=.trap.gz (172 of 266)
+[2025-10-19 02:00:42] Importing multiprocessing.baQntn0twTmAkJBZcVFt4RGpyTM=.trap.gz (173 of 266)
+[2025-10-19 02:00:42] Importing nonascii_01.py.aePAyIFRv1TRBhRNJ6jeZarNfvc=.trap.gz (174 of 266)
+[2025-10-19 02:00:42] Importing nonascii_02.py.Taq6JhOwdkxN9D2VcGmLjTgdhOw=.trap.gz (175 of 266)
+[2025-10-19 02:00:42] Importing nonascii_03.py.1iPZgNVKzLo2inRG2leIAi3y0dU=.trap.gz (176 of 266)
+[2025-10-19 02:00:42] Importing nonascii_04.py.JmfW0Kjth8x1n-x9sHzIzerHlcE=.trap.gz (177 of 266)
+[2025-10-19 02:00:42] Importing obs_fold_01.py.RMxna9WuPshTjBvJSniDya9ez1I=.trap.gz (178 of 266)
+[2025-10-19 02:00:42] Importing padding_01.py.WBUS8XeeMjEmxq1Uty16tGH2Z4I=.trap.gz (179 of 266)
+[2025-10-19 02:00:42] Importing parser.py.U175EAHpNE1T9O1Y-austozKK8o=.trap.gz (180 of 266)
+[2025-10-19 02:00:42] Importing pasterapp.py.6u4JALRrDD-uZaJONDQ6qhSMdNY=.trap.gz (181 of 266)
+[2025-10-19 02:00:42] Importing pidfile.py.0Ksep5bRfTI08tRmrrsUohU3P7M=.trap.gz (182 of 266)
+[2025-10-19 02:00:42] Importing pp_01.py.9vxWwHHsfd71SLEVSZJJRTTp_EE=.trap.gz (183 of 266)
+[2025-10-19 02:00:42] Importing pp_01.py.oXfdhEuU1hJ-tSv1OxgNvAgyDsY=.trap.gz (184 of 266)
+[2025-10-19 02:00:42] Importing pp_02.py.IfPQKPxxsAtMy-HZ5SlzRpMhDWw=.trap.gz (185 of 266)
+[2025-10-19 02:00:42] Importing pp_02.py.iE-w4aRUJ5IsMTe9rPMXlI9hOnQ=.trap.gz (186 of 266)
+[2025-10-19 02:00:42] Importing prefix_01.py.O5ymc1qI5gPpzjY58XoDMreLt64=.trap.gz (187 of 266)
+[2025-10-19 02:00:42] Importing prefix_02.py.8YhTAno_UsLw_MaACj6NUWYZ1bE=.trap.gz (188 of 266)
+[2025-10-19 02:00:42] Importing prefix_03.py.GEmGbppYLg_nfCrRV47NuETCxuY=.trap.gz (189 of 266)
+[2025-10-19 02:00:42] Importing prefix_04.py.Ld2hdj2GMZUC36qrJMYHwKcoE3c=.trap.gz (190 of 266)
+[2025-10-19 02:00:42] Importing prefix_05.py.T4UNnxlABDMfyh3HTxovwQJc25U=.trap.gz (191 of 266)
+[2025-10-19 02:00:42] Importing prefix_06.py.Xs0BZ25OMldgk4I1oaJLlEd023Y=.trap.gz (192 of 266)
+[2025-10-19 02:00:42] Importing pwd.NYWU_fk9hNWIuWJaPhDCPaPeOFE=.trap.gz (193 of 266)
+[2025-10-19 02:00:42] Importing pyramidapp.py.OJ2wCOP-4XrJAJjAD5LF3OCzk0I=.trap.gz (194 of 266)
+[2025-10-19 02:00:42] Importing read_django_settings.py.geUCjSoLb4_xgZKKA1513GWTWIY=.trap.gz (195 of 266)
+[2025-10-19 02:00:42] Importing readline_app.py.zqkyWlXEaAdjHi416p2n5Ux13O8=.trap.gz (196 of 266)
+[2025-10-19 02:00:42] Importing reloader.py.hhvOqneaM73-zGIXmg4Ku1BVvw8=.trap.gz (197 of 266)
+[2025-10-19 02:00:42] Importing requests.2niYirKwKsaSlMM4Uqttands3H4=.trap.gz (198 of 266)
+[2025-10-19 02:00:42] Importing scripts.h8x8sGZHmSgHI0X5j8va9aA90UM=.trap.gz (199 of 266)
+[2025-10-19 02:00:42] Importing select.NmcM0tCkME9RJHHQTLRMcCHJIP8=.trap.gz (200 of 266)
+[2025-10-19 02:00:42] Importing sendfile.py.v96QPob0xzGRFQM_gAq1BL9SzmM=.trap.gz (201 of 266)
+[2025-10-19 02:00:42] Importing settings.py.TgdfMw-hCB3H09ESs5DdAK6QL5Q=.trap.gz (202 of 266)
+[2025-10-19 02:00:42] Importing sitemap_gen.py.ar0bbn6ey2qCm4e5bFpuBaiJplA=.trap.gz (203 of 266)
+[2025-10-19 02:00:42] Importing slowclient.py.YnnlfaXptsoD2_hly1wr4eVqtME=.trap.gz (204 of 266)
+[2025-10-19 02:00:42] Importing sock.py.AEuvS93Q0P4aGEZ0MCqVYJj9Us0=.trap.gz (205 of 266)
+[2025-10-19 02:00:42] Importing someapp.l0r7ale6xMyHw4M-n825u0ojc7M=.trap.gz (206 of 266)
+[2025-10-19 02:00:42] Importing source.27t7EAJRo0g3AikrEUnlM1NXO88=.trap.gz (207 of 266)
+[2025-10-19 02:00:42] Importing standalone_app.py.HgsGexKtd5aaMWgOJ9wjFcTmgFA=.trap.gz (208 of 266)
+[2025-10-19 02:00:42] Importing statsd.py.9iCW4ZR6QXQ97Pt3Q9J5dg2Y3JY=.trap.gz (209 of 266)
+[2025-10-19 02:00:42] Importing support.py.oPr0xPhA5SXTHTwq1UwIWtxW1Q0=.trap.gz (210 of 266)
+[2025-10-19 02:00:42] Importing sync.py.LliVdzxRwHNi6uxJdCytVuCNkGo=.trap.gz (211 of 266)
+[2025-10-19 02:00:42] Importing sys.shcQh-ycqOHTaIPaucGyNxo0hUs=.trap.gz (212 of 266)
+[2025-10-19 02:00:42] Importing systemd.py.uxJnaTkQumA0uCKLqPw9Dn-FphI=.trap.gz (213 of 266)
+[2025-10-19 02:00:42] Importing t.py.x0qZAGiclEKWhEW6yxpS71SfLxM=.trap.gz (214 of 266)
+[2025-10-19 02:00:42] Importing test.W3hM97H9jaftXlECo51QK9_Bh-s=.trap.gz (215 of 266)
+[2025-10-19 02:00:42] Importing test.py.EHAMOFZ1gN3DvSjWLycRm10R5pM=.trap.gz (216 of 266)
+[2025-10-19 02:00:42] Importing test.py.jnjUJh7fcLZMBGhcDsPJX-RiZuo=.trap.gz (217 of 266)
+[2025-10-19 02:00:42] Importing test_arbiter.py.oeJ7c1NTehEZmYz-2cV8RblF7Fs=.trap.gz (218 of 266)
+[2025-10-19 02:00:42] Importing test_cfg.py.KqbGOxHY8vg5xUnTzjDAbfKostw=.trap.gz (219 of 266)
+[2025-10-19 02:00:42] Importing test_cfg_alt.py.JAZpB11D02jCvbxclq4MNf2CTvI=.trap.gz (220 of 266)
+[2025-10-19 02:00:42] Importing test_cfg_with_wsgi_app.py.bPzO0Mma_X6a9zVKP8J7UJkqiA4=.trap.gz (221 of 266)
+[2025-10-19 02:00:42] Importing test_config.py.bVwdicp4ISsKlr__MU1EI72CI1U=.trap.gz (222 of 266)
+[2025-10-19 02:00:42] Importing test_geventlet.py.QDrM3HR9o7tNj1rXFCxIGzGsd0o=.trap.gz (223 of 266)
+[2025-10-19 02:00:42] Importing test_ggevent.py.A0NaJA70GTFRXIuYn8d8Izt0X1c=.trap.gz (224 of 266)
+[2025-10-19 02:00:42] Importing test_http.py.xISGs2hoD8Ng6zETLEou6pMswFg=.trap.gz (225 of 266)
+[2025-10-19 02:00:42] Importing test_invalid_requests.py.F9IzRIGAi3RKvUHLAgE9K-g-Cx4=.trap.gz (226 of 266)
+[2025-10-19 02:00:42] Importing test_logger.py.5p0P9ypRIXPwjPIPIkxc-cFntF8=.trap.gz (227 of 266)
+[2025-10-19 02:00:42] Importing test_pidfile.py.dLHbLoUeSMejW8dqXps7Uj4pkcQ=.trap.gz (228 of 266)
+[2025-10-19 02:00:42] Importing test_reload.py.AJJZM9UeKULtiNPs4PcAzYKU7JA=.trap.gz (229 of 266)
+[2025-10-19 02:00:42] Importing test_sock.py.siqpI383C25-5fHAkYrPEnhFCXg=.trap.gz (230 of 266)
+[2025-10-19 02:00:42] Importing test_ssl.py.SGFk9zyrAYrU_XpB0sLmiKB3EY8=.trap.gz (231 of 266)
+[2025-10-19 02:00:42] Importing test_statsd.py.5ZZtCx_Qot6cA-KqZL7CfnhOAhY=.trap.gz (232 of 266)
+[2025-10-19 02:00:42] Importing test_systemd.py.-YjDOSv1q7E8IKcBcyz0hzYJU_U=.trap.gz (233 of 266)
+[2025-10-19 02:00:42] Importing test_util.py.g8FnxeFRqCk3Qts57IqnUFbiwW8=.trap.gz (234 of 266)
+[2025-10-19 02:00:42] Importing test_valid_requests.py.fM_8N7hnT6R6i75xJCZbjV0sPtQ=.trap.gz (235 of 266)
+[2025-10-19 02:00:42] Importing testing.XV-g7lYlX7ODG2PZ4jgo2Eu04IQ=.trap.gz (236 of 266)
+[2025-10-19 02:00:42] Importing testing.ewuqNQrSqB3FL8KNJxB-2whaQ_A=.trap.gz (237 of 266)
+[2025-10-19 02:00:42] Importing tests.La4OV3w_XtHzQ9QByJJi66ktcBI=.trap.gz (238 of 266)
+[2025-10-19 02:00:42] Importing tests.py.ceQymTmlNuFrAK3DWcNwjuL9_-s=.trap.gz (239 of 266)
+[2025-10-19 02:00:42] Importing time.OgxUUCFjvJrNWvtw5ijojDAu1Ys=.trap.gz (240 of 266)
+[2025-10-19 02:00:42] Importing timeout.py.uLEvgqq37_BcAvI0bPOR0U3Fexs=.trap.gz (241 of 266)
+[2025-10-19 02:00:42] Importing tornadoapp.py.vWrGESilw3HSltMguKzKQ7XFuv4=.trap.gz (242 of 266)
+[2025-10-19 02:00:42] Importing treq.py.QNvDD4un3vU8wqeI644d-ecCqFo=.trap.gz (243 of 266)
+[2025-10-19 02:00:42] Importing unittest.U5FyRvpiqyPEhOgAJ7ZsHtvBbrU=.trap.gz (244 of 266)
+[2025-10-19 02:00:42] Importing unreader.py.Qnj_HMLoqEhsgXDvhMVBCRx3his=.trap.gz (245 of 266)
+[2025-10-19 02:00:42] Importing update_thanks.py.4udVVCF8tTgKcNjDhJc6Xse45yU=.trap.gz (246 of 266)
+[2025-10-19 02:00:42] Importing urllib.Qd9f6rNJVBM5cWeRMaoBbXencsY=.trap.gz (247 of 266)
+[2025-10-19 02:00:42] Importing urls.py.4KL76DJ3vwbrZcL3boIJ6TD4cfw=.trap.gz (248 of 266)
+[2025-10-19 02:00:42] Importing urls.py.9HkroynEHcEm2rJu5nGOFIpZLuw=.trap.gz (249 of 266)
+[2025-10-19 02:00:42] Importing util.py.V2un1ZcEB8i2IdZKO7D96deIg-g=.trap.gz (250 of 266)
+[2025-10-19 02:00:42] Importing valid.tGTT7LHjubHvUQdyxfLmnyy95BU=.trap.gz (251 of 266)
+[2025-10-19 02:00:42] Importing version_01.py.w_ON2a0QSFssT5EMy__2FGw2SBk=.trap.gz (252 of 266)
+[2025-10-19 02:00:42] Importing version_02.py.Gj2n1v9LTsFHIVYiNEM22g_-gY4=.trap.gz (253 of 266)
+[2025-10-19 02:00:42] Importing views.py.AHJWlZdImeXBfFD6xn6rzYsn_XU=.trap.gz (254 of 266)
+[2025-10-19 02:00:42] Importing webpyapp.py.ng7zTYuLt631GqSCZBkpIRfzDh4=.trap.gz (255 of 266)
+[2025-10-19 02:00:42] Importing websocket.bzptILZoN9f1EMOAqXVIcN5fz_4=.trap.gz (256 of 266)
+[2025-10-19 02:00:42] Importing websocket.py.9gJSjhd2MDXTXR_2i6IALvQMbpQ=.trap.gz (257 of 266)
+[2025-10-19 02:00:42] Importing when_ready.conf.py.sLJHdrG4wjDmJlSuBIvtHNRzSUk=.trap.gz (258 of 266)
+[2025-10-19 02:00:42] Importing workers.00PE8W3qajUtTL-HWHBjOPmxB0A=.trap.gz (259 of 266)
+[2025-10-19 02:00:42] Importing workers.mdcqBPunvvH5c1iMK4h09mdEIoI=.trap.gz (260 of 266)
+[2025-10-19 02:00:42] Importing workertmp.py.cCV8oN3ZweqsIP-Y-eQemGFCDOQ=.trap.gz (261 of 266)
+[2025-10-19 02:00:42] Importing wsgi.py.jXjv2ASmAMNDc8dzHI5aKD62ZR8=.trap.gz (262 of 266)
+[2025-10-19 02:00:42] Importing wsgi.py.yztvwNXPowcuUy4YXBr8hELaJeA=.trap.gz (263 of 266)
+[2025-10-19 02:00:42] Importing wsgiapp.py.DsR160ANDhxNAVhYYyCtBJLhZso=.trap.gz (264 of 266)
+[2025-10-19 02:00:42] Importing wsgiref.Keec0PwHXgENLpbfu2eAr6QHSvE=.trap.gz (265 of 266)
+[2025-10-19 02:00:42] Importing xml.gcKNTLYFRgIhj7knysMjP_D2QP4=.trap.gz (266 of 266)
+[2025-10-19 02:00:42] [PROGRESS] dataset import> Merging relations
+[2025-10-19 02:00:42] Merging 1 fragment for 'files'.
+[2025-10-19 02:00:43] Merged 437 bytes for 'files'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'folders'.
+[2025-10-19 02:00:43] Merged 153 bytes for 'folders'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'containerparent'.
+[2025-10-19 02:00:43] Merged 417 bytes for 'containerparent'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_flags_versioned'.
+[2025-10-19 02:00:43] Merged 180 bytes for 'py_flags_versioned'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cobjects'.
+[2025-10-19 02:00:43] Merged 8468 bytes (8.27 KiB) for 'py_cobjects'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-10-19 02:00:43] Merged 15247 bytes (14.89 KiB) for 'py_cobjecttypes'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cobject_sources'.
+[2025-10-19 02:00:43] Merged 10647 bytes (10.40 KiB) for 'py_cobject_sources'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cobjectnames'.
+[2025-10-19 02:00:43] Merged 13882 bytes (13.56 KiB) for 'py_cobjectnames'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-10-19 02:00:43] Merged 7502 bytes (7.33 KiB) for 'py_cmembers_versioned'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_special_objects'.
+[2025-10-19 02:00:43] Merged 135 bytes for 'py_special_objects'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_citems'.
+[2025-10-19 02:00:43] Merged 485 bytes for 'py_citems'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'ext_rettype'.
+[2025-10-19 02:00:43] Merged 4025 bytes (3.93 KiB) for 'ext_rettype'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'ext_argtype'.
+[2025-10-19 02:00:43] Merged 6817 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'ext_argreturn'.
+[2025-10-19 02:00:43] Merged 41 bytes for 'ext_argreturn'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'ext_proptype'.
+[2025-10-19 02:00:43] Merged 345 bytes for 'ext_proptype'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_Modules'.
+[2025-10-19 02:00:43] Merged 262 bytes for 'py_Modules'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_module_path'.
+[2025-10-19 02:00:43] Merged 640 bytes for 'py_module_path'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'variable'.
+[2025-10-19 02:00:43] Merged 25929 bytes (25.32 KiB) for 'variable'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_extracted_version'.
+[2025-10-19 02:00:43] Merged 236 bytes for 'py_extracted_version'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_stmt_lists'.
+[2025-10-19 02:00:43] Merged 9956 bytes (9.72 KiB) for 'py_stmt_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_stmts'.
+[2025-10-19 02:00:43] Merged 32038 bytes (31.29 KiB) for 'py_stmts'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_scopes'.
+[2025-10-19 02:00:43] Merged 49788 bytes (48.62 KiB) for 'py_scopes'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_exprs'.
+[2025-10-19 02:00:43] Merged 139130 bytes (135.87 KiB) for 'py_exprs'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-10-19 02:00:43] Merged 931 bytes for 'py_dict_item_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_dict_items'.
+[2025-10-19 02:00:43] Merged 2613 bytes (2.55 KiB) for 'py_dict_items'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_strs'.
+[2025-10-19 02:00:43] Merged 37961 bytes (37.07 KiB) for 'py_strs'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_variables'.
+[2025-10-19 02:00:43] Merged 29941 bytes (29.24 KiB) for 'py_variables'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_expr_contexts'.
+[2025-10-19 02:00:43] Merged 55163 bytes (53.87 KiB) for 'py_expr_contexts'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_expr_lists'.
+[2025-10-19 02:00:43] Merged 28673 bytes (28.00 KiB) for 'py_expr_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_bools'.
+[2025-10-19 02:00:43] Merged 1192 bytes (1.16 KiB) for 'py_bools'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_numbers'.
+[2025-10-19 02:00:43] Merged 6214 bytes (6.07 KiB) for 'py_numbers'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_exports'.
+[2025-10-19 02:00:43] Merged 1415 bytes (1.38 KiB) for 'py_exports'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_flow_bb_node'.
+[2025-10-19 02:00:43] Merged 133509 bytes (130.38 KiB) for 'py_flow_bb_node'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_scope_flow'.
+[2025-10-19 02:00:43] Merged 17695 bytes (17.28 KiB) for 'py_scope_flow'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_successors'.
+[2025-10-19 02:00:43] Merged 82660 bytes (80.72 KiB) for 'py_successors'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_idoms'.
+[2025-10-19 02:00:43] Merged 74589 bytes (72.84 KiB) for 'py_idoms'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_ssa_var'.
+[2025-10-19 02:00:43] Merged 12104 bytes (11.82 KiB) for 'py_ssa_var'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_ssa_defn'.
+[2025-10-19 02:00:43] Merged 10802 bytes (10.55 KiB) for 'py_ssa_defn'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_ssa_use'.
+[2025-10-19 02:00:43] Merged 16656 bytes (16.27 KiB) for 'py_ssa_use'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'locations_ast'.
+[2025-10-19 02:00:43] Merged 194941 bytes (190.37 KiB) for 'locations_ast'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_scope_location'.
+[2025-10-19 02:00:43] Merged 3307 bytes (3.23 KiB) for 'py_scope_location'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_codelines'.
+[2025-10-19 02:00:43] Merged 2682 bytes (2.62 KiB) for 'py_codelines'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_commentlines'.
+[2025-10-19 02:00:43] Merged 1961 bytes (1.92 KiB) for 'py_commentlines'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_docstringlines'.
+[2025-10-19 02:00:43] Merged 1689 bytes (1.65 KiB) for 'py_docstringlines'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_alllines'.
+[2025-10-19 02:00:43] Merged 2706 bytes (2.64 KiB) for 'py_alllines'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'numlines'.
+[2025-10-19 02:00:43] Merged 835 bytes for 'numlines'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_locations'.
+[2025-10-19 02:00:43] Merged 82310 bytes (80.38 KiB) for 'py_locations'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_alias_lists'.
+[2025-10-19 02:00:43] Merged 1321 bytes (1.29 KiB) for 'py_alias_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_aliases'.
+[2025-10-19 02:00:43] Merged 1611 bytes (1.57 KiB) for 'py_aliases'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_ints'.
+[2025-10-19 02:00:43] Merged 763 bytes for 'py_ints'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_comments'.
+[2025-10-19 02:00:43] Merged 3823 bytes (3.73 KiB) for 'py_comments'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'yaml_scalars'.
+[2025-10-19 02:00:43] Merged 608 bytes for 'yaml_scalars'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'yaml'.
+[2025-10-19 02:00:43] Merged 1685 bytes (1.65 KiB) for 'yaml'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'locations_default'.
+[2025-10-19 02:00:43] Merged 1534 bytes (1.50 KiB) for 'locations_default'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'yaml_locations'.
+[2025-10-19 02:00:43] Merged 579 bytes for 'yaml_locations'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_Functions'.
+[2025-10-19 02:00:43] Merged 2199 bytes (2.15 KiB) for 'py_Functions'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_parameter_lists'.
+[2025-10-19 02:00:43] Merged 1937 bytes (1.89 KiB) for 'py_parameter_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_operators'.
+[2025-10-19 02:00:43] Merged 1558 bytes (1.52 KiB) for 'py_operators'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-10-19 02:00:43] Merged 1943 bytes (1.90 KiB) for 'py_cmpop_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_cmpops'.
+[2025-10-19 02:00:43] Merged 2667 bytes (2.60 KiB) for 'py_cmpops'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_true_successors'.
+[2025-10-19 02:00:43] Merged 2817 bytes (2.75 KiB) for 'py_true_successors'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_false_successors'.
+[2025-10-19 02:00:43] Merged 2867 bytes (2.80 KiB) for 'py_false_successors'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_arguments'.
+[2025-10-19 02:00:43] Merged 2107 bytes (2.06 KiB) for 'py_arguments'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_Classes'.
+[2025-10-19 02:00:43] Merged 620 bytes for 'py_Classes'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_boolops'.
+[2025-10-19 02:00:43] Merged 537 bytes for 'py_boolops'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_unaryops'.
+[2025-10-19 02:00:43] Merged 678 bytes for 'py_unaryops'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_ssa_phi'.
+[2025-10-19 02:00:43] Merged 1616 bytes (1.58 KiB) for 'py_ssa_phi'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_exception_successors'.
+[2025-10-19 02:00:43] Merged 4001 bytes (3.91 KiB) for 'py_exception_successors'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-10-19 02:00:43] Merged 77 bytes for 'py_StringPart_lists'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'py_StringParts'.
+[2025-10-19 02:00:43] Merged 153 bytes for 'py_StringParts'.
+[2025-10-19 02:00:43] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-10-19 02:00:43] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-10-19 02:00:43] Saving string and id pools to disk.
+[2025-10-19 02:00:43] Finished importing TRAP files.
+[2025-10-19 02:00:43] Read 17.92 MiB of uncompressed TRAP data.
+[2025-10-19 02:00:43] Uncompressed relation data size: 4.88 MiB
+[2025-10-19 02:00:43] Relation data size: 1.11 MiB (merge rate: 12.52 MiB/s)
+[2025-10-19 02:00:43] String pool size: 2.22 MiB
+[2025-10-19 02:00:43] ID pool size: 1.19 MiB
+[2025-10-19 02:00:43] [PROGRESS] dataset import> Finished writing database (relations: 1.11 MiB; string pool: 2.22 MiB).
+[2025-10-19 02:00:43] Pausing evaluation to close the cache at sequence stamp o+145
+[2025-10-19 02:00:43] The disk cache is freshly trimmed; leave it be.
+[2025-10-19 02:00:43] Unpausing evaluation
+[2025-10-19 02:00:43] Plumbing command codeql dataset import completed.
+[2025-10-19 02:00:43] [PROGRESS] database finalize> TRAP import complete (846ms).
+[2025-10-19 02:00:43] Running plumbing command: codeql database cleanup -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db
+[2025-10-19 02:00:43] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-10-19 02:00:43] [PROGRESS] database cleanup> TRAP files cleaned up (28ms).
+[2025-10-19 02:00:43] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-10-19 02:00:43] [PROGRESS] database cleanup> Scratch directory cleaned up (45ms).
+[2025-10-19 02:00:43] Running plumbing command: codeql dataset cleanup -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python
+[2025-10-19 02:00:43] [PROGRESS] dataset cleanup> Cleaning up dataset in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python.
+[2025-10-19 02:00:43] Trimming disk cache at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python/default/cache in mode trim.
+[2025-10-19 02:00:43] Sequence stamp origin is -5991224070851393646
+[2025-10-19 02:00:43] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-10-19 02:00:43] Unpausing evaluation
+[2025-10-19 02:00:43] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-10-19 02:00:43] Unpausing evaluation
+[2025-10-19 02:00:43] Trimming completed (1ms): Trimmed disposable data from cache.
+[2025-10-19 02:00:43] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-10-19 02:00:43] The disk cache is freshly trimmed; leave it be.
+[2025-10-19 02:00:43] Unpausing evaluation
+[2025-10-19 02:00:43] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-10-19 02:00:43] [PROGRESS] dataset cleanup> Finalizing dataset in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python
+[2025-10-19 02:00:43] [DETAILS] dataset cleanup> Finished deleting ID pool from /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db/db-python (1ms).
+[2025-10-19 02:00:43] Plumbing command codeql dataset cleanup completed.
+[2025-10-19 02:00:43] Plumbing command codeql database cleanup completed with status 0.
+[2025-10-19 02:00:43] [PROGRESS] database finalize> Finished zipping source archive (203.44 KiB).
+[2025-10-19 02:00:43] Plumbing command codeql database finalize completed.
+[2025-10-19 02:00:43] [PROGRESS] database create> Successfully created database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/gunicorn-db.
+[2025-10-19 02:00:43] Terminating normally.

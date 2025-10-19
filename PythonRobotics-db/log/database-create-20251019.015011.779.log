@@ -1,0 +1,1822 @@
+[2025-10-19 01:50:11] This is codeql database create ../PythonRobotics-db --language=python --command=python3 -m compileall .
+[2025-10-19 01:50:11] Log file was started late.
+[2025-10-19 01:50:11] [PROGRESS] database create> Initializing database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db.
+[2025-10-19 01:50:11] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/qlconfig.yml --source-root=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics --allow-missing-source-root=false --allow-already-existing -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db
+[2025-10-19 01:50:11] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/homebrew/Caskroom/codeql/2.23.3/codeql/.codeqlmanifest.json
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/go/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/rust/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/java/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/html/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/xml/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/properties/codeql-extractor.yml.
+[2025-10-19 01:50:11] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/cpp/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/swift/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/csv/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/csharp/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript/codeql-extractor.yml.
+[2025-10-19 01:50:12] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/ruby/codeql-extractor.yml.
+[2025-10-19 01:50:12] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "rust" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/html"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/xml"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/properties"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-10-19 01:50:12] [PROGRESS] database init> Calculating baseline information in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics
+[2025-10-19 01:50:12] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-10-19 01:50:12] [DETAILS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics: /opt/homebrew/Caskroom/codeql/2.23.3/codeql/tools/osx64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-10-19 01:50:12] Using configure-baseline script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/tools/configure-baseline.sh.
+[2025-10-19 01:50:12] [PROGRESS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/tools/configure-baseline.sh]
+[2025-10-19 01:50:12] [SPAMMY] database init> Ignored an additional 7 files when processing baseline information for YAML due to paths and paths-ignore configuration.
+[2025-10-19 01:50:12] [SPAMMY] database init> Found 253 baseline files for python.
+[2025-10-19 01:50:12] [SPAMMY] database init> Found 6 baseline files for actions.
+[2025-10-19 01:50:12] [PROGRESS] database init> Calculated baseline information for languages: actions, python (77ms).
+[2025-10-19 01:50:12] [PROGRESS] database init> Resolving extractor python.
+[2025-10-19 01:50:12] [DETAILS] database init> Found candidate extractor root for python: /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python.
+[2025-10-19 01:50:12] [PROGRESS] database init> Successfully loaded extractor Python (python) from /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python.
+[2025-10-19 01:50:12] [SPAMMY] database init> Determining macOS System Integrity Protection status...
+[2025-10-19 01:50:12] [SPAMMY] database init> Running command [/usr/bin/csrutil, status].
+[2025-10-19 01:50:12] [SPAMMY] database init> SIP is enabled.
+[2025-10-19 01:50:12] [PROGRESS] database init> Created skeleton CodeQL database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db. This in-progress database is ready to be populated by an extractor.
+[2025-10-19 01:50:12] Plumbing command codeql database init completed.
+[2025-10-19 01:50:12] [PROGRESS] database create> Running build command: [python3, -m, compileall, .]
+[2025-10-19 01:50:12] Running plumbing command: codeql database trace-command --working-dir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics --index-traceless-dbs --no-db-cluster -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db python3 -m compileall .
+[2025-10-19 01:50:12] Using autobuild script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/autobuild.sh.
+[2025-10-19 01:50:12] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/autobuild.sh]
+[2025-10-19 01:50:12] [build-stderr] /bin/sh: python2: command not found
+[2025-10-19 01:50:12] [build-stdout] 'requirements' appears to be the root.
+[2025-10-19 01:50:12] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-10-19 01:50:12] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-10-19 01:50:12] [build-stdout] Did not find setup.py (expected it to be at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/requirements/setup.py)
+[2025-10-19 01:50:12] [build-stdout] Trying to guess Python version based on travis file
+[2025-10-19 01:50:12] [build-stdout] Did not find any travis files (expected them at either ['/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/requirements/.travis.yml', '/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/requirements/travis.yml'])
+[2025-10-19 01:50:12] [build-stdout] Trying to guess Python version based on installed versions
+[2025-10-19 01:50:12] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-10-19 01:50:12] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-10-19 01:50:12] [build-stdout] Could not guess Python version, will use default: Python 3
+[2025-10-19 01:50:12] [build-stdout] Calling python3 -S /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/working/trap_cache -R /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics
+[2025-10-19 01:50:12] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-10-19 01:50:12] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-10-19 01:50:12] [build-stdout] [INFO] sys_path is: ['/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python310.zip', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/lib-dynload']
+[2025-10-19 01:50:12] [build-stdout] [INFO] Python version 3.10.13
+[2025-10-19 01:50:12] [build-stdout] [INFO] Python extractor version 7.1.5
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/gaussian_grid_map in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/point_cloud_sampling in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/lidar_to_grid_map in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/ndt_map in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/DistanceMap in 0ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/__init__.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/ray_casting_grid_map in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/normal_vector_estimation in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/grid_map_lib/__init__.py in 3ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/grid_map_lib in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/circle_fitting in 4ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/rectangle_fitting/__init_.py in 41ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/model_predictive_speed_and_steer_control in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/gaussian_grid_map/gaussian_grid_map.py in 110ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_hybrid_a_star.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_state_lattice_planner.py in 10ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BSplinePath in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/edge in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt.py in 16ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ElasticBands in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/point_cloud_sampling/point_cloud_sampling.py in 125ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/SpiralSpanningTreeCPP in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_quintic_polynomials_planner.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/ndt_map/ndt_map.py in 129ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/DistanceMap/distance_map.py in 130ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_dstar.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/arm_obstacle_navigation in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_dynamic_window_approach.py in 29ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_inverted_pendulum_mpc_control.py in 7ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_ray_casting_grid_map.py in 6ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BreadthFirstSearch in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/ray_casting_grid_map/ray_casting_grid_map.py in 144ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_safe_interval_path_planner.py in 15ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/normal_vector_estimation/normal_vector_estimation.py in 152ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_3d/__init__.py in 7ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_iterative_closest_point.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VisibilityRoadMap in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Eta3SplinePath in 2ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_kmeans_clustering.py in 10ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/rectangle_fitting/simulator.py in 129ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/circle_fitting/circle_fitting.py in 189ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/lidar_to_grid_map/lidar_to_grid_map.py in 236ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Dijkstra in 3ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VisibilityRoadMap/geometry.py in 48ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/grid_map_lib/grid_map_lib.py in 249ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_breadth_first_search.py in 14ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/move_to_pose/move_to_pose_robot.py in 144ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rectangle_fitting.py in 6ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStar in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_bipedal_planner.py in 11ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/AStar/a_star.py in 190ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_move_to_pose_robot.py in 13ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/ICPMatching/icp_matching.py in 163ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_cgmres_nmpc.py in 10ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/GreedyBestFirstSearch/greedy_best_first_search.py in 208ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/vertex.py in 25ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_frenet_optimal_trajectory.py in 21ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/load.py in 31ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ModelPredictiveTrajectoryGenerator/trajectory_generator.py in 148ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/QuinticPolynomialsPlanner in 5ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStarReedsShepp in 2ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/StateLatticePlanner/state_lattice_planner.py in 215ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Eta3SplineTrajectory/eta3_spline_trajectory.py in 405ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/HybridAStar/__init__.py in 7ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning/BehaviorTree in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/FastSLAM1/fast_slam1.py in 296ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_a_star.py in 7ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/utils/angle.py in 44ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/SafeInterval.py in 144ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_star_seven_joint_arm.py in 10ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/__init__.py in 3ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/cubature_kalman_filter/cubature_kalman_filter.py in 222ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_depth_first_search.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_with_sobol_sampler.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ModelPredictiveTrajectoryGenerator/__init__.py in 4ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BugPlanning/bug.py in 418ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/FastSLAM2 in 2ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/PriorityBasedPlanner.py in 67ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/lqr_steer_control/__init__.py in 5ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_fast_slam2.py in 8ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BidirectionalBreadthFirstSearch/bidirectional_breadth_first_search.py in 270ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/move_to_pose in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_inverted_pendulum_lqr_control.py in 7ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation in 2ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_3d in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_ekf_slam.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/ensemble_kalman_filter/ensemble_kalman_filter.py in 196ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning/StateMachine/state_machine.py in 155ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BSplinePath/bspline_path.py in 71ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_mypy_type_check.py in 26ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/StateLatticePlanner/__init__.py in 4ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Bipedal in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/LQRRRTStar/lqr_rrt_star.py in 181ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted module math in 6ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_lqr_speed_steer_control.py in 7ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DStar in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_fast_slam1.py in 9ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/InformedRRTStar in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/drone_3d_trajectory_following/Quadrotor.py in 98ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_move_to_pose.py in 71ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/cgmres_nmpc/cgmres_nmpc.py in 519ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ClosedLoopRRTStar in 1ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_utils.py in 31ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/lqr_steer_control/lqr_steer_control.py in 186ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_visibility_road_map_planner.py in 8ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_grid_map_lib.py in 42ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BezierPath/bezier_path.py in 140ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/EKFSLAM/ekf_slam.py in 203ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_dubins_path_planning.py in 72ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/util.py in 21ms
+[2025-10-19 01:50:13] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ReedsSheppPath in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/PotentialFieldPlanning in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/move_to_pose/__init__.py in 4ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/LQRPlanner in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/rectangle_fitting/rectangle_fitting.py in 226ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_d_star_lite.py in 8ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_spiral_spanning_tree_coverage_path_planner.py in 48ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DubinsPath in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_distance_map.py in 68ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_3d/NLinkArm3d.py in 191ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_pure_pursuit.py in 8ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DynamicWindowApproach/dynamic_window_approach.py in 211ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/pose/se2.py in 68ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/ICPMatching in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Catmull_RomSplinePath/blending_functions.py in 26ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/GreedyBestFirstSearch in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_with_pathsmoothing_radius.py in 22ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/InvertedPendulum in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_unscented_kalman_filter.py in 8ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTDubins/__init__.py in 3ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DStarLite/d_star_lite.py in 356ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_eta3_spline_path.py in 6ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_greedy_best_first_search.py in 7ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/rrt_star_seven_joint_arm_control/rrt_star_seven_joint_arm_control.py in 306ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/AStar in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_codestyle.py in 52ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_catmull_rom_spline.py in 15ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/sobol in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/sobol/__init__.py in 5ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/lqr_speed_steer_control in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/conftest.py in 15ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/unscented_kalman_filter/unscented_kalman_filter.py in 161ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/stanley_control/stanley_control.py in 102ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rear_wheel_feedback.py in 6ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_closed_loop_rrt_star_car.py in 8ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/SpaceTimeAStar.py in 80ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/lqr_steer_control in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_dubins.py in 6ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/FrenetOptimalTrajectory/frenet_optimal_trajectory.py in 379ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_normal_vector_estimation.py in 15ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/__init__.py in 2ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_priority_based_planner.py in 25ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/FastSLAM1 in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_model_predictive_speed_and_steer_control.py in 7ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/rocket_powered_landing/rocket_powered_landing.py in 647ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_bspline_path.py in 54ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/histogram_filter/histogram_filter.py in 141ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/extended_kalman_filter/extended_kalman_filter.py in 93ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/pure_pursuit in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/Node.py in 58ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/base64.py
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_particle_filter.py in 8ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/WavefrontCPP/wavefront_coverage_path_planner.py in 139ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/InvertedPendulum/inverted_pendulum_mpc_control.py in 108ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ClothoidPath/clothoid_path_planner.py in 111ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_gaussian_grid_map.py in 10ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/rocket_powered_landing in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ModelPredictiveTrajectoryGenerator/lookup_table_generator.py in 59ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DubinsPath/__init__.py in 4ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/kmeans_clustering/kmeans_clustering.py in 111ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/__init__.py in 4ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/__init__.py in 5ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/extended_kalman_filter in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/QuinticPolynomialsPlanner/quintic_polynomials_planner.py in 150ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/CubicSpline/__init__.py in 4ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/FastSLAM2/fast_slam2.py in 282ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/two_joint_arm_to_point_control in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStarReedsShepp/rrt_star_reeds_shepp.py in 165ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DynamicMovementPrimitives in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Bipedal/bipedal_planner in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_bezier_path.py in 10ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_star_dubins.py in 9ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging/__init__.py
+[2025-10-19 01:50:14] [build-stdout] [INFO] [11] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/StateLatticePlanner in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_star.py in 18ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib/__init__.py
+[2025-10-19 01:50:14] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/pure_pursuit/pure_pursuit.py in 215ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_batch_informed_rrt_star.py in 8ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ReedsSheppPath/reeds_shepp_path_planning.py in 345ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_flow_field.py in 6ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DynamicWindowApproach in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/rrt_star_seven_joint_arm_control in 1ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ProbabilisticRoadMap/probabilistic_road_map.py in 146ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VoronoiRoadMap/voronoi_road_map.py in 96ms
+[2025-10-19 01:50:14] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning/BehaviorTree/behavior_tree.py in 257ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/edge/__init__.py in 4ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning/StateMachine/robot_behavior_case.py in 41ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BidirectionalAStar in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_clothoidal_paths.py in 9ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/particle_filter/particle_filter.py in 168ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/cgmres_nmpc in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DynamicMovementPrimitives/dynamic_movement_primitives.py in 155ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Dijkstra/dijkstra.py in 152ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/HybridAStar/car.py in 72ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/drone_3d_trajectory_following/TrajectoryGenerator.py in 47ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/rrt_with_sobol_sampler.py in 162ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/__init__.py in 2ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/arm_obstacle_navigation/arm_obstacle_navigation_2.py in 196ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib/request.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DStarLite in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DepthFirstSearch in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_drone_3d_trajectory_following.py in 6ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning/StateMachine in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/rrt.py in 203ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VoronoiRoadMap in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/__init__.py in 5ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/FrenetOptimalTrajectory in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Bipedal/bipedal_planner/__init__.py in 5ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_lqr_steer_control.py in 8ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/LQRRRTStar in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/Plotting.py in 87ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/__init__.py in 4ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_point_cloud_sampling.py in 12ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted module sys in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTDubins/rrt_dubins.py in 128ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTDubins in 0ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BatchInformedRRTStar/batch_informed_rrt_star.py in 429ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/CubicSpline/spline_continuity.py in 36ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/GridBasedSweepCPP in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [4] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStarDubins in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BatchInformedRRTStar in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VisibilityRoadMap/__init__.py in 3ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ModelPredictiveTrajectoryGenerator/motion_model.py in 62ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_behavior_tree.py in 75ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Eta3SplineTrajectory in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/CubicSpline in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/InformedRRTStar/informed_rrt_star.py in 256ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/rear_wheel_feedback_control in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BezierPath in 0ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/GridBasedSweepCPP/grid_based_sweep_coverage_path_planner.py in 182ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/cubature_kalman_filter in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/BaseClasses.py in 22ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_3d/random_forward_kinematics.py in 28ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/graph.py in 128ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_a_star_searching_two_side.py in 8ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/model_predictive_speed_and_steer_control/model_predictive_speed_and_steer_control.py in 423ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/heapq.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/unscented_kalman_filter in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DubinsPath/dubins_path_planner.py in 189ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Bipedal/__init__.py in 4ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/InvertedPendulum/inverted_pendulum_lqr_control.py in 103ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/subprocess.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_informed_rrt_star.py in 6ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections/abc.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_3d/random_inverse_kinematics.py in 27ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_two_joint_arm_to_point_control.py in 7ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/two_joint_arm_to_point_control/two_joint_arm_to_point_control.py in 93ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Catmull_RomSplinePath in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/sobol/sobol.py in 264ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ClosedLoopRRTStar/pure_pursuit.py in 180ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/copy.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree/__init__.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/rear_wheel_feedback_control/rear_wheel_feedback_control.py in 175ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/enum.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_graph_based_slam.py in 6ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/FlowField in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ClothoidPath in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/AStar/a_star_variants.py in 437ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ElasticBands/elastic_bands.py in 211ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/GridWithDynamicObstacles.py in 199ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/TimeBasedPathPlanning/__init__.py in 2ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/io.py
+[2025-10-19 01:50:15] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/WavefrontCPP in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStar/rrt_star.py in 131ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_state_machine.py in 26ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_cubature_kalman_filter.py in 10ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BugPlanning in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rrt_star_reeds_shepp.py in 31ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ProbabilisticRoadMap in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/histogram_filter in 1ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [1] Extracted module time in 6ms
+[2025-10-19 01:50:15] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/random.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_a_star_variants.py in 20ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStarDubins/rrt_star_dubins.py in 133ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_elastic_bands.py in 17ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/FlowField/flowfield.py in 175ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/utils/__init__.py in 2ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_to_point_control/__init__.py in 2ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/utils in 0ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Bipedal/bipedal_planner/bipedal_planner.py in 190ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRTStar/__init__.py in 2ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/RRT/rrt_with_pathsmoothing.py in 101ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/functools.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graph_based_slam.py in 200ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/AStar/a_star_searching_from_two_side.py in 234ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_to_point_control in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/CubicSpline/cubic_spline_planner.py in 184ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/string.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_stanley_controller.py in 6ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_circle_fitting.py in 7ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_LQR_planner.py in 7ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/os.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/particle_filter in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_voronoi_road_map_planner.py in 6ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_reeds_shepp_path_planning.py in 39ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/lqr_speed_steer_control/lqr_speed_steer_control.py in 161ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/EKFSLAM in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_grid_based_sweep_coverage_path_planner.py in 56ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_lqr_rrt_star.py in 10ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_probabilistic_road_map.py in 8ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_to_point_control/NLinkArm.py in 61ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ClosedLoopRRTStar/unicycle_model.py in 39ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/ensemble_kalman_filter in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/kmeans_clustering in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BidirectionalBreadthFirstSearch in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BreadthFirstSearch/breadth_first_search.py in 162ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/HybridAStar/dynamic_programming_heuristic.py in 104ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/pathlib.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/__init__.py in 3ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Extracted module zlib in 4ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VoronoiRoadMap/dijkstra_search.py in 90ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/drone_3d_trajectory_following in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/arm_obstacle_navigation/arm_obstacle_navigation.py in 176ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/docs in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/stanley_control in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/pose in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/FrenetOptimalTrajectory/cartesian_frenet_converter.py in 54ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Eta3SplinePath/eta3_spline_path.py in 319ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_bug.py in 6ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/__init__.py in 2ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VisibilityRoadMap/visibility_road_map.py in 135ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_histogram_filter.py in 6ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_potential_field_planning.py in 9ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_dijkstra.py in 9ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_n_joint_arm_to_point_control.py in 7ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/MissionPlanning/BehaviorTree/robot_behavior_case.py in 102ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted module itertools in 6ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/HybridAStar in 0ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_rocket_powered_landing.py in 10ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/abc.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Mapping/rectangle_fitting in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_dynamic_movement_primitives.py in 27ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/VoronoiRoadMap/__init__.py in 2ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/docs/conf.py in 43ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_extended_kalman_filter.py in 5ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/pose/__init__.py in 2ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DepthFirstSearch/depth_first_search.py in 145ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ModelPredictiveTrajectoryGenerator in 1ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/drone_3d_trajectory_following/__init__.py in 5ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/LQRPlanner/lqr_planner.py in 103ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree/ElementTree.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections/__init__.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/DStar/dstar.py in 173ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/PotentialFieldPlanning/potential_field_planning.py in 128ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/dataclasses.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/ClosedLoopRRTStar/closed_loop_rrt_star_car.py in 137ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/extended_kalman_filter/ekf_with_velocity_correction.py in 117ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/ArmNavigation/n_joint_arm_to_point_control/n_joint_arm_to_point_control.py in 98ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/typing.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_space_time_astar.py in 14ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/__init__.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/BidirectionalAStar/bidirectional_a_star.py in 234ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/warnings.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/utils/plot.py in 124ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathTracking/move_to_pose/move_to_pose.py in 138ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/tests/test_wavefront_coverage_path_planner.py in 33ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/Localization/__init__.py in 4ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/SLAM/GraphBasedSLAM/graphslam/edge/edge_odometry.py in 77ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/Catmull_RomSplinePath/catmull_rom_spline_path.py in 51ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/HybridAStar/hybrid_a_star.py in 287ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/AerialNavigation/drone_3d_trajectory_following/drone_3d_trajectory_following.py in 124ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/bisect.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/inspect.py
+[2025-10-19 01:50:16] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics/PathPlanning/SpiralSpanningTreeCPP/spiral_spanning_tree_coverage_path_planner.py in 236ms
+[2025-10-19 01:50:16] [build-stdout] [INFO] Processed 392 modules in 4.20s
+[2025-10-19 01:50:17] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics: [python3, -m, compileall, .]
+[2025-10-19 01:50:17] [build-stdout] Listing '.'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.circleci'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/hooks'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/info'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/logs'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/logs/refs'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/logs/refs/heads'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/logs/refs/remotes'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/logs/refs/remotes/origin'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/objects'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/objects/info'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/objects/pack'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/refs'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/refs/heads'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/refs/remotes'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/refs/remotes/origin'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.git/refs/tags'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.github'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.github/ISSUE_TEMPLATE'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.github/codeql'...
+[2025-10-19 01:50:17] [build-stdout] Listing './.github/workflows'...
+[2025-10-19 01:50:17] [build-stdout] Listing './AerialNavigation'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './AerialNavigation/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './AerialNavigation/drone_3d_trajectory_following'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './AerialNavigation/drone_3d_trajectory_following/Quadrotor.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './AerialNavigation/drone_3d_trajectory_following/TrajectoryGenerator.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './AerialNavigation/drone_3d_trajectory_following/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './AerialNavigation/drone_3d_trajectory_following/drone_3d_trajectory_following.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './AerialNavigation/rocket_powered_landing'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './AerialNavigation/rocket_powered_landing/rocket_powered_landing.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './ArmNavigation'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './ArmNavigation/arm_obstacle_navigation'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/arm_obstacle_navigation/arm_obstacle_navigation.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/arm_obstacle_navigation/arm_obstacle_navigation_2.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './ArmNavigation/n_joint_arm_3d'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_3d/NLinkArm3d.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_3d/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_3d/random_forward_kinematics.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_3d/random_inverse_kinematics.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './ArmNavigation/n_joint_arm_to_point_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_to_point_control/NLinkArm.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_to_point_control/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/n_joint_arm_to_point_control/n_joint_arm_to_point_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './ArmNavigation/rrt_star_seven_joint_arm_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/rrt_star_seven_joint_arm_control/rrt_star_seven_joint_arm_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './ArmNavigation/two_joint_arm_to_point_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './ArmNavigation/two_joint_arm_to_point_control/two_joint_arm_to_point_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Bipedal'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Bipedal/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Bipedal/bipedal_planner'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Bipedal/bipedal_planner/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Bipedal/bipedal_planner/bipedal_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './InvertedPendulum'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './InvertedPendulum/inverted_pendulum_lqr_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './InvertedPendulum/inverted_pendulum_mpc_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization/cubature_kalman_filter'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/cubature_kalman_filter/cubature_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization/ensemble_kalman_filter'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/ensemble_kalman_filter/ensemble_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization/extended_kalman_filter'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/extended_kalman_filter/ekf_with_velocity_correction.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/extended_kalman_filter/extended_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization/histogram_filter'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/histogram_filter/histogram_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization/particle_filter'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/particle_filter/particle_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Localization/unscented_kalman_filter'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Localization/unscented_kalman_filter/unscented_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/DistanceMap'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/DistanceMap/distance_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/circle_fitting'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/circle_fitting/circle_fitting.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/gaussian_grid_map'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/gaussian_grid_map/gaussian_grid_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/grid_map_lib'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/grid_map_lib/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/grid_map_lib/grid_map_lib.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/kmeans_clustering'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/kmeans_clustering/kmeans_clustering.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/lidar_to_grid_map'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/lidar_to_grid_map/lidar_to_grid_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/ndt_map'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/ndt_map/ndt_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/normal_vector_estimation'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/normal_vector_estimation/normal_vector_estimation.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/point_cloud_sampling'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/point_cloud_sampling/point_cloud_sampling.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/ray_casting_grid_map'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/ray_casting_grid_map/ray_casting_grid_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './Mapping/rectangle_fitting'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/rectangle_fitting/__init_.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/rectangle_fitting/rectangle_fitting.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './Mapping/rectangle_fitting/simulator.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './MissionPlanning'...
+[2025-10-19 01:50:17] [build-stdout] Listing './MissionPlanning/BehaviorTree'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './MissionPlanning/BehaviorTree/behavior_tree.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './MissionPlanning/BehaviorTree/robot_behavior_case.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './MissionPlanning/StateMachine'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './MissionPlanning/StateMachine/robot_behavior_case.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './MissionPlanning/StateMachine/state_machine.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/AStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/AStar/a_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/AStar/a_star_searching_from_two_side.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/AStar/a_star_variants.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BSplinePath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BSplinePath/bspline_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BatchInformedRRTStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BatchInformedRRTStar/batch_informed_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BezierPath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BezierPath/bezier_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BidirectionalAStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BidirectionalAStar/bidirectional_a_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BidirectionalBreadthFirstSearch'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BidirectionalBreadthFirstSearch/bidirectional_breadth_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BreadthFirstSearch'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BreadthFirstSearch/breadth_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/BugPlanning'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/BugPlanning/bug.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/Catmull_RomSplinePath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/Catmull_RomSplinePath/blending_functions.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/Catmull_RomSplinePath/catmull_rom_spline_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/ClosedLoopRRTStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ClosedLoopRRTStar/closed_loop_rrt_star_car.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ClosedLoopRRTStar/pure_pursuit.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ClosedLoopRRTStar/unicycle_model.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/ClothoidPath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ClothoidPath/clothoid_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/CubicSpline'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/CubicSpline/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/CubicSpline/cubic_spline_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/CubicSpline/spline_continuity.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/DStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DStar/dstar.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/DStarLite'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DStarLite/d_star_lite.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/DepthFirstSearch'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DepthFirstSearch/depth_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/Dijkstra'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/Dijkstra/dijkstra.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/DubinsPath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DubinsPath/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DubinsPath/dubins_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/DynamicMovementPrimitives'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DynamicMovementPrimitives/dynamic_movement_primitives.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/DynamicWindowApproach'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/DynamicWindowApproach/dynamic_window_approach.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/ElasticBands'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ElasticBands/elastic_bands.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/Eta3SplinePath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/Eta3SplinePath/eta3_spline_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/Eta3SplineTrajectory'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/Eta3SplineTrajectory/eta3_spline_trajectory.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/FlowField'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/FlowField/flowfield.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/FrenetOptimalTrajectory'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/FrenetOptimalTrajectory/cartesian_frenet_converter.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/FrenetOptimalTrajectory/frenet_optimal_trajectory.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/GreedyBestFirstSearch'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/GreedyBestFirstSearch/greedy_best_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/GridBasedSweepCPP'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/GridBasedSweepCPP/grid_based_sweep_coverage_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/HybridAStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/HybridAStar/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/HybridAStar/car.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/HybridAStar/dynamic_programming_heuristic.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/HybridAStar/hybrid_a_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/InformedRRTStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/InformedRRTStar/informed_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/LQRPlanner'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/LQRPlanner/lqr_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/LQRRRTStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/LQRRRTStar/lqr_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/ModelPredictiveTrajectoryGenerator'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ModelPredictiveTrajectoryGenerator/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ModelPredictiveTrajectoryGenerator/lookup_table_generator.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ModelPredictiveTrajectoryGenerator/motion_model.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ModelPredictiveTrajectoryGenerator/trajectory_generator.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/PotentialFieldPlanning'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/PotentialFieldPlanning/potential_field_planning.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/ProbabilisticRoadMap'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ProbabilisticRoadMap/probabilistic_road_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/QuinticPolynomialsPlanner'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/QuinticPolynomialsPlanner/quintic_polynomials_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/RRT'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRT/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRT/rrt.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRT/rrt_with_pathsmoothing.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRT/rrt_with_sobol_sampler.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/RRT/sobol'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRT/sobol/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRT/sobol/sobol.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/RRTDubins'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRTDubins/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRTDubins/rrt_dubins.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/RRTStar'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRTStar/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRTStar/rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/RRTStarDubins'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRTStarDubins/rrt_star_dubins.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/RRTStarReedsShepp'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/RRTStarReedsShepp/rrt_star_reeds_shepp.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/ReedsSheppPath'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/ReedsSheppPath/reeds_shepp_path_planning.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/SpiralSpanningTreeCPP'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/SpiralSpanningTreeCPP/map'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/SpiralSpanningTreeCPP/spiral_spanning_tree_coverage_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/StateLatticePlanner'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/StateLatticePlanner/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/StateLatticePlanner/state_lattice_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/TimeBasedPathPlanning'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/BaseClasses.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/GridWithDynamicObstacles.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/Node.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/Plotting.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/PriorityBasedPlanner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/SafeInterval.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/SpaceTimeAStar.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/TimeBasedPathPlanning/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/VisibilityRoadMap'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/VisibilityRoadMap/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/VisibilityRoadMap/geometry.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/VisibilityRoadMap/visibility_road_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/VoronoiRoadMap'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/VoronoiRoadMap/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/VoronoiRoadMap/dijkstra_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/VoronoiRoadMap/voronoi_road_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/WavefrontCPP'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathPlanning/WavefrontCPP/map'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/WavefrontCPP/wavefront_coverage_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathPlanning/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/cgmres_nmpc'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/cgmres_nmpc/cgmres_nmpc.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/lqr_speed_steer_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/lqr_speed_steer_control/lqr_speed_steer_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/lqr_steer_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/lqr_steer_control/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/lqr_steer_control/lqr_steer_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/model_predictive_speed_and_steer_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/model_predictive_speed_and_steer_control/model_predictive_speed_and_steer_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/move_to_pose'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/move_to_pose/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/move_to_pose/move_to_pose.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/move_to_pose/move_to_pose_robot.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/pure_pursuit'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/pure_pursuit/pure_pursuit.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/rear_wheel_feedback_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/rear_wheel_feedback_control/rear_wheel_feedback_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './PathTracking/stanley_control'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './PathTracking/stanley_control/stanley_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/EKFSLAM'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/EKFSLAM/ekf_slam.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/FastSLAM1'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/FastSLAM1/fast_slam1.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/FastSLAM2'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/FastSLAM2/fast_slam2.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/GraphBasedSLAM'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/GraphBasedSLAM/data'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graph_based_slam.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/GraphBasedSLAM/graphslam'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/GraphBasedSLAM/graphslam/edge'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/edge/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/edge/edge_odometry.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/graph.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/load.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/GraphBasedSLAM/graphslam/pose'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/pose/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/pose/se2.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/util.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/GraphBasedSLAM/graphslam/vertex.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './SLAM/ICPMatching'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/ICPMatching/icp_matching.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './SLAM/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/_static'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/_static/img'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/_templates'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './docs/conf.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/0_getting_started'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/10_inverted_pendulum'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/11_utils'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/11_utils/plot'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/12_appendix'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/12_appendix/Kalmanfilter_basics_2_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/12_appendix/Kalmanfilter_basics_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/12_appendix/steering_motion_model'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/13_mission_planning'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/13_mission_planning/behavior_tree'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/13_mission_planning/state_machine'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/1_introduction'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/1_introduction/1_definition_of_robotics'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/1_introduction/2_python_for_robotics'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/1_introduction/3_technologies_for_robotics'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/2_localization'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/2_localization/ensamble_kalman_filter_localization_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/2_localization/extended_kalman_filter_localization_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/2_localization/histogram_filter_localization'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/2_localization/particle_filter_localization'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/2_localization/unscented_kalman_filter_localization'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/circle_fitting'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/distance_map'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/gaussian_grid_map'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/k_means_object_clustering'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/lidar_to_grid_map_tutorial'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/ndt_map'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/normal_vector_estimation'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/point_cloud_sampling'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/ray_casting_grid_map'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/3_mapping/rectangle_fitting'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/FastSLAM1'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/FastSLAM2'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/ekf_slam'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/graph_slam'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/graph_slam/graphSLAM_SE2_example_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/graph_slam/graphSLAM_doc_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/4_slam/iterative_closest_point_matching'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/bezier_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/bspline_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/bugplanner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/catmull_rom_spline'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/clothoid_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/coverage_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/cubic_spline'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/dubins_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/dynamic_window_approach'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/elastic_bands'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/eta3_spline'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/frenet_frame_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/grid_base_search'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/hybridastar'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/lqr_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/model_predictive_trajectory_generator'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/prm_planner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/quintic_polynomials_planner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/reeds_shepp_path'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/rrt'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/rrt/closed_loop_rrt_star_car'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/rrt/rrt_star'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/rrt/rrt_star_reeds_shepp'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/state_lattice_planner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/time_based_grid_search'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/visibility_road_map_planner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/5_path_planning/vrm_planner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/cgmres_nmpc'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/lqr_speed_and_steering_control'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/lqr_steering_control'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/model_predictive_speed_and_steering_control'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/move_to_a_pose'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/pure_pursuit_tracking'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/rear_wheel_feedback_control'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/6_path_tracking/stanley_control'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/7_arm_navigation'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/7_arm_navigation/Planar_Two_Link_IK_files'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/8_aerial_navigation'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/8_aerial_navigation/drone_3d_trajectory_following'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/8_aerial_navigation/rocket_powered_landing'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/9_bipedal'...
+[2025-10-19 01:50:17] [build-stdout] Listing './docs/modules/9_bipedal/bipedal_planner'...
+[2025-10-19 01:50:17] [build-stdout] Listing './requirements'...
+[2025-10-19 01:50:17] [build-stdout] Listing './tests'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/conftest.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_LQR_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_a_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_a_star_searching_two_side.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_a_star_variants.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_batch_informed_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_behavior_tree.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_bezier_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_bipedal_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_breadth_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_bspline_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_bug.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_catmull_rom_spline.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_cgmres_nmpc.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_circle_fitting.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_closed_loop_rrt_star_car.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_clothoidal_paths.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_codestyle.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_cubature_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_d_star_lite.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_depth_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_dijkstra.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_distance_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_drone_3d_trajectory_following.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_dstar.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_dubins_path_planning.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_dynamic_movement_primitives.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_dynamic_window_approach.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_ekf_slam.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_elastic_bands.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_eta3_spline_path.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_extended_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_fast_slam1.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_fast_slam2.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_flow_field.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_frenet_optimal_trajectory.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_gaussian_grid_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_graph_based_slam.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_greedy_best_first_search.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_grid_based_sweep_coverage_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_grid_map_lib.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_histogram_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_hybrid_a_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_informed_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_inverted_pendulum_lqr_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_inverted_pendulum_mpc_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_iterative_closest_point.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_kmeans_clustering.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_lqr_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_lqr_speed_steer_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_lqr_steer_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_model_predictive_speed_and_steer_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_move_to_pose.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_move_to_pose_robot.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_mypy_type_check.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_n_joint_arm_to_point_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_normal_vector_estimation.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_particle_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_point_cloud_sampling.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_potential_field_planning.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_priority_based_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_probabilistic_road_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_pure_pursuit.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_quintic_polynomials_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_ray_casting_grid_map.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rear_wheel_feedback.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rectangle_fitting.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_reeds_shepp_path_planning.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rocket_powered_landing.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_dubins.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_star.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_star_dubins.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_star_reeds_shepp.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_star_seven_joint_arm.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_with_pathsmoothing_radius.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_rrt_with_sobol_sampler.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_safe_interval_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_space_time_astar.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_spiral_spanning_tree_coverage_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_stanley_controller.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_state_lattice_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_state_machine.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_two_joint_arm_to_point_control.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_unscented_kalman_filter.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_utils.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_visibility_road_map_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_voronoi_road_map_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './tests/test_wavefront_coverage_path_planner.py'...
+[2025-10-19 01:50:17] [build-stdout] Listing './utils'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './utils/__init__.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './utils/angle.py'...
+[2025-10-19 01:50:17] [build-stdout] Compiling './utils/plot.py'...
+[2025-10-19 01:50:17] Plumbing command codeql database trace-command completed.
+[2025-10-19 01:50:17] [PROGRESS] database create> Finalizing database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db.
+[2025-10-19 01:50:17] Running plumbing command: codeql database finalize --no-db-cluster -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db
+[2025-10-19 01:50:17] Using pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh.
+[2025-10-19 01:50:17] [PROGRESS] database finalize> Running pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics.
+[2025-10-19 01:50:17] Running plumbing command: codeql database trace-command --working-dir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics --no-tracing -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh
+[2025-10-19 01:50:17] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh]
+[2025-10-19 01:50:17] [build-stderr] Scanning for files in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics...
+[2025-10-19 01:50:17] [build-stderr] /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db: Indexing files in in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics...
+[2025-10-19 01:50:17] [build-stderr] Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml/tools/index-files.sh, /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/working/files-to-index9651403751633841415.list]
+[2025-10-19 01:50:18] Plumbing command codeql database trace-command completed.
+[2025-10-19 01:50:18] [PROGRESS] database finalize> Pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh completed in 843 ms.
+[2025-10-19 01:50:18] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db...
+[2025-10-19 01:50:18] Running plumbing command: codeql dataset import --dbscheme=/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/semmlecode.python.dbscheme -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/trap/python
+[2025-10-19 01:50:18] Clearing disk cache since the version file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python/default/cache/version does not exist
+[2025-10-19 01:50:18] Tuple pool not found. Clearing relations with cached strings
+[2025-10-19 01:50:18] Trimming disk cache at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python/default/cache in mode clear.
+[2025-10-19 01:50:18] Sequence stamp origin is -5991226755670106466
+[2025-10-19 01:50:18] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-10-19 01:50:18] Unpausing evaluation
+[2025-10-19 01:50:18] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-10-19 01:50:18] Unpausing evaluation
+[2025-10-19 01:50:18] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-10-19 01:50:18] Unpausing evaluation
+[2025-10-19 01:50:18] Trimming completed (3ms): Purged everything.
+[2025-10-19 01:50:18] Scanning for files in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/trap/python
+[2025-10-19 01:50:18] Found 395 TRAP files (10.60 MiB)
+[2025-10-19 01:50:18] [PROGRESS] dataset import> Importing TRAP files
+[2025-10-19 01:50:18] Importing $files.-0-if30ie0ZLlSIvZ145_hDjn6w=.trap.gz (1 of 395)
+[2025-10-19 01:50:18] Importing $files.Aa5AHxbAJ3aeav6-ZPDLJh1mDT0=.trap.gz (2 of 395)
+[2025-10-19 01:50:18] Importing $files.Z1JqjE5f53VfQKkm004_lG5Ugmc=.trap.gz (3 of 395)
+[2025-10-19 01:50:18] Importing $files.ZzWB5mdTOmBwetbKQeSUuZhommM=.trap.gz (4 of 395)
+[2025-10-19 01:50:18] Importing $files.a-G7KfmJM2a6FOerDeGxsvh1V0Y=.trap.gz (5 of 395)
+[2025-10-19 01:50:18] Importing $files.foJlw-YOMLTwpOea9s6rJpUsV48=.trap.gz (6 of 395)
+[2025-10-19 01:50:18] Importing $files.h2cbzNELs7K8D0mcnuvtGfEef08=.trap.gz (7 of 395)
+[2025-10-19 01:50:18] Importing $files.mFfUCJznU7NHrTO7ILSNd4xop5I=.trap.gz (8 of 395)
+[2025-10-19 01:50:18] Importing $files.na1j69GSqmiTpGWYA-qF2neh-ZI=.trap.gz (9 of 395)
+[2025-10-19 01:50:18] Importing $files.x-B2tbgPsGRUddosO8t6KhDxjss=.trap.gz (10 of 395)
+[2025-10-19 01:50:18] Importing $files.xSASisKUDU1Cdo2BEPXzYbmHp7s=.trap.gz (11 of 395)
+[2025-10-19 01:50:18] Importing $flags.2Gu2TBrVNhSu0CJFWfMbUXYIJxo=.trap.gz (12 of 395)
+[2025-10-19 01:50:18] Importing $interpreter3.eZfQupC3Bti3JSyJsr8nZEtLAQI=.trap.gz (13 of 395)
+[2025-10-19 01:50:18] Importing $stdlib_33.EapQqxCeh5jbQO8lzcvLpGqH7sE=.trap (14 of 395)
+[2025-10-19 01:50:18] Importing AStar.qbqDJkO-8MyNe1Ce8uTZW-hjC_o=.trap.gz (15 of 395)
+[2025-10-19 01:50:18] Importing AerialNavigation.o3U1D3-aABRCO8UY_63tCHrcsrQ=.trap.gz (16 of 395)
+[2025-10-19 01:50:18] Importing ArmNavigation.ACUdJ4cR4Z8cx3ucGs2qQFRMGzs=.trap.gz (17 of 395)
+[2025-10-19 01:50:18] Importing BSplinePath.ZM96OxmZPZjyml-XymqV0ZOJaxU=.trap.gz (18 of 395)
+[2025-10-19 01:50:18] Importing BaseClasses.py.pk_XVDu2uN233Y2HRsSumOrSUTs=.trap.gz (19 of 395)
+[2025-10-19 01:50:18] Importing BatchInformedRRTStar._uohKkyLYh3Lezlo1pr2UpKwMCw=.trap.gz (20 of 395)
+[2025-10-19 01:50:18] Importing BehaviorTree.mwWvLzq74NkrRLS3ck1Hxv7BXA4=.trap.gz (21 of 395)
+[2025-10-19 01:50:18] Importing BezierPath._Jpr-r4DtFkUlju3fmVS-In-WK8=.trap.gz (22 of 395)
+[2025-10-19 01:50:18] Importing BidirectionalAStar.B1aJ1zjKF1UZx-0eR46LvXQnyqk=.trap.gz (23 of 395)
+[2025-10-19 01:50:18] Importing BidirectionalBreadthFirstSearch.7utQqEvxgnldjLd7O-c7da7DIrQ=.trap.gz (24 of 395)
+[2025-10-19 01:50:18] Importing Bipedal.5iw_4B5jNRPKyn22Q729tKVTEHw=.trap.gz (25 of 395)
+[2025-10-19 01:50:18] Importing BreadthFirstSearch.Sd6HM_K4l2vVNoYupwUgnR8Wdh0=.trap.gz (26 of 395)
+[2025-10-19 01:50:18] Importing BugPlanning.O1zD6dlmWvjFUQ4D_bvrigbyoTY=.trap.gz (27 of 395)
+[2025-10-19 01:50:18] Importing Catmull_RomSplinePath.rJg7ikWp5xJPbPabJI2nBLZj36E=.trap.gz (28 of 395)
+[2025-10-19 01:50:18] Importing ClosedLoopRRTStar.TlW1JoVnwRTKjcHX77k24vvzRdQ=.trap.gz (29 of 395)
+[2025-10-19 01:50:18] Importing ClothoidPath.tW8J1OtiLqU9U4EUMm3HVExhb4s=.trap.gz (30 of 395)
+[2025-10-19 01:50:18] Importing CubicSpline.NWlg0Y_eh8nza0_7AAcF3DDVMMA=.trap.gz (31 of 395)
+[2025-10-19 01:50:18] Importing DStar.Oi5lfAkjIgJlmtTqX3d-7x5mz3I=.trap.gz (32 of 395)
+[2025-10-19 01:50:18] Importing DStarLite.Q2VEfzq1XJP762x0CZgLPiQs7yc=.trap.gz (33 of 395)
+[2025-10-19 01:50:18] Importing DepthFirstSearch.dmY8PcXsrenyYEv7DwmH63YNXyc=.trap.gz (34 of 395)
+[2025-10-19 01:50:18] Importing Dijkstra.9j8PbLKwm2vloqF02I96QDy3cTk=.trap.gz (35 of 395)
+[2025-10-19 01:50:18] Importing DistanceMap.w_W_OopnzvLNOr3aDqTxxL74y_0=.trap.gz (36 of 395)
+[2025-10-19 01:50:18] Importing DubinsPath.O4QD5ofZtWSWLXS0Z5AlOwhz18A=.trap.gz (37 of 395)
+[2025-10-19 01:50:18] Importing DynamicMovementPrimitives.Q34r7GC4Ermmos62BoaHzrHufBQ=.trap.gz (38 of 395)
+[2025-10-19 01:50:18] Importing DynamicWindowApproach.B-vntIkpsOA0lJVeUZsp_r4IWmU=.trap.gz (39 of 395)
+[2025-10-19 01:50:18] Importing EKFSLAM.47vNUtpk7OKq3SAEqjhn5Nr1EkQ=.trap.gz (40 of 395)
+[2025-10-19 01:50:18] Importing ElasticBands.XjpsFLfvffKyKC7vlSiAL8tzMrU=.trap.gz (41 of 395)
+[2025-10-19 01:50:18] Importing Eta3SplinePath.LN55rVaXNwL6QC5AKd6N1aR_5Sg=.trap.gz (42 of 395)
+[2025-10-19 01:50:18] Importing Eta3SplineTrajectory.TUNN9Rc_WuZggUJC4qLBFhGaJsU=.trap.gz (43 of 395)
+[2025-10-19 01:50:18] Importing FastSLAM1.sgNySK_9EVP4qFDAikAO-9NK6Ns=.trap.gz (44 of 395)
+[2025-10-19 01:50:18] Importing FastSLAM2.Lugwmk-fqJEQCBf4SawGcSuwGhQ=.trap.gz (45 of 395)
+[2025-10-19 01:50:18] Importing FlowField.Iw6ylTbiIFsoCg7lTswtnEwhRaw=.trap.gz (46 of 395)
+[2025-10-19 01:50:18] Importing FrenetOptimalTrajectory.W9ja7b_V0a15dVHSkGqb5zVZ2T4=.trap.gz (47 of 395)
+[2025-10-19 01:50:18] Importing GraphBasedSLAM.xvDNnO3fvZO0y942p7M7ScvCrZs=.trap.gz (48 of 395)
+[2025-10-19 01:50:18] Importing GreedyBestFirstSearch.Ul_rycG6jqZXRI1hLn0aaB_1rok=.trap.gz (49 of 395)
+[2025-10-19 01:50:18] Importing GridBasedSweepCPP.3tv4k4XV7TKNM7Je1-dETNKDmVQ=.trap.gz (50 of 395)
+[2025-10-19 01:50:18] Importing GridWithDynamicObstacles.py.SE_68dcv_UC5WK7W3yoJQo9jf3M=.trap.gz (51 of 395)
+[2025-10-19 01:50:18] Importing HybridAStar.dAl2NgQGARZamY1xhHZfuBawOJY=.trap.gz (52 of 395)
+[2025-10-19 01:50:18] Importing ICPMatching.Ne-HRVPZwGr4XLdhkNoVu3fIvjc=.trap.gz (53 of 395)
+[2025-10-19 01:50:18] Importing InformedRRTStar.AMsCohg0OTFm3d3lsyqQGe5DQ1Q=.trap.gz (54 of 395)
+[2025-10-19 01:50:18] Importing InvertedPendulum.kObUV1qJ5G4qQ_EY506_8utIHr8=.trap.gz (55 of 395)
+[2025-10-19 01:50:18] Importing LQRPlanner.1i3pwqnpsMHagQYfq_jM3FOX3C8=.trap.gz (56 of 395)
+[2025-10-19 01:50:18] Importing LQRRRTStar.tiGQSqMMdxKrFY1z92PVgrlZUtw=.trap.gz (57 of 395)
+[2025-10-19 01:50:18] Importing Localization.FArhG9oKZbAKSp-uA0HuLym4kGY=.trap.gz (58 of 395)
+[2025-10-19 01:50:18] Importing Mapping.PcxIkHFU1U1NuSwfcDNXSRBz6ns=.trap.gz (59 of 395)
+[2025-10-19 01:50:18] Importing MissionPlanning.gjZ4RJBoreyqawiiW94neXR_c0Y=.trap.gz (60 of 395)
+[2025-10-19 01:50:18] Importing ModelPredictiveTrajectoryGenerator.JeF8AqCKScfMB1H0SvTIWAOuayw=.trap.gz (61 of 395)
+[2025-10-19 01:50:18] Importing NLinkArm.py.gw5akpvA7RgE5GttI-J9OZ7zXqw=.trap.gz (62 of 395)
+[2025-10-19 01:50:18] Importing NLinkArm3d.py.0GaS3VZLEWNPLgF5jxD9bi3MHM8=.trap.gz (63 of 395)
+[2025-10-19 01:50:18] Importing Node.py.mPzIEoxOkrVs_XHlSsW2QF4QlrI=.trap.gz (64 of 395)
+[2025-10-19 01:50:18] Importing PathPlanning.V1YKKcGvwqu16fgcXCUJptEY0a8=.trap.gz (65 of 395)
+[2025-10-19 01:50:18] Importing PathTracking.SWf-9-pUM0UXU6U-zYzoHQSwgFA=.trap.gz (66 of 395)
+[2025-10-19 01:50:18] Importing Plotting.py.kvEjHnGQnEIN7oXqscnZXi1wCew=.trap.gz (67 of 395)
+[2025-10-19 01:50:18] Importing PotentialFieldPlanning.wuabybY9MJYhOKygqAThnuN08uQ=.trap.gz (68 of 395)
+[2025-10-19 01:50:18] Importing PriorityBasedPlanner.py.OHsUUuQRQ1K-HgV0LoA4txsIKPs=.trap.gz (69 of 395)
+[2025-10-19 01:50:18] Importing ProbabilisticRoadMap.Bl_4u3W9OilLBxaiaO5izu2euJk=.trap.gz (70 of 395)
+[2025-10-19 01:50:18] Importing PythonRobotics.viyf_vq8kx4o5HBg3-AbjY72ydM=.trap.gz (71 of 395)
+[2025-10-19 01:50:18] Importing Quadrotor.py.Rkfbcej74VcqlrElwacX-ZcfyUA=.trap.gz (72 of 395)
+[2025-10-19 01:50:18] Importing QuinticPolynomialsPlanner.T-HjABMTb5Sd_OyaW7rj8zSxz8Q=.trap.gz (73 of 395)
+[2025-10-19 01:50:18] Importing RRT.3KJew5r4-I1u36-huhLw9vHUKak=.trap.gz (74 of 395)
+[2025-10-19 01:50:18] Importing RRTDubins.I2CUQ7FGCPprLYMwuvSAtbVbicI=.trap.gz (75 of 395)
+[2025-10-19 01:50:18] Importing RRTStar.VL97nGmbTYhrLXJ8RlvpE8df8qs=.trap.gz (76 of 395)
+[2025-10-19 01:50:18] Importing RRTStarDubins.fk3p0GtlZTWCwopxtPoLy4Ktdmk=.trap.gz (77 of 395)
+[2025-10-19 01:50:18] Importing RRTStarReedsShepp.ktGqjhG0sKWKtvepXNHHY3l8NGE=.trap.gz (78 of 395)
+[2025-10-19 01:50:18] Importing ReedsSheppPath.8H9bI1AiSYXC8DeFypcW6Z115gQ=.trap.gz (79 of 395)
+[2025-10-19 01:50:18] Importing SLAM.GwFeuwxehdt1MQWkkxynQMCX5QQ=.trap.gz (80 of 395)
+[2025-10-19 01:50:18] Importing SafeInterval.py.GB-yhVHc-F5zbROCiUMtItQwcRo=.trap.gz (81 of 395)
+[2025-10-19 01:50:18] Importing SpaceTimeAStar.py.7n7jxOYtSQtPEETJ20ADGkl07tA=.trap.gz (82 of 395)
+[2025-10-19 01:50:18] Importing SpiralSpanningTreeCPP.8j4UQrPYyyNVyh0lZytHS-IzRmA=.trap.gz (83 of 395)
+[2025-10-19 01:50:18] Importing StateLatticePlanner.e9qIhpL7aZzQ_mk1oFVk5oeLuxg=.trap.gz (84 of 395)
+[2025-10-19 01:50:18] Importing StateMachine.6o_M95dqL2QDqWYzP5AN1zGbBLQ=.trap.gz (85 of 395)
+[2025-10-19 01:50:18] Importing TimeBasedPathPlanning.B7vzR8-lX-MvQN_cZWJYJM9Rqgo=.trap.gz (86 of 395)
+[2025-10-19 01:50:18] Importing TrajectoryGenerator.py.uLdyYaanKGcqYtp3uk3xxb1NA9I=.trap.gz (87 of 395)
+[2025-10-19 01:50:18] Importing config.yml.trap.gz (88 of 395)
+[2025-10-19 01:50:18] Importing FUNDING.yml.trap.gz (89 of 395)
+[2025-10-19 01:50:18] Importing codeql-config.yml.trap.gz (90 of 395)
+[2025-10-19 01:50:18] Importing dependabot.yml.trap.gz (91 of 395)
+[2025-10-19 01:50:18] Importing Linux_CI.yml.trap.gz (92 of 395)
+[2025-10-19 01:50:18] Importing MacOS_CI.yml.trap.gz (93 of 395)
+[2025-10-19 01:50:18] Importing Windows_CI.yml.trap.gz (94 of 395)
+[2025-10-19 01:50:18] Importing circleci-artifacts-redirector.yml.trap.gz (95 of 395)
+[2025-10-19 01:50:18] Importing codeql.yml.trap.gz (96 of 395)
+[2025-10-19 01:50:18] Importing gh-pages.yml.trap.gz (97 of 395)
+[2025-10-19 01:50:18] Importing _config.yml.trap.gz (98 of 395)
+[2025-10-19 01:50:18] Importing appveyor.yml.trap.gz (99 of 395)
+[2025-10-19 01:50:18] Importing environment.yml.trap.gz (100 of 395)
+[2025-10-19 01:50:18] Importing VisibilityRoadMap.W1FvsIRqE4c_B1YUrgSafCmGyb0=.trap.gz (101 of 395)
+[2025-10-19 01:50:18] Importing VoronoiRoadMap.k8rcSqIozfcK0fcXEUYY8VnRA9A=.trap.gz (102 of 395)
+[2025-10-19 01:50:18] Importing WavefrontCPP.0TelCiHfdJNMijDwekdLsu35y6c=.trap.gz (103 of 395)
+[2025-10-19 01:50:18] Importing __init_.py.XU71Te8PT6sYMY3x7h9thHx6xoQ=.trap.gz (104 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.07AkXdISm3Q_tGY2f3RTQAJbYb4=.trap.gz (105 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.6U2KrNcXH3ji7GO8ZdXQLQ61_qs=.trap.gz (106 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.7IcpTCNQhLDy1cbU_EbwNld83SE=.trap.gz (107 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.7SuZgfbiUk5QnKSdzpwSeCuCuC8=.trap.gz (108 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.7XupF7Vs4FDjlsiD5fHH43nk6Tg=.trap.gz (109 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.Dl3PCVsI1oxgKLsMFJaq-lu_ZHQ=.trap.gz (110 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.Dt176_GouOFubw3gD2os6tzsjZ8=.trap.gz (111 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.IKSG1oC9ksH_WknjJ7r6oZ6j9Hs=.trap.gz (112 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.LqXHxJfSAKYMzfThrVt28CILqTk=.trap.gz (113 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.N5rKcXZ4Jt0VZAuuvbAST7WEMj0=.trap.gz (114 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.N6M9adnv56_HyclRleYYxWcA7qU=.trap.gz (115 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.RIAKBxu5cilIHehHvOaiVBrTzhA=.trap.gz (116 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.V19M2fak92Sw72U5NoFpO5btM_w=.trap.gz (117 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.VGfFUa5aaCugh5YZVCNmMmXevCk=.trap.gz (118 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.YJd7Ru82YbdhlnyqYDk4bVdJfck=.trap.gz (119 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.Zp3TYWeD4FUwfN01thIexyY42g0=.trap.gz (120 of 395)
+[2025-10-19 01:50:18] Importing __init__.py._-spcFg8myGOs8Uecl2JmdOHK-I=.trap.gz (121 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.eG1mKu0-NbXX031H58m1oI1E_Aw=.trap.gz (122 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.fRoNlQ7bmkhJQ2mJx8R2HX15SSw=.trap.gz (123 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.fbxMEm1dmWZZUKjpx5MEuEWnK0g=.trap.gz (124 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.fk1o3rsLJ5ebxTpamMh88GZ-GRs=.trap.gz (125 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.fygyvfbzIw8V31Hy9wl5MU2DQKo=.trap.gz (126 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.gxodJLnxua1u_s7xE0FpL6IKJU0=.trap.gz (127 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.lsaV4jI_2HVqkjjMqmojlNmFUHU=.trap.gz (128 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.lv1Du7wBl4TtGEw4UPrJzUO6rDw=.trap.gz (129 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.mozp0sALS4xGBQojKhYiQaHqr50=.trap.gz (130 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.o0elD6xfoEf78Ehgf67UUzMA3Zg=.trap.gz (131 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.obcM_Hf_LM1Nvo9p68UqWeArlwk=.trap.gz (132 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.ptwrFE6CjFkPJUM2qKA8BF6aSh4=.trap.gz (133 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.tQYj_ZiQoM1S1LmAkaAd9y_8ZLI=.trap.gz (134 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.uwFVpAlbvbUvGrVdpZv0xlCM7bE=.trap.gz (135 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.v1XYqW_W_jT902BRp66aO5M-aB0=.trap.gz (136 of 395)
+[2025-10-19 01:50:18] Importing __init__.py.zS745kvWgXUYKuMLCKpuiQ_BVuE=.trap.gz (137 of 395)
+[2025-10-19 01:50:18] Importing a_star.py.PbGRahc8foyFxnxSQlDrpmwHB_0=.trap.gz (138 of 395)
+[2025-10-19 01:50:18] Importing a_star_searching_from_two_side.py.m6vsLjmmRmlTMPeV8ho0aztfpMQ=.trap.gz (139 of 395)
+[2025-10-19 01:50:18] Importing a_star_variants.py.Kt3nDIVk-mGYitDB9v3B15r4r-M=.trap.gz (140 of 395)
+[2025-10-19 01:50:18] Importing angle.py.B9rnzQxprza_WfsA08j-hder0oo=.trap.gz (141 of 395)
+[2025-10-19 01:50:18] Importing arm_obstacle_navigation.py.lBIARDt9Qqal694GaYgnRsbTOXA=.trap.gz (142 of 395)
+[2025-10-19 01:50:18] Importing arm_obstacle_navigation.pyLeLdHDDnRzFfwnbA5kbPzEni0=.trap.gz (143 of 395)
+[2025-10-19 01:50:18] Importing arm_obstacle_navigation_2.py.MaXNO-TW6fXLA6vRPXeasUqq4L0=.trap.gz (144 of 395)
+[2025-10-19 01:50:18] Importing batch_informed_rrt_star.py.o10RX_dBOTjAR8Aaubr_BZcd2go=.trap.gz (145 of 395)
+[2025-10-19 01:50:18] Importing behavior_tree.py.nHiEH3Wc4OOhE32bKAhn0HfoNNw=.trap.gz (146 of 395)
+[2025-10-19 01:50:18] Importing bezier_path.py.rU5yKfri2Jby_ypppoYHOKunRXc=.trap.gz (147 of 395)
+[2025-10-19 01:50:18] Importing bidirectional_a_star.py.QSlZ4-FtVtYYzNAV81NCQ_dp4fg=.trap.gz (148 of 395)
+[2025-10-19 01:50:18] Importing bidirectional_breadth_first_search.py.5TezCYmwy9HFlDLpMNRnkdrf3_k=.trap.gz (149 of 395)
+[2025-10-19 01:50:18] Importing bipedal_planner.-DjrMUOKZTG_bztt4y5ClZ-0-Yk=.trap.gz (150 of 395)
+[2025-10-19 01:50:18] Importing bipedal_planner.py.XOL9H727HGnZPkMAEGDjbAZrCTc=.trap.gz (151 of 395)
+[2025-10-19 01:50:18] Importing blending_functions.py.-w2mZk4m5oU_VA9iIhKUj1Pphng=.trap.gz (152 of 395)
+[2025-10-19 01:50:18] Importing breadth_first_search.py.ibHBuJenLGWUTa83JtzPaFtLZwY=.trap.gz (153 of 395)
+[2025-10-19 01:50:18] Importing bspline_path.py.cUiM61WHXV9YPeTmSYjc95yElk8=.trap.gz (154 of 395)
+[2025-10-19 01:50:18] Importing bug.py.THo7BjrqwkEdfMpboLjKhqFkUNo=.trap.gz (155 of 395)
+[2025-10-19 01:50:18] Importing car.py.6uJN_gmDHREEWOGx36Sm7S2sQs8=.trap.gz (156 of 395)
+[2025-10-19 01:50:18] Importing cartesian_frenet_converter.py.2c2pb4qLfze_uH3pYr0du8J88Fk=.trap.gz (157 of 395)
+[2025-10-19 01:50:18] Importing catmull_rom_spline_path.py.Elz9Y1uAuVkSD5ISwS9E2XCG0do=.trap.gz (158 of 395)
+[2025-10-19 01:50:18] Importing cgmres_nmpc.5DuuEc3Xa9msxkgrHfh88ILyL4M=.trap.gz (159 of 395)
+[2025-10-19 01:50:18] Importing cgmres_nmpc.py.S_lVfW8hm5S1bZLkj1r0LGsVeo4=.trap.gz (160 of 395)
+[2025-10-19 01:50:18] Importing circle_fitting.BkWh4dq7Ep6PlR7TRBgBR8MFOPo=.trap.gz (161 of 395)
+[2025-10-19 01:50:18] Importing circle_fitting.py.sqT8h5WyqG4ig2lAIsOI0sTZzBc=.trap.gz (162 of 395)
+[2025-10-19 01:50:18] Importing closed_loop_rrt_star_car.py.37oNqE8e7kYAeAX-9CfGd-SRRWI=.trap.gz (163 of 395)
+[2025-10-19 01:50:18] Importing clothoid_path_planner.py.JF4RxjKH1CMUPfMzJfRDIh9_3Hk=.trap.gz (164 of 395)
+[2025-10-19 01:50:18] Importing collections.76vJVtKBLzpLPcmbdy2IPXRttxc=.trap.gz (165 of 395)
+[2025-10-19 01:50:18] Importing conf.py.1Pz2FX8mSB-EXFFt7fNEF1Q3q3k=.trap.gz (166 of 395)
+[2025-10-19 01:50:18] Importing conftest.py.qE8s64IyDcE2zZDg7wiI5wbZ7jQ=.trap.gz (167 of 395)
+[2025-10-19 01:50:18] Importing cubature_kalman_filter.0eMRycn1a5ezGC2HrKg0Lksd8Tk=.trap.gz (168 of 395)
+[2025-10-19 01:50:18] Importing cubature_kalman_filter.py.sG0pv0RIfQRWOKj1eoWycTfZS9U=.trap.gz (169 of 395)
+[2025-10-19 01:50:18] Importing cubic_spline_planner.py.ITEFNRJDDEy6xQOjv3y7A-S5KLA=.trap.gz (170 of 395)
+[2025-10-19 01:50:18] Importing d_star_lite.py.HlWI73xM5VbepyiajF63-e36rgM=.trap.gz (171 of 395)
+[2025-10-19 01:50:18] Importing depth_first_search.py.b1BF0etBc96HjtAS-Ko37NRppfI=.trap.gz (172 of 395)
+[2025-10-19 01:50:18] Importing dijkstra.py.fdPbGjKkp050oIqOEaVIEsNhCD4=.trap.gz (173 of 395)
+[2025-10-19 01:50:18] Importing dijkstra_search.py.F_FFcSAK6xzWrMb2_iEoAWMktbM=.trap.gz (174 of 395)
+[2025-10-19 01:50:18] Importing distance_map.py.Az3H_gqFcN8Gu1-k2dOSKMLhiVs=.trap.gz (175 of 395)
+[2025-10-19 01:50:18] Importing docs.lqtzpOTdbJyefGiNgl2sZ4wqCw4=.trap.gz (176 of 395)
+[2025-10-19 01:50:18] Importing drone_3d_trajectory_following.py.hLYpT_ZZCjlBru0sIdnrbPx7DWI=.trap.gz (177 of 395)
+[2025-10-19 01:50:18] Importing drone_3d_trajectory_following.u063wBUYBuMwKvysBQ31114-CiU=.trap.gz (178 of 395)
+[2025-10-19 01:50:18] Importing dstar.py.MOxU-XuSTn6C3A0x9mgugSMurvE=.trap.gz (179 of 395)
+[2025-10-19 01:50:18] Importing dubins_path_planner.py.3LxyNqWkVy6fXZuiR5ob1w_RHmE=.trap.gz (180 of 395)
+[2025-10-19 01:50:18] Importing dynamic_movement_primitives.py.AxUmQb4sytcord9fgh_Pi1JrGlk=.trap.gz (181 of 395)
+[2025-10-19 01:50:18] Importing dynamic_programming_heuristic.py.zbvYotaEJxGa_Y4k8KgR2wBy6Mc=.trap.gz (182 of 395)
+[2025-10-19 01:50:18] Importing dynamic_window_approach.py.CjmOkhk3aLKyw3zAlxneY7sF8PI=.trap.gz (183 of 395)
+[2025-10-19 01:50:18] Importing edge.Jvq-TGptJW0F_BWElcCBaZkH2o0=.trap.gz (184 of 395)
+[2025-10-19 01:50:18] Importing edge_odometry.py.5D6ixudGV0XqSJ9hQn36pqvd_zY=.trap.gz (185 of 395)
+[2025-10-19 01:50:18] Importing ekf_slam.py.IkaUmbLvGIrlulmModVbnA_2tPQ=.trap.gz (186 of 395)
+[2025-10-19 01:50:18] Importing ekf_with_velocity_correction.py.zlhcucBgyGJ4jO72Jk7SY0_K5AI=.trap.gz (187 of 395)
+[2025-10-19 01:50:18] Importing elastic_bands.py.Y_LR1BB9XwQgm0iEY8s7MRND4h0=.trap.gz (188 of 395)
+[2025-10-19 01:50:18] Importing ensemble_kalman_filter.Yw7-r16n1gbzSldWihl93UQSJPI=.trap.gz (189 of 395)
+[2025-10-19 01:50:18] Importing ensemble_kalman_filter.py.L55kBaH8tsGWOZJjilSH8qzJIjc=.trap.gz (190 of 395)
+[2025-10-19 01:50:18] Importing eta3_spline_path.py.9fn1DQRKGiXW9pWRKbFZ0HLYMrI=.trap.gz (191 of 395)
+[2025-10-19 01:50:18] Importing eta3_spline_trajectory.py.sisWU_spv_Vx7-EzQ6xV362p_ig=.trap.gz (192 of 395)
+[2025-10-19 01:50:18] Importing etree.2T04k40030b7niAqEa-LXlNdhWo=.trap.gz (193 of 395)
+[2025-10-19 01:50:18] Importing extended_kalman_filter.py.UYwmUaUsLUaZ1ZvmGHmagF1X6Xw=.trap.gz (194 of 395)
+[2025-10-19 01:50:18] Importing extended_kalman_filter.yMSRsC3VRzcAvwkTL-H7AMpbKBY=.trap.gz (195 of 395)
+[2025-10-19 01:50:18] Importing fast_slam1.py.CVaQv7Mh1QKv9kxuNMju_9ZJg8c=.trap.gz (196 of 395)
+[2025-10-19 01:50:18] Importing fast_slam2.py.PqU-KP0OQTrXS7YbaK_I429nVHQ=.trap.gz (197 of 395)
+[2025-10-19 01:50:18] Importing flowfield.py.DfVbjmG6Pze6dr433l_hTDOBKzI=.trap.gz (198 of 395)
+[2025-10-19 01:50:18] Importing frenet_optimal_trajectory.py.na2-n-oWtIOd9op-1WGreGleBgw=.trap.gz (199 of 395)
+[2025-10-19 01:50:18] Importing gaussian_grid_map.py.3NK2ZZYY0lkp0qBh1ni41z6KjSo=.trap.gz (200 of 395)
+[2025-10-19 01:50:18] Importing gaussian_grid_map.ziatzevNaqWMhEXlATLR4-1dtYw=.trap.gz (201 of 395)
+[2025-10-19 01:50:18] Importing geometry.py.HTKS7ptLlp6tZn-iuVb-C14rKDw=.trap.gz (202 of 395)
+[2025-10-19 01:50:18] Importing graph.py.tAIARsNhD3UQvIbcHJWzwvth9sk=.trap.gz (203 of 395)
+[2025-10-19 01:50:18] Importing graph_based_slam.py.DpaGaqqVKgbdc-_Fgie9lXxrqAM=.trap.gz (204 of 395)
+[2025-10-19 01:50:18] Importing graphslam.6h0WMpz8byMtPq4SITiQ4xjACB0=.trap.gz (205 of 395)
+[2025-10-19 01:50:18] Importing greedy_best_first_search.py.KPEWKlxm_LxY3lXuYctBjpwoCNI=.trap.gz (206 of 395)
+[2025-10-19 01:50:18] Importing grid_based_sweep_coverage_path_planner.py.HH95VwvCxrbzRvz7lZsxN6asI58=.trap.gz (207 of 395)
+[2025-10-19 01:50:18] Importing grid_map_lib.OW7LPncC1kgUAiINPDAmy6AXeJU=.trap.gz (208 of 395)
+[2025-10-19 01:50:18] Importing grid_map_lib.py.QnHMQqa4Vft0e5D9nj_stSHV-sY=.trap.gz (209 of 395)
+[2025-10-19 01:50:18] Importing histogram_filter.kFcBdE7GtDrvFhft0ND8LDR-Df4=.trap.gz (210 of 395)
+[2025-10-19 01:50:18] Importing histogram_filter.py.4CPdU8f4qxqRyZ55IGTVk9sJmFI=.trap.gz (211 of 395)
+[2025-10-19 01:50:18] Importing hybrid_a_star.py.1ujSOKyH7EA_h0DXSRCitUGnVDk=.trap.gz (212 of 395)
+[2025-10-19 01:50:18] Importing icp_matching.py.Ta8nE25l-FdW2xKXZBD4SmCB73o=.trap.gz (213 of 395)
+[2025-10-19 01:50:18] Importing informed_rrt_star.py.pyWpjZBHOrENHIpuCjNXl7usYRo=.trap.gz (214 of 395)
+[2025-10-19 01:50:18] Importing inverted_pendulum_lqr_control.py.tayPmYh_NOgDCIsysXwH4FV473Q=.trap.gz (215 of 395)
+[2025-10-19 01:50:18] Importing inverted_pendulum_mpc_control.py.PkPpPCXxnSTjFYrQbh0HqB8T-9w=.trap.gz (216 of 395)
+[2025-10-19 01:50:18] Importing itertools.19BwsvPY03H0n4sMA84CyfXNi5w=.trap.gz (217 of 395)
+[2025-10-19 01:50:18] Importing kmeans_clustering.B0T1L195Zg0ZPtw-j10TSldos-U=.trap.gz (218 of 395)
+[2025-10-19 01:50:18] Importing kmeans_clustering.py.CILlf0jbhppCbdNMdqUKccs-og4=.trap.gz (219 of 395)
+[2025-10-19 01:50:18] Importing lidar_to_grid_map.9v04MEblnP_wNiK80weqQ7vs04E=.trap.gz (220 of 395)
+[2025-10-19 01:50:18] Importing lidar_to_grid_map.py.TKBWNovyUXdqbtyEeo9lfBj7DMg=.trap.gz (221 of 395)
+[2025-10-19 01:50:18] Importing load.py.5kGS5byh0bwXvxI6B6RCQLH-PSw=.trap.gz (222 of 395)
+[2025-10-19 01:50:18] Importing logging.gpiFtaMU8aumvullNu0-pt_UMIY=.trap.gz (223 of 395)
+[2025-10-19 01:50:18] Importing lookup_table_generator.py.leOlraL_06DJuaGCvN2O2Tng2Nw=.trap.gz (224 of 395)
+[2025-10-19 01:50:18] Importing lqr_planner.py.Jk3oVPEzjFetReUBnJvv_GEPXhg=.trap.gz (225 of 395)
+[2025-10-19 01:50:18] Importing lqr_rrt_star.py.FnTaqitarYCzu98UITktkWBGiPE=.trap.gz (226 of 395)
+[2025-10-19 01:50:18] Importing lqr_speed_steer_control.p_e10_0Rk50Np1hCl7DN5v4520k=.trap.gz (227 of 395)
+[2025-10-19 01:50:18] Importing lqr_speed_steer_control.py.R0SD6_jluS7Dvhb7KawwlZ_xrMU=.trap.gz (228 of 395)
+[2025-10-19 01:50:18] Importing lqr_steer_control.py.5Df6mx5gVmv5aUVTgrN1RYay3s8=.trap.gz (229 of 395)
+[2025-10-19 01:50:18] Importing lqr_steer_control.tx54IiIq-nmYJmcQiZd5Ehwc938=.trap.gz (230 of 395)
+[2025-10-19 01:50:18] Importing math.LESFHzJNcvcj9DdJW1VAs1-UCSk=.trap.gz (231 of 395)
+[2025-10-19 01:50:18] Importing metadata.trap.gz (232 of 395)
+[2025-10-19 01:50:18] Importing model_predictive_speed_and_steer_control.py.Ru4whkbJSjo1qxyuQr2vV9J9Kz4=.trap.gz (233 of 395)
+[2025-10-19 01:50:18] Importing model_predictive_speed_and_steer_control.vvpm-5-21pgTdM4hEfJ1frbzJ3c=.trap.gz (234 of 395)
+[2025-10-19 01:50:18] Importing motion_model.py.JEBhM77r21aPI1DSOik_SvtDPJw=.trap.gz (235 of 395)
+[2025-10-19 01:50:18] Importing move_to_pose.FL_UPYqFXQK3B-ibZdjfwO-hslg=.trap.gz (236 of 395)
+[2025-10-19 01:50:18] Importing move_to_pose.py.A5brudxwAelX_-je2piFQkyZ3Aw=.trap.gz (237 of 395)
+[2025-10-19 01:50:18] Importing move_to_pose_robot.py.cIInhD5pycaYinhOxsaUqz3PT9I=.trap.gz (238 of 395)
+[2025-10-19 01:50:18] Importing n_joint_arm_3d.vTkeVE9Ru7_oPt-TUx-wgHcgBlA=.trap.gz (239 of 395)
+[2025-10-19 01:50:18] Importing n_joint_arm_to_point_control.ppWU5lITvBYpW5n_OdgH3aWfMfo=.trap.gz (240 of 395)
+[2025-10-19 01:50:18] Importing n_joint_arm_to_point_control.py.6hVYiEBRIWtZHM7bF2NHkh8Sltg=.trap.gz (241 of 395)
+[2025-10-19 01:50:18] Importing ndt_map.ePX2rbBA2A_ZzzUiUXjTn4tAg7A=.trap.gz (242 of 395)
+[2025-10-19 01:50:18] Importing ndt_map.py.WZy7dbybU8m9_vkPjqG1ZiHLcAs=.trap.gz (243 of 395)
+[2025-10-19 01:50:18] Importing normal_vector_estimation.02oCUrsASPR2rchMz91QX_VABh4=.trap.gz (244 of 395)
+[2025-10-19 01:50:18] Importing normal_vector_estimation.py.XRc80OutjbV95qsx6dDxOR8siNs=.trap.gz (245 of 395)
+[2025-10-19 01:50:18] Importing particle_filter.7lg-F58dEyPORDvcsWWfMxFZWxo=.trap.gz (246 of 395)
+[2025-10-19 01:50:18] Importing particle_filter.py.D9z1kDriaPSXwluGdeceEniJTxk=.trap.gz (247 of 395)
+[2025-10-19 01:50:18] Importing plot.py.-zgMet7rIr1Rwc0eRgrsVKlUoPM=.trap.gz (248 of 395)
+[2025-10-19 01:50:18] Importing point_cloud_sampling.lrXSC4xq7i5DCbT5OWfhAQU98b8=.trap.gz (249 of 395)
+[2025-10-19 01:50:18] Importing point_cloud_sampling.py._Ds-uDCyX0rqbxOaOtGaNwpCdtM=.trap.gz (250 of 395)
+[2025-10-19 01:50:18] Importing pose.o4HrC5oZ3FjxNlrPBTVIKSCspsg=.trap.gz (251 of 395)
+[2025-10-19 01:50:18] Importing potential_field_planning.py.3oUaFiZjQsQq8-oLywh_moE-T3c=.trap.gz (252 of 395)
+[2025-10-19 01:50:18] Importing probabilistic_road_map.py._AM-SA40LqS2W3TuVSg9dCjHBAw=.trap.gz (253 of 395)
+[2025-10-19 01:50:18] Importing pure_pursuit.6yriVYpSd5AftoNVaYlYqeJ_ouk=.trap.gz (254 of 395)
+[2025-10-19 01:50:18] Importing pure_pursuit.py.7DFa63IpDTNkaVfuLtrxeyfpvFM=.trap.gz (255 of 395)
+[2025-10-19 01:50:19] Importing pure_pursuit.py.c-yzJ0N1DQnds7AAyhwrpLpTpuA=.trap.gz (256 of 395)
+[2025-10-19 01:50:19] Importing quintic_polynomials_planner.py.RvwWMfzRJXbavubt0_-65X9gklg=.trap.gz (257 of 395)
+[2025-10-19 01:50:19] Importing random_forward_kinematics.py.ZcdgDADYqkbD6BKoVpHNV7OZ52M=.trap.gz (258 of 395)
+[2025-10-19 01:50:19] Importing random_inverse_kinematics.py.1lGt4JcI-FBkce_m3sndNBVjp3w=.trap.gz (259 of 395)
+[2025-10-19 01:50:19] Importing ray_casting_grid_map.py.-N-DJSNtg-1z7GxqljrYjg1jy5w=.trap.gz (260 of 395)
+[2025-10-19 01:50:19] Importing ray_casting_grid_map.v9j0OQeNJGPSA40xd3LyNWoMEU4=.trap.gz (261 of 395)
+[2025-10-19 01:50:19] Importing rear_wheel_feedback_control.YHtlda996jd3TOspUaErICiWyBQ=.trap.gz (262 of 395)
+[2025-10-19 01:50:19] Importing rear_wheel_feedback_control.py.KEyJbAj_Z63R2375IMq1LI5MPhI=.trap.gz (263 of 395)
+[2025-10-19 01:50:19] Importing rectangle_fitting.R0Pc1gNjQo9Jl83Em2DfbDlDuRA=.trap.gz (264 of 395)
+[2025-10-19 01:50:19] Importing rectangle_fitting.py.HlKD89hHWM-scXpduNPaxOoFBvc=.trap.gz (265 of 395)
+[2025-10-19 01:50:19] Importing reeds_shepp_path_planning.py._Jw_wF08b3YsJxY9mqB1yITKaCw=.trap.gz (266 of 395)
+[2025-10-19 01:50:19] Importing robot_behavior_case.py.2G-eal4ojDw3AoHCPnFrrqA0-aQ=.trap.gz (267 of 395)
+[2025-10-19 01:50:19] Importing robot_behavior_case.py.R-c8bBPuGJPDg129q_ELVt27kuw=.trap.gz (268 of 395)
+[2025-10-19 01:50:19] Importing rocket_powered_landing.2o3sUWxUMTN8HiqqtpE-vRaAFAs=.trap.gz (269 of 395)
+[2025-10-19 01:50:19] Importing rocket_powered_landing.py.Y_3UGewi9EBAtxKg7X0y5XVOQkc=.trap.gz (270 of 395)
+[2025-10-19 01:50:19] Importing rrt.py.cqp_2fbZJto95DR3srUYLTEQvI8=.trap.gz (271 of 395)
+[2025-10-19 01:50:19] Importing rrt_dubins.py.U_D2EmTRGMNcV5QA_xkJztcoDH8=.trap.gz (272 of 395)
+[2025-10-19 01:50:19] Importing rrt_star.py.8SqTF3F-7RSDJhLU3GZBY2xiiRA=.trap.gz (273 of 395)
+[2025-10-19 01:50:19] Importing rrt_star_dubins.py.eZnrFiLS-jZCWVA3kbcJfQkNuRQ=.trap.gz (274 of 395)
+[2025-10-19 01:50:19] Importing rrt_star_reeds_shepp.py.nh_jbaC-L7Zt4GKf8WXoItzG7iA=.trap.gz (275 of 395)
+[2025-10-19 01:50:19] Importing rrt_star_seven_joint_arm_control.Zvk_dRYLqbha7torBR4oNknER3M=.trap.gz (276 of 395)
+[2025-10-19 01:50:19] Importing rrt_star_seven_joint_arm_control.py.dIC2P30I-npe2b9oREnhq3d2vkU=.trap.gz (277 of 395)
+[2025-10-19 01:50:19] Importing rrt_with_pathsmoothing.py.lyZ_Co3RqaorSaugeuCT84SOcyY=.trap.gz (278 of 395)
+[2025-10-19 01:50:19] Importing rrt_with_sobol_sampler.py.CyQrkDLLs7WqFf5nFevvqKqylTw=.trap.gz (279 of 395)
+[2025-10-19 01:50:19] Importing se2.py.acw6dW9QbMKyRhjo6dFP9UT1dw4=.trap.gz (280 of 395)
+[2025-10-19 01:50:19] Importing simulator.py.I4tiacM5mOu1ow15KIhjf7FCrNc=.trap.gz (281 of 395)
+[2025-10-19 01:50:19] Importing sobol.42ch71GhWCSagjnNlRU8ZXyW6AQ=.trap.gz (282 of 395)
+[2025-10-19 01:50:19] Importing sobol.py.cRHl-dy0rvrmfXyYT8PrHsf00Rw=.trap.gz (283 of 395)
+[2025-10-19 01:50:19] Importing spiral_spanning_tree_coverage_path_planner.py.FaBqoEaygQdNEt4sfFJqsVq7cVU=.trap.gz (284 of 395)
+[2025-10-19 01:50:19] Importing spline_continuity.py.TYvQ-nkr0ad8sk8bgq-n-YtYkjw=.trap.gz (285 of 395)
+[2025-10-19 01:50:19] Importing stanley_control.Zo2jBWN_iVhCrGeE2J7YehETUSY=.trap.gz (286 of 395)
+[2025-10-19 01:50:19] Importing stanley_control.py.UMya4vGbRJEi3dKab731pRsxrrs=.trap.gz (287 of 395)
+[2025-10-19 01:50:19] Importing state_lattice_planner.py.bbJDdI5QV8p37EpKsdkGO4dChQQ=.trap.gz (288 of 395)
+[2025-10-19 01:50:19] Importing state_machine.py.MbOU6w7RZ1P9VbFowhiwoMLkOIc=.trap.gz (289 of 395)
+[2025-10-19 01:50:19] Importing sys.XIvpHwAPb1gom4-WX9XNFkUngtI=.trap.gz (290 of 395)
+[2025-10-19 01:50:19] Importing test_LQR_planner.py.Sz_MLGfwGPDdJtR4u20VIcvbBOc=.trap.gz (291 of 395)
+[2025-10-19 01:50:19] Importing test_a_star.py.0arU-WmmfoGtA4kDpyVWuyT_33g=.trap.gz (292 of 395)
+[2025-10-19 01:50:19] Importing test_a_star_searching_two_side.py.dg9BBHm1WVjeFAB634buiPt3o4k=.trap.gz (293 of 395)
+[2025-10-19 01:50:19] Importing test_a_star_variants.py.IK_IYRHcTTpRzxNOrAEyw17YnbA=.trap.gz (294 of 395)
+[2025-10-19 01:50:19] Importing test_batch_informed_rrt_star.py.sCouUR1PO2dQ_j5HdZI7JPsQdoo=.trap.gz (295 of 395)
+[2025-10-19 01:50:19] Importing test_behavior_tree.py.ZxGywPMPKEIiC441Z2tn8FicYJg=.trap.gz (296 of 395)
+[2025-10-19 01:50:19] Importing test_bezier_path.py.wODVQPBvi24f9PqsT7aKHzi7LlY=.trap.gz (297 of 395)
+[2025-10-19 01:50:19] Importing test_bipedal_planner.py.eTREhHXM0Io1w5gtct_uA3t868s=.trap.gz (298 of 395)
+[2025-10-19 01:50:19] Importing test_breadth_first_search.py.GvzO1iFaII7U0rLvkL-BO5Pd5rM=.trap.gz (299 of 395)
+[2025-10-19 01:50:19] Importing test_bspline_path.py.qsF6dzu2mEJi71y7UzjAWruKYFg=.trap.gz (300 of 395)
+[2025-10-19 01:50:19] Importing test_bug.py.TtkIBqXCqUsoxs3Po6pQyqrfdaQ=.trap.gz (301 of 395)
+[2025-10-19 01:50:19] Importing test_catmull_rom_spline.py.WNUW7UmgCghB2cK9KaM-5_kkZPc=.trap.gz (302 of 395)
+[2025-10-19 01:50:19] Importing test_cgmres_nmpc.py.hNxzizm7qpr1DjqAwlwIIh8WY0U=.trap.gz (303 of 395)
+[2025-10-19 01:50:19] Importing test_circle_fitting.py.ISU0_V8-CvX5W7TxH0Vhv0mqfJE=.trap.gz (304 of 395)
+[2025-10-19 01:50:19] Importing test_closed_loop_rrt_star_car.py.Pc60eHIKmXdOH-p56x2Q2iJmJj8=.trap.gz (305 of 395)
+[2025-10-19 01:50:19] Importing test_clothoidal_paths.py.tnXwke6sxsQaMZ0H8y9bKtuDa1Q=.trap.gz (306 of 395)
+[2025-10-19 01:50:19] Importing test_codestyle.py.lj6knzbpObh-SOyg0Jr2m6bzN8c=.trap.gz (307 of 395)
+[2025-10-19 01:50:19] Importing test_cubature_kalman_filter.py.e1D29oav0x_nSQO2cVfTW5KkbA4=.trap.gz (308 of 395)
+[2025-10-19 01:50:19] Importing test_d_star_lite.py.F8yH0ptiym6CIU_NLJs0owjA5UY=.trap.gz (309 of 395)
+[2025-10-19 01:50:19] Importing test_depth_first_search.py.v69VAY26OrUYpOJ9MNDJZpW7N2U=.trap.gz (310 of 395)
+[2025-10-19 01:50:19] Importing test_dijkstra.py.Q0VPamVEjHaAzfEdrJAPZ20Kqbg=.trap.gz (311 of 395)
+[2025-10-19 01:50:19] Importing test_distance_map.py.KHQNsYRLGglYil-jpkNq1letyTs=.trap.gz (312 of 395)
+[2025-10-19 01:50:19] Importing test_drone_3d_trajectory_following.py.Gu0k06pyWrZgO7lsmPF84drntf0=.trap.gz (313 of 395)
+[2025-10-19 01:50:19] Importing test_dstar.py.bkT47FgJeZaQyQ03Wd7NCnqRJlI=.trap.gz (314 of 395)
+[2025-10-19 01:50:19] Importing test_dubins_path_planning.py.GKIqOp0OBeeAoDoAOncxHZYHgkc=.trap.gz (315 of 395)
+[2025-10-19 01:50:19] Importing test_dynamic_movement_primitives.py.WQ-qJpG-qCxPSiPesskdQROyD8w=.trap.gz (316 of 395)
+[2025-10-19 01:50:19] Importing test_dynamic_window_approach.py.bcxFJtS2BiW5x2Po3fLu5ms0htQ=.trap.gz (317 of 395)
+[2025-10-19 01:50:19] Importing test_ekf_slam.py.iaxLBWmJW05V-zZB49leBBIVKos=.trap.gz (318 of 395)
+[2025-10-19 01:50:19] Importing test_elastic_bands.py.dxeX9Mu84OsMHu2rjePDdhoyP4M=.trap.gz (319 of 395)
+[2025-10-19 01:50:19] Importing test_eta3_spline_path.py.mSh21JIJdQc9Kxx7ybY5cNz8zTs=.trap.gz (320 of 395)
+[2025-10-19 01:50:19] Importing test_extended_kalman_filter.py.dMdnqSZVPkuug0i4TzrRQbpandI=.trap.gz (321 of 395)
+[2025-10-19 01:50:19] Importing test_fast_slam1.py.bn27o_nvR2peOGu9XV3rNndnO0A=.trap.gz (322 of 395)
+[2025-10-19 01:50:19] Importing test_fast_slam2.py.7lmKS96-Foavt-Z5aPJqnenrEsI=.trap.gz (323 of 395)
+[2025-10-19 01:50:19] Importing test_flow_field.py.oOrTPjCCOf41qtD_QW54UBsUoT0=.trap.gz (324 of 395)
+[2025-10-19 01:50:19] Importing test_frenet_optimal_trajectory.py.aDurVbt42CiXt4Ia3ZppDIGk8Ic=.trap.gz (325 of 395)
+[2025-10-19 01:50:19] Importing test_gaussian_grid_map.py.Q30Vbd-T01a1YicaUoM0dcQYwLs=.trap.gz (326 of 395)
+[2025-10-19 01:50:19] Importing test_graph_based_slam.py.dUYfqQeBAIOvmo6vZs3PxlHrF5Q=.trap.gz (327 of 395)
+[2025-10-19 01:50:19] Importing test_greedy_best_first_search.py.YftD0lscT04OOJPu6ajDVaEJAis=.trap.gz (328 of 395)
+[2025-10-19 01:50:19] Importing test_grid_based_sweep_coverage_path_planner.py.i_YJYUukdw8sJDua0SH9A9MIQzQ=.trap.gz (329 of 395)
+[2025-10-19 01:50:19] Importing test_grid_map_lib.py.T09mOMO_E54CNzblNvCkUpP7tRw=.trap.gz (330 of 395)
+[2025-10-19 01:50:19] Importing test_histogram_filter.py.jsiU_l2e2-TAiGEJM48gagebpUE=.trap.gz (331 of 395)
+[2025-10-19 01:50:19] Importing test_hybrid_a_star.py.r5niv2FQU0cdszWS5OVtMbCkntI=.trap.gz (332 of 395)
+[2025-10-19 01:50:19] Importing test_informed_rrt_star.py.Nhv7-OVHf5w4QlfqmP8ffyd_v9c=.trap.gz (333 of 395)
+[2025-10-19 01:50:19] Importing test_inverted_pendulum_lqr_control.py.SoKdR-F1Zm5z0CZB6a-VIPCN4Cs=.trap.gz (334 of 395)
+[2025-10-19 01:50:19] Importing test_inverted_pendulum_mpc_control.py.IMjEjvTBvbWSSwv6S2XM2kjj2_g=.trap.gz (335 of 395)
+[2025-10-19 01:50:19] Importing test_iterative_closest_point.py.VML8DznKx-dsT5VfmfqpKXyc1so=.trap.gz (336 of 395)
+[2025-10-19 01:50:19] Importing test_kmeans_clustering.py.DILiWdioS3BFwIUqBGIW3Pjp4yE=.trap.gz (337 of 395)
+[2025-10-19 01:50:19] Importing test_lqr_rrt_star.py.E0sSILxaMlVHy3_Ua2RTnwo2i_I=.trap.gz (338 of 395)
+[2025-10-19 01:50:19] Importing test_lqr_speed_steer_control.py.PVb_8jjamUVCvROqAjuKz4fEcaE=.trap.gz (339 of 395)
+[2025-10-19 01:50:19] Importing test_lqr_steer_control.py.deXXs-nSohTAf3O5YUZBlXlCqH8=.trap.gz (340 of 395)
+[2025-10-19 01:50:19] Importing test_model_predictive_speed_and_steer_control.py.W7Kyf9EhOZRz6U6VHiBrNGfCsc4=.trap.gz (341 of 395)
+[2025-10-19 01:50:19] Importing test_move_to_pose.py.xIu7rEGyXSQmGw-1F6wvOhA8uIg=.trap.gz (342 of 395)
+[2025-10-19 01:50:19] Importing test_move_to_pose_robot.py.KNcqxIynESL8zYRPivZ7mnjKM4I=.trap.gz (343 of 395)
+[2025-10-19 01:50:19] Importing test_mypy_type_check.py.m5FE2k_DefnLXYs2N6ClLFQ9MKA=.trap.gz (344 of 395)
+[2025-10-19 01:50:19] Importing test_n_joint_arm_to_point_control.py.vw7JZGZ7_D1514-ZT1bfnGrh8fQ=.trap.gz (345 of 395)
+[2025-10-19 01:50:19] Importing test_normal_vector_estimation.py.6F0iyjzjVxrGaMWzTfrvmohHaNs=.trap.gz (346 of 395)
+[2025-10-19 01:50:19] Importing test_particle_filter.py.FUo8MCkYZi-8hbv0SwRNCkeXnBI=.trap.gz (347 of 395)
+[2025-10-19 01:50:19] Importing test_point_cloud_sampling.py._HLTzxFlKtOY24hlXi_8_UJ6Vyo=.trap.gz (348 of 395)
+[2025-10-19 01:50:19] Importing test_potential_field_planning.py.alxcTKOQN-JpLxp6GUIcwPX1DjI=.trap.gz (349 of 395)
+[2025-10-19 01:50:19] Importing test_priority_based_planner.py.-BhQjfhJYBwELGkjLu9BXIEdo-8=.trap.gz (350 of 395)
+[2025-10-19 01:50:19] Importing test_probabilistic_road_map.py.7Lt1syez4Q1UGSbZL-SCtSpOnRg=.trap.gz (351 of 395)
+[2025-10-19 01:50:19] Importing test_pure_pursuit.py.FD_Dq8GGqy0tPMrhmWPESS7Uu5g=.trap.gz (352 of 395)
+[2025-10-19 01:50:19] Importing test_quintic_polynomials_planner.py.vsFQli53JSs1OaSufYhD4I5LfA0=.trap.gz (353 of 395)
+[2025-10-19 01:50:19] Importing test_ray_casting_grid_map.py.9TnsZUQzaPTuYZR4WsVOlN0gZWk=.trap.gz (354 of 395)
+[2025-10-19 01:50:19] Importing test_rear_wheel_feedback.py.6YzL5snyTS9yFZOiDpVmRcxDDVY=.trap.gz (355 of 395)
+[2025-10-19 01:50:19] Importing test_rectangle_fitting.py.y108NTA6USi0Tms8D5p-xF7ByF8=.trap.gz (356 of 395)
+[2025-10-19 01:50:19] Importing test_reeds_shepp_path_planning.py.sFraDeZGWgRVjZHZn0UGZHC0Prw=.trap.gz (357 of 395)
+[2025-10-19 01:50:19] Importing test_rocket_powered_landing.py.owNTA15T4g_Jjzdnu6LQR9OYiio=.trap.gz (358 of 395)
+[2025-10-19 01:50:19] Importing test_rrt.py.PiEgTmZJbrXh34mZ1OVw63Tu5gI=.trap.gz (359 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_dubins.py.LiEAGcy4MTIPwbZK-RmTsMO9XHU=.trap.gz (360 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_star.py.-nMAtjrMal8mmI289nDGYOgDOe0=.trap.gz (361 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_star_dubins.py.-3kWzoypxXuwxNkClk36Ax0rego=.trap.gz (362 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_star_reeds_shepp.py.SrXDFqL9h6Vc2FxCHrf8MBcTePk=.trap.gz (363 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_star_seven_joint_arm.py.a_oviUY7WlORkA94GZpxlDAj7kQ=.trap.gz (364 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_with_pathsmoothing_radius.py.D6qMevQOaiQai-6bZ6eVPC6LT9M=.trap.gz (365 of 395)
+[2025-10-19 01:50:19] Importing test_rrt_with_sobol_sampler.py.osDesOXminbqJ-1z3-UvLS-X93c=.trap.gz (366 of 395)
+[2025-10-19 01:50:19] Importing test_safe_interval_path_planner.py.Ho3oe2Ugvyic4xv8-GEyB_jRwhE=.trap.gz (367 of 395)
+[2025-10-19 01:50:19] Importing test_space_time_astar.py.k8OAAgE4a9mu_rHV5bIllUjO2Qg=.trap.gz (368 of 395)
+[2025-10-19 01:50:19] Importing test_spiral_spanning_tree_coverage_path_planner.py.5SRATRDV2tFJf4YEragASg4rCFs=.trap.gz (369 of 395)
+[2025-10-19 01:50:19] Importing test_stanley_controller.py.FJvSLOvERH89YsTyvEuwOGyNOr0=.trap.gz (370 of 395)
+[2025-10-19 01:50:19] Importing test_state_lattice_planner.py.n7GzWtGgPF_09OPcUi1vyXpzwiQ=.trap.gz (371 of 395)
+[2025-10-19 01:50:19] Importing test_state_machine.py.wDUIcq4t6uM4NpcCndcjhGS_ur8=.trap.gz (372 of 395)
+[2025-10-19 01:50:19] Importing test_two_joint_arm_to_point_control.py.xoxLpVrTac5SdU2jxamSVhHUgH4=.trap.gz (373 of 395)
+[2025-10-19 01:50:19] Importing test_unscented_kalman_filter.py.cJg553xdJqFcH_NNHaWxtIeIEMI=.trap.gz (374 of 395)
+[2025-10-19 01:50:19] Importing test_utils.py.sHOowLpNLpwOEIZJ1i6XsLmFQG8=.trap.gz (375 of 395)
+[2025-10-19 01:50:19] Importing test_visibility_road_map_planner.py.Snec4sgi-EcsC5KfgQ4z5vpm2tg=.trap.gz (376 of 395)
+[2025-10-19 01:50:19] Importing test_voronoi_road_map_planner.py.Sjk1Lh1HL-QQ5D6p4q_5FbIXOJA=.trap.gz (377 of 395)
+[2025-10-19 01:50:19] Importing test_wavefront_coverage_path_planner.py.4CVUu2pymp1cW0ARg45f7ZXVDJc=.trap.gz (378 of 395)
+[2025-10-19 01:50:19] Importing tests.-qOj-7iuORYdSvaWOu4ufI8ZR7s=.trap.gz (379 of 395)
+[2025-10-19 01:50:19] Importing time.tiX66ZrhgKKJqgQG1Xp6IODD-9g=.trap.gz (380 of 395)
+[2025-10-19 01:50:19] Importing trajectory_generator.py.IMaVpz8Y-D8U2J_9midFhfMWRtk=.trap.gz (381 of 395)
+[2025-10-19 01:50:19] Importing two_joint_arm_to_point_control.SFnkngPoPgen4SRiZtZMS1JYBQk=.trap.gz (382 of 395)
+[2025-10-19 01:50:19] Importing two_joint_arm_to_point_control.py.hvKbbfJ1stL06a4DseK2aT0F7wY=.trap.gz (383 of 395)
+[2025-10-19 01:50:19] Importing unicycle_model.py.kRycxfRwjyQK8pnnSgHH1eGerrE=.trap.gz (384 of 395)
+[2025-10-19 01:50:19] Importing unscented_kalman_filter.XcXm-kJht2Y3dqhZckJTFzriL2U=.trap.gz (385 of 395)
+[2025-10-19 01:50:19] Importing unscented_kalman_filter.py.fJ5BSjQB_REMw7upaeWfgjFhDOw=.trap.gz (386 of 395)
+[2025-10-19 01:50:19] Importing urllib.Qd9f6rNJVBM5cWeRMaoBbXencsY=.trap.gz (387 of 395)
+[2025-10-19 01:50:19] Importing util.py.0FdceCUYyffOOm1eeKbrSi56a-E=.trap.gz (388 of 395)
+[2025-10-19 01:50:19] Importing utils.ei3GUyBXhYSNdWuzigVcH8Sch3Y=.trap.gz (389 of 395)
+[2025-10-19 01:50:19] Importing vertex.py.BUNVezvUhLlf8Do81Og6ID3Q05c=.trap.gz (390 of 395)
+[2025-10-19 01:50:19] Importing visibility_road_map.py.sltftBB5B_70bKDxW-l0QaENkSc=.trap.gz (391 of 395)
+[2025-10-19 01:50:19] Importing voronoi_road_map.py.D3NumpQz9qk5DhjJid_9PHDSdvw=.trap.gz (392 of 395)
+[2025-10-19 01:50:19] Importing wavefront_coverage_path_planner.py.bUA_eaWfhWxQxC835Yt7rUApWSc=.trap.gz (393 of 395)
+[2025-10-19 01:50:19] Importing xml.gcKNTLYFRgIhj7knysMjP_D2QP4=.trap.gz (394 of 395)
+[2025-10-19 01:50:19] Importing zlib.8Hemp0bsrh_BbACs8cjuPc2Vvb4=.trap.gz (395 of 395)
+[2025-10-19 01:50:19] [PROGRESS] dataset import> Merging relations
+[2025-10-19 01:50:19] Merging 1 fragment for 'files'.
+[2025-10-19 01:50:19] Merged 560 bytes for 'files'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'folders'.
+[2025-10-19 01:50:19] Merged 290 bytes for 'folders'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'containerparent'.
+[2025-10-19 01:50:19] Merged 722 bytes for 'containerparent'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_flags_versioned'.
+[2025-10-19 01:50:19] Merged 180 bytes for 'py_flags_versioned'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cobjects'.
+[2025-10-19 01:50:19] Merged 8862 bytes (8.65 KiB) for 'py_cobjects'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-10-19 01:50:19] Merged 15355 bytes (15.00 KiB) for 'py_cobjecttypes'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cobject_sources'.
+[2025-10-19 01:50:19] Merged 11129 bytes (10.87 KiB) for 'py_cobject_sources'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cobjectnames'.
+[2025-10-19 01:50:19] Merged 14828 bytes (14.48 KiB) for 'py_cobjectnames'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-10-19 01:50:19] Merged 7477 bytes (7.30 KiB) for 'py_cmembers_versioned'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_special_objects'.
+[2025-10-19 01:50:19] Merged 135 bytes for 'py_special_objects'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_citems'.
+[2025-10-19 01:50:19] Merged 454 bytes for 'py_citems'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'ext_rettype'.
+[2025-10-19 01:50:19] Merged 4025 bytes (3.93 KiB) for 'ext_rettype'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'ext_argtype'.
+[2025-10-19 01:50:19] Merged 6817 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'ext_argreturn'.
+[2025-10-19 01:50:19] Merged 41 bytes for 'ext_argreturn'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'ext_proptype'.
+[2025-10-19 01:50:19] Merged 345 bytes for 'ext_proptype'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_Modules'.
+[2025-10-19 01:50:19] Merged 382 bytes for 'py_Modules'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_module_path'.
+[2025-10-19 01:50:19] Merged 988 bytes for 'py_module_path'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'py_flow_bb_node'.
+[2025-10-19 01:50:19] Merged 464978 bytes (454.08 KiB) for 'py_flow_bb_node'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_scope_flow'.
+[2025-10-19 01:50:19] Merged 44291 bytes (43.25 KiB) for 'py_scope_flow'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'locations_ast'.
+[2025-10-19 01:50:19] Merged 622866 bytes (608.27 KiB) for 'locations_ast'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'variable'.
+[2025-10-19 01:50:19] Merged 67756 bytes (66.17 KiB) for 'variable'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_extracted_version'.
+[2025-10-19 01:50:19] Merged 286 bytes for 'py_extracted_version'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_stmt_lists'.
+[2025-10-19 01:50:19] Merged 21053 bytes (20.56 KiB) for 'py_stmt_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_stmts'.
+[2025-10-19 01:50:19] Merged 79687 bytes (77.82 KiB) for 'py_stmts'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'py_scopes'.
+[2025-10-19 01:50:19] Merged 164019 bytes (160.17 KiB) for 'py_scopes'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_alias_lists'.
+[2025-10-19 01:50:19] Merged 2182 bytes (2.13 KiB) for 'py_alias_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_aliases'.
+[2025-10-19 01:50:19] Merged 2484 bytes (2.43 KiB) for 'py_aliases'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'py_exprs'.
+[2025-10-19 01:50:19] Merged 521390 bytes (509.17 KiB) for 'py_exprs'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_ints'.
+[2025-10-19 01:50:19] Merged 1207 bytes (1.18 KiB) for 'py_ints'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_strs'.
+[2025-10-19 01:50:19] Merged 64902 bytes (63.38 KiB) for 'py_strs'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_variables'.
+[2025-10-19 01:50:19] Merged 116775 bytes (114.04 KiB) for 'py_variables'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_expr_contexts'.
+[2025-10-19 01:50:19] Merged 206550 bytes (201.71 KiB) for 'py_expr_contexts'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_bools'.
+[2025-10-19 01:50:19] Merged 3050 bytes (2.98 KiB) for 'py_bools'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_numbers'.
+[2025-10-19 01:50:19] Merged 69659 bytes (68.03 KiB) for 'py_numbers'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_expr_lists'.
+[2025-10-19 01:50:19] Merged 90159 bytes (88.05 KiB) for 'py_expr_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_Classes'.
+[2025-10-19 01:50:19] Merged 716 bytes for 'py_Classes'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_arguments'.
+[2025-10-19 01:50:19] Merged 5453 bytes (5.33 KiB) for 'py_arguments'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_Functions'.
+[2025-10-19 01:50:19] Merged 6242 bytes (6.10 KiB) for 'py_Functions'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_parameter_lists'.
+[2025-10-19 01:50:19] Merged 5350 bytes (5.22 KiB) for 'py_parameter_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_operators'.
+[2025-10-19 01:50:19] Merged 22838 bytes (22.30 KiB) for 'py_operators'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_exports'.
+[2025-10-19 01:50:19] Merged 2521 bytes (2.46 KiB) for 'py_exports'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'py_successors'.
+[2025-10-19 01:50:19] Merged 287601 bytes (280.86 KiB) for 'py_successors'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'py_idoms'.
+[2025-10-19 01:50:19] Merged 275906 bytes (269.44 KiB) for 'py_idoms'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_ssa_var'.
+[2025-10-19 01:50:19] Merged 39487 bytes (38.56 KiB) for 'py_ssa_var'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_ssa_defn'.
+[2025-10-19 01:50:19] Merged 34489 bytes (33.68 KiB) for 'py_ssa_defn'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_ssa_use'.
+[2025-10-19 01:50:19] Merged 66739 bytes (65.17 KiB) for 'py_ssa_use'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_scope_location'.
+[2025-10-19 01:50:19] Merged 7748 bytes (7.57 KiB) for 'py_scope_location'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_comments'.
+[2025-10-19 01:50:19] Merged 8469 bytes (8.27 KiB) for 'py_comments'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_codelines'.
+[2025-10-19 01:50:19] Merged 5963 bytes (5.82 KiB) for 'py_codelines'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_commentlines'.
+[2025-10-19 01:50:19] Merged 5129 bytes (5.01 KiB) for 'py_commentlines'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_docstringlines'.
+[2025-10-19 01:50:19] Merged 4399 bytes (4.30 KiB) for 'py_docstringlines'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_alllines'.
+[2025-10-19 01:50:19] Merged 6028 bytes (5.89 KiB) for 'py_alllines'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'numlines'.
+[2025-10-19 01:50:19] Merged 1100 bytes (1.07 KiB) for 'numlines'.
+[2025-10-19 01:50:19] Merging 2 fragments for 'py_locations'.
+[2025-10-19 01:50:19] Merged 288535 bytes (281.77 KiB) for 'py_locations'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-10-19 01:50:19] Merged 1806 bytes (1.76 KiB) for 'py_dict_item_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_dict_items'.
+[2025-10-19 01:50:19] Merged 3594 bytes (3.51 KiB) for 'py_dict_items'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-10-19 01:50:19] Merged 4952 bytes (4.84 KiB) for 'py_cmpop_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_cmpops'.
+[2025-10-19 01:50:19] Merged 6858 bytes (6.70 KiB) for 'py_cmpops'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_unaryops'.
+[2025-10-19 01:50:19] Merged 4059 bytes (3.96 KiB) for 'py_unaryops'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_boolops'.
+[2025-10-19 01:50:19] Merged 1004 bytes for 'py_boolops'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_true_successors'.
+[2025-10-19 01:50:19] Merged 6576 bytes (6.42 KiB) for 'py_true_successors'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_false_successors'.
+[2025-10-19 01:50:19] Merged 6754 bytes (6.60 KiB) for 'py_false_successors'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_ssa_phi'.
+[2025-10-19 01:50:19] Merged 6175 bytes (6.03 KiB) for 'py_ssa_phi'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'yaml_scalars'.
+[2025-10-19 01:50:19] Merged 959 bytes for 'yaml_scalars'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'yaml'.
+[2025-10-19 01:50:19] Merged 2985 bytes (2.92 KiB) for 'yaml'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'locations_default'.
+[2025-10-19 01:50:19] Merged 2513 bytes (2.45 KiB) for 'locations_default'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'yaml_locations'.
+[2025-10-19 01:50:19] Merged 943 bytes for 'yaml_locations'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-10-19 01:50:19] Merged 48 bytes for 'py_StringPart_lists'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_StringParts'.
+[2025-10-19 01:50:19] Merged 83 bytes for 'py_StringParts'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_exception_successors'.
+[2025-10-19 01:50:19] Merged 722 bytes for 'py_exception_successors'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-10-19 01:50:19] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-10-19 01:50:19] Merging 1 fragment for 'py_str_lists'.
+[2025-10-19 01:50:19] Merged 79 bytes for 'py_str_lists'.
+[2025-10-19 01:50:19] Saving string and id pools to disk.
+[2025-10-19 01:50:19] Finished importing TRAP files.
+[2025-10-19 01:50:19] Read 54.67 MiB of uncompressed TRAP data.
+[2025-10-19 01:50:19] Uncompressed relation data size: 16.07 MiB
+[2025-10-19 01:50:19] Relation data size: 3.57 MiB (merge rate: 20.47 MiB/s)
+[2025-10-19 01:50:19] String pool size: 2.41 MiB
+[2025-10-19 01:50:19] ID pool size: 1.19 MiB
+[2025-10-19 01:50:19] [PROGRESS] dataset import> Finished writing database (relations: 3.57 MiB; string pool: 2.41 MiB).
+[2025-10-19 01:50:19] Pausing evaluation to close the cache at sequence stamp o+161
+[2025-10-19 01:50:19] The disk cache is freshly trimmed; leave it be.
+[2025-10-19 01:50:19] Unpausing evaluation
+[2025-10-19 01:50:19] Plumbing command codeql dataset import completed.
+[2025-10-19 01:50:19] [PROGRESS] database finalize> TRAP import complete (1.4s).
+[2025-10-19 01:50:19] Running plumbing command: codeql database cleanup -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db
+[2025-10-19 01:50:19] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-10-19 01:50:19] [PROGRESS] database cleanup> TRAP files cleaned up (38ms).
+[2025-10-19 01:50:19] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-10-19 01:50:19] [PROGRESS] database cleanup> Scratch directory cleaned up (43ms).
+[2025-10-19 01:50:19] Running plumbing command: codeql dataset cleanup -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python
+[2025-10-19 01:50:19] [PROGRESS] dataset cleanup> Cleaning up dataset in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python.
+[2025-10-19 01:50:19] Trimming disk cache at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python/default/cache in mode trim.
+[2025-10-19 01:50:19] Sequence stamp origin is -5991226748997161808
+[2025-10-19 01:50:19] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-10-19 01:50:19] Unpausing evaluation
+[2025-10-19 01:50:19] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-10-19 01:50:19] Unpausing evaluation
+[2025-10-19 01:50:19] Trimming completed (1ms): Trimmed disposable data from cache.
+[2025-10-19 01:50:19] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-10-19 01:50:19] The disk cache is freshly trimmed; leave it be.
+[2025-10-19 01:50:19] Unpausing evaluation
+[2025-10-19 01:50:19] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-10-19 01:50:19] [PROGRESS] dataset cleanup> Finalizing dataset in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python
+[2025-10-19 01:50:19] [DETAILS] dataset cleanup> Finished deleting ID pool from /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python (1ms).
+[2025-10-19 01:50:19] Plumbing command codeql dataset cleanup completed.
+[2025-10-19 01:50:19] Plumbing command codeql database cleanup completed with status 0.
+[2025-10-19 01:50:19] [PROGRESS] database finalize> Finished zipping source archive (381.90 KiB).
+[2025-10-19 01:50:19] Plumbing command codeql database finalize completed.
+[2025-10-19 01:50:19] [PROGRESS] database create> Successfully created database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db.
+[2025-10-19 01:50:19] Terminating normally.

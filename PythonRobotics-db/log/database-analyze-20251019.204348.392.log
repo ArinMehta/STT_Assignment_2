@@ -1,0 +1,14 @@
+[2025-10-19 20:43:48] This is codeql database analyze . --format=sarifv2.1.0 --output=../pythonrobotics_codeql_results.sarif codeql/python-queries:codeql-suites/python-security-and-quality.qls
+[2025-10-19 20:43:48] Log file was started late.
+[2025-10-19 20:43:48] [PROGRESS] database analyze> Running queries.
+[2025-10-19 20:43:48] Running plumbing command: codeql database run-queries --evaluator-log-level=5 --warnings=show --qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/qlconfig.yml --dynamic-join-order-mode=none --no-rerun --interpret-passthrough=null,--format=sarifv2.1.0,-o=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/pythonrobotics_codeql_results.sarif,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/qlconfig.yml,--,/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db,codeql/python-queries:codeql-suites/python-security-and-quality.qls -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db codeql/python-queries:codeql-suites/python-security-and-quality.qls
+[2025-10-19 20:43:48] Calling plumbing command: codeql resolve ram --dataset=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python --format=json
+[2025-10-19 20:43:48] [PROGRESS] resolve ram> Stringpool size measured as 2523546
+[2025-10-19 20:43:48] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx1945M",
+                        "--off-heap-ram=1958"
+                      ]
+[2025-10-19 20:43:48] Chaining via /var/folders/3m/s02h4sgd74lg5s9ytbmcm02w0000gn/T/codeql.XXXXXXXX.tiphFsuaJA to plumbing: execute queries -J-Xmx1945M --off-heap-ram=1958 --verbosity=progress --logdir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/qlconfig.yml --dynamic-join-order-mode=none --no-rerun --interpret-passthrough=null,--format=sarifv2.1.0,-o=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/pythonrobotics_codeql_results.sarif,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/qlconfig.yml,--,/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db,codeql/python-queries:codeql-suites/python-security-and-quality.qls --output=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/results -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/PythonRobotics-db/db-python codeql/python-queries:codeql-suites/python-security-and-quality.qls
+[2025-10-19 20:43:48] Plumbing command codeql database run-queries completed with status 70.
+[2025-10-19 20:43:48] Exiting with code 70

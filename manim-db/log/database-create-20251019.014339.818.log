@@ -1,0 +1,1004 @@
+[2025-10-19 01:43:39] This is codeql database create ../manim-db --language=python --command=python3 -m compileall .
+[2025-10-19 01:43:39] Log file was started late.
+[2025-10-19 01:43:39] [PROGRESS] database create> Initializing database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db.
+[2025-10-19 01:43:39] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/qlconfig.yml --source-root=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim --allow-missing-source-root=false --allow-already-existing -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db
+[2025-10-19 01:43:39] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-10-19 01:43:39] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/homebrew/Caskroom/codeql/2.23.3/codeql/.codeqlmanifest.json
+[2025-10-19 01:43:39] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/go/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/rust/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/java/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/html/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/xml/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/properties/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/cpp/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/swift/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/csv/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/csharp/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript/codeql-extractor.yml.
+[2025-10-19 01:43:40] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.23.3/codeql/ruby/codeql-extractor.yml.
+[2025-10-19 01:43:40] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "rust" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/html"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/xml"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/properties"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.23.3/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-10-19 01:43:40] [PROGRESS] database init> Calculating baseline information in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim
+[2025-10-19 01:43:40] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-10-19 01:43:40] [DETAILS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim: /opt/homebrew/Caskroom/codeql/2.23.3/codeql/tools/osx64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-10-19 01:43:42] Using configure-baseline script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/tools/configure-baseline.sh.
+[2025-10-19 01:43:42] [PROGRESS] database init> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/actions/tools/configure-baseline.sh]
+[2025-10-19 01:43:43] [SPAMMY] database init> Ignored an additional 3 files when processing baseline information for YAML due to paths and paths-ignore configuration.
+[2025-10-19 01:43:43] [SPAMMY] database init> Found 95 baseline files for python.
+[2025-10-19 01:43:43] [SPAMMY] database init> Found 2 baseline files for actions.
+[2025-10-19 01:43:43] [PROGRESS] database init> Calculated baseline information for languages: actions, python (3.2s).
+[2025-10-19 01:43:46] [PROGRESS] database init> Resolving extractor python.
+[2025-10-19 01:43:46] [DETAILS] database init> Found candidate extractor root for python: /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python.
+[2025-10-19 01:43:46] [PROGRESS] database init> Successfully loaded extractor Python (python) from /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python.
+[2025-10-19 01:43:46] [SPAMMY] database init> Determining macOS System Integrity Protection status...
+[2025-10-19 01:43:46] [SPAMMY] database init> Running command [/usr/bin/csrutil, status].
+[2025-10-19 01:43:46] [SPAMMY] database init> SIP is enabled.
+[2025-10-19 01:43:46] [PROGRESS] database init> Created skeleton CodeQL database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db. This in-progress database is ready to be populated by an extractor.
+[2025-10-19 01:43:46] Plumbing command codeql database init completed.
+[2025-10-19 01:43:46] [PROGRESS] database create> Running build command: [python3, -m, compileall, .]
+[2025-10-19 01:43:46] Running plumbing command: codeql database trace-command --working-dir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim --index-traceless-dbs --no-db-cluster -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db python3 -m compileall .
+[2025-10-19 01:43:46] Using autobuild script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/autobuild.sh.
+[2025-10-19 01:43:46] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/autobuild.sh]
+[2025-10-19 01:43:47] [build-stderr] /bin/sh: python2: command not found
+[2025-10-19 01:43:47] [build-stdout] Source root appears to be the real root.
+[2025-10-19 01:43:47] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-10-19 01:43:47] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-10-19 01:43:47] [build-stdout] Found no Trove classifiers for Python in setup.py
+[2025-10-19 01:43:47] [build-stdout] Trying to guess Python version based on travis file
+[2025-10-19 01:43:47] [build-stdout] Did not find any travis files (expected them at either ['/Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/.travis.yml', '/Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/travis.yml'])
+[2025-10-19 01:43:47] [build-stdout] Trying to guess Python version based on installed versions
+[2025-10-19 01:43:47] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-10-19 01:43:47] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-10-19 01:43:47] [build-stdout] Could not guess Python version, will use default: Python 3
+[2025-10-19 01:43:47] [build-stdout] Calling python3 -S /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/working/trap_cache -R /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim
+[2025-10-19 01:43:47] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-10-19 01:43:47] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-10-19 01:43:47] [build-stdout] [INFO] sys_path is: ['/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python310.zip', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10', '/Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/lib-dynload']
+[2025-10-19 01:43:47] [build-stdout] [INFO] Python version 3.10.13
+[2025-10-19 01:43:47] [build-stdout] [INFO] Python extractor version 7.1.5
+[2025-10-19 01:43:48] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/event_handler in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/event_handler/__init__.py in 5ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/event_handler/event_type.py in 8ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/camera/__init__.py in 2ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/event_handler/event_listner.py in 21ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/camera in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/__init__.py in 3ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/update.py in 41ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/event_handler/event_dispatcher.py in 73ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/numbers.py in 38ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/specialized.py in 30ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/movement.py in 87ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/constants.py in 112ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/frame.py in 22ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/transform_matching_parts.py in 132ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/config.py in 190ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/window.py in 195ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject in 2ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/camera/camera.py in 186ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/animation.py in 145ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/creation.py in 186ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/simple_functions.py in 79ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/docs in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/special_tex.py in 75ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/camera/camera_frame.py in 238ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/shape_matchers.py in 94ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/debug.py in 31ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/images.py in 27ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/logger.py in 10ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types/image_mobject.py in 76ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/transform.py in 245ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [11] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/logo in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types/dot_cloud.py in 132ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/tex_to_symbol_count.py in 93ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/changing.py in 131ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/__init__.py in 3ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/enum.py
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/file_ops.py in 34ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/__main__.py in 31ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types/__init__.py in 3ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/brace.py in 156ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/mobject_update_utils.py in 80ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/indication.py in 310ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/docs/source/conf.py in 14ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/rotation.py in 53ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/functions.py in 135ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/tex_file_writing.py in 134ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/docs/example.py in 46ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/directories.py in 23ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/typing.py
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/scene/scene_file_writer.py in 330ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/__init__.py in 4ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/iterables.py in 187ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/space_ops.py in 365ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/composition.py in 159ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types/surface.py in 375ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [5] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/extract_scene.py in 125ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/example_scenes.py in 475ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [9] Extracted module math in 7ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/logo/logo.py in 123ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/paths.py in 37ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/number_line.py in 289ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/shaders.py in 62ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [2] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/value_tracker.py in 36ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [9] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/abc.py
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/numbers.py in 248ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/rate_functions.py in 73ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/scene in 1ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/cache.py in 28ms
+[2025-10-19 01:43:48] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/docs/source/manim_example_ext.py in 57ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/vector_field.py in 327ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/old_tex_mobject.py in 212ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types/point_cloud_mobject.py in 98ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/three_dimensions.py in 283ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/__init__.py in 31ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [1] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib/__init__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/geometry.py in 865ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/fading.py in 97ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/scene/scene_embed.py in 175ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/__future__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/interactive.py in 397ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/module_loader.py in 63ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/difflib.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/scene/interactive_scene.py in 473ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/functools.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [10] Extracted module sys in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/sounds.py in 24ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/setup.py in 3ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/string_mobject.py in 436ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/docs/source in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/inspect.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/svg_mobject.py in 234ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Extracted module itertools in 7ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/__init__.py in 4ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/pathlib.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/tex.py in 27ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/probability.py in 188ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/importlib in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/copy.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/tex_mobject.py in 161ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/family_ops.py in 25ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/types/vectorized_mobject.py in 1086ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging/__init__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/warnings.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/hashlib.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/text_mobject.py in 222ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation/growing.py in 34ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [6] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/operator.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/ast.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/animation in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/scene/__init__.py in 2ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/matrix.py in 193ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/color.py in 119ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/platform.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib/__init__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/argparse.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/subprocess.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/dict_ops.py in 19ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/shutil.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/random.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/logging in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/os.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/re.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/urllib/request.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/tempfile.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/threading.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/utils/bezier.py in 269ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [1] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/scene/scene.py in 515ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/typing.py in 32ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree/__init__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/boolean_ops.py in 76ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [10] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/svg/drawings.py in 429ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/etree/ElementTree.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml/__init__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [6] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/shader_wrapper.py in 216ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/io.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/sysconfig.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [1] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/xml in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [11] Extracted module builtins in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [9] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/contextlib.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [10] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections/__init__.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [2] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/traceback.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [3] Extracted folder /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/collections in 1ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [8] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/mobject.py in 1560ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [7] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/numbers.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [5] Skipped built-in file /Users/arinmehta/.pyenv/versions/3.10.13/lib/python3.10/pickle.py
+[2025-10-19 01:43:49] [build-stdout] [INFO] [6] Extracted module time in 5ms
+[2025-10-19 01:43:49] [build-stdout] [INFO] [4] Extracted file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim/manimlib/mobject/coordinate_systems.py in 437ms
+[2025-10-19 01:43:50] [build-stdout] [INFO] Processed 154 modules in 2.34s
+[2025-10-19 01:43:50] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim: [python3, -m, compileall, .]
+[2025-10-19 01:43:50] [build-stdout] Listing '.'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/hooks'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/info'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/logs'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/logs/refs'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/logs/refs/heads'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/logs/refs/remotes'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/logs/refs/remotes/origin'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/objects'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/objects/info'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/objects/pack'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/refs'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/refs/heads'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/refs/remotes'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/refs/remotes/origin'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.git/refs/tags'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.github'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.github/ISSUE_TEMPLATE'...
+[2025-10-19 01:43:50] [build-stdout] Listing './.github/workflows'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './docs/example.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/_static'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './docs/source/conf.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/development'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation/animation'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation/camera'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation/mobject'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation/scene'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation/shaders'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/documentation/utils'...
+[2025-10-19 01:43:50] [build-stdout] Listing './docs/source/getting_started'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './docs/source/manim_example_ext.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './example_scenes.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './logo'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './logo/logo.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/__main__.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/animation'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/animation.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/composition.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/creation.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/fading.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/growing.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/indication.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/movement.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/numbers.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/rotation.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/specialized.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/transform.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/transform_matching_parts.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/animation/update.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/camera'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/camera/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/camera/camera.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/camera/camera_frame.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/config.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/constants.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/event_handler'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/event_handler/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/event_handler/event_dispatcher.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/event_handler/event_listner.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/event_handler/event_type.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/extract_scene.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/logger.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/mobject'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/boolean_ops.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/changing.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/coordinate_systems.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/frame.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/functions.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/geometry.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/interactive.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/matrix.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/mobject_update_utils.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/number_line.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/numbers.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/probability.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/shape_matchers.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/mobject/svg'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/brace.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/drawings.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/old_tex_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/special_tex.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/string_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/svg_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/tex_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/svg/text_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/three_dimensions.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/mobject/types'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/types/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/types/dot_cloud.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/types/image_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/types/point_cloud_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/types/surface.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/types/vectorized_mobject.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/value_tracker.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/mobject/vector_field.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/module_loader.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/scene'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/scene/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/scene/interactive_scene.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/scene/scene.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/scene/scene_embed.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/scene/scene_file_writer.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/shader_wrapper.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/image'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/inserts'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/mandelbrot_fractal'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/newton_fractal'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/quadratic_bezier'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/quadratic_bezier/depth'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/quadratic_bezier/fill'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/quadratic_bezier/stroke'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/surface'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/textured_surface'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/shaders/true_dot'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/typing.py'...
+[2025-10-19 01:43:50] [build-stdout] Listing './manimlib/utils'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/__init__.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/bezier.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/cache.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/color.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/debug.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/dict_ops.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/directories.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/family_ops.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/file_ops.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/images.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/iterables.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/paths.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/rate_functions.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/shaders.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/simple_functions.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/sounds.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/space_ops.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/tex.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/tex_file_writing.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/utils/tex_to_symbol_count.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './manimlib/window.py'...
+[2025-10-19 01:43:50] [build-stdout] Compiling './setup.py'...
+[2025-10-19 01:43:50] Plumbing command codeql database trace-command completed.
+[2025-10-19 01:43:50] [PROGRESS] database create> Finalizing database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db.
+[2025-10-19 01:43:50] Running plumbing command: codeql database finalize --no-db-cluster -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db
+[2025-10-19 01:43:50] Using pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh.
+[2025-10-19 01:43:50] [PROGRESS] database finalize> Running pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim.
+[2025-10-19 01:43:50] Running plumbing command: codeql database trace-command --working-dir=/Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim --no-tracing -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh
+[2025-10-19 01:43:50] [PROGRESS] database trace-command> Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh]
+[2025-10-19 01:43:51] [build-stderr] Scanning for files in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim...
+[2025-10-19 01:43:51] [build-stderr] /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db: Indexing files in in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim...
+[2025-10-19 01:43:51] [build-stderr] Running command in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim: [/opt/homebrew/Caskroom/codeql/2.23.3/codeql/yaml/tools/index-files.sh, /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/working/files-to-index4567586835522285571.list]
+[2025-10-19 01:43:52] Plumbing command codeql database trace-command completed.
+[2025-10-19 01:43:52] [PROGRESS] database finalize> Pre-finalize script /opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/tools/pre-finalize.sh completed in 1949 ms.
+[2025-10-19 01:43:52] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db...
+[2025-10-19 01:43:52] Running plumbing command: codeql dataset import --dbscheme=/opt/homebrew/Caskroom/codeql/2.23.3/codeql/python/semmlecode.python.dbscheme -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/trap/python
+[2025-10-19 01:43:52] Clearing disk cache since the version file /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python/default/cache/version does not exist
+[2025-10-19 01:43:52] Tuple pool not found. Clearing relations with cached strings
+[2025-10-19 01:43:52] Trimming disk cache at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python/default/cache in mode clear.
+[2025-10-19 01:43:52] Sequence stamp origin is -5991228412556974732
+[2025-10-19 01:43:52] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-10-19 01:43:52] Unpausing evaluation
+[2025-10-19 01:43:52] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-10-19 01:43:52] Unpausing evaluation
+[2025-10-19 01:43:52] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-10-19 01:43:52] Unpausing evaluation
+[2025-10-19 01:43:52] Trimming completed (4ms): Purged everything.
+[2025-10-19 01:43:52] Scanning for files in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/trap/python
+[2025-10-19 01:43:52] Found 138 TRAP files (6.70 MiB)
+[2025-10-19 01:43:52] [PROGRESS] dataset import> Importing TRAP files
+[2025-10-19 01:43:52] Importing $files.1VnZ_B8YlxT0ZL4YwPYXcZuZg9Q=.trap.gz (1 of 138)
+[2025-10-19 01:43:52] Importing $files.63BwCFa5x5c9iaQYNbkwFKA15xM=.trap.gz (2 of 138)
+[2025-10-19 01:43:52] Importing $files.CIVHnHco-BiCCqJ-NSh2zOT7kkk=.trap.gz (3 of 138)
+[2025-10-19 01:43:52] Importing $files.Iel3kaiJci17triWki61T9wDb68=.trap.gz (4 of 138)
+[2025-10-19 01:43:52] Importing $files.NJJzqSkMwwFc9H8p4lqrkW-ZIuY=.trap.gz (5 of 138)
+[2025-10-19 01:43:52] Importing $files.bVhq8FuYstMeMPrCVi2cxf7tWo4=.trap.gz (6 of 138)
+[2025-10-19 01:43:52] Importing $files.eNgMM-ZRx6YY9sNwhmXA6Hd2hO8=.trap.gz (7 of 138)
+[2025-10-19 01:43:52] Importing $files.gQPGtR20AJ0HrecyyN739DNrGjg=.trap.gz (8 of 138)
+[2025-10-19 01:43:52] Importing $files.m8SlG8kU2n7IFH0qAjlFKq6aMdI=.trap.gz (9 of 138)
+[2025-10-19 01:43:52] Importing $files.ogjfSaXBtNWWfKbGVqFsOIBPLwE=.trap.gz (10 of 138)
+[2025-10-19 01:43:52] Importing $files.yqxIeqQqjIxu3hWW-xzLF1mgegk=.trap.gz (11 of 138)
+[2025-10-19 01:43:52] Importing $flags.kl2co0DHVvepslrV_rYdkPXX7jY=.trap.gz (12 of 138)
+[2025-10-19 01:43:52] Importing $interpreter3.W6OR-wBD0uBnt_6nCRjOt4sFUNY=.trap.gz (13 of 138)
+[2025-10-19 01:43:52] Importing $stdlib_33.3HE2rmK3f8hg2HA7uHC5mKwQdZU=.trap (14 of 138)
+[2025-10-19 01:43:52] Importing config.yml.trap.gz (15 of 138)
+[2025-10-19 01:43:52] Importing docs.yml.trap.gz (16 of 138)
+[2025-10-19 01:43:52] Importing publish.yml.trap.gz (17 of 138)
+[2025-10-19 01:43:52] Importing default_config.yml.trap.gz (18 of 138)
+[2025-10-19 01:43:52] Importing tex_templates.yml.trap.gz (19 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.5azvspEA9RLelswBZDBrViQhqPM=.trap.gz (20 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.AMxU_JTK69VZv8ac3t6RSLEPqjQ=.trap.gz (21 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.h5zynFnbTrpYoWkSfIikah8bszg=.trap.gz (22 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.jzeaWUpX9qDKqbw96d1V04Ghn8M=.trap.gz (23 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.srqExMDPGuXWCnnry_8whA-eekk=.trap.gz (24 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.u908ObigZ6Zt1b9ccHresVsDurE=.trap.gz (25 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.vHdZQMP6H46kkMjc7GL1gXhZt_E=.trap.gz (26 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.vKBLC4oHX28p4ZaUtxEvYkqA1_k=.trap.gz (27 of 138)
+[2025-10-19 01:43:52] Importing __init__.py.vdvH34YYhO_D0m7DwlLcQuvyRbg=.trap.gz (28 of 138)
+[2025-10-19 01:43:52] Importing __main__.py.149aaWIHV8Q9_iHKgC8ULQwr06E=.trap.gz (29 of 138)
+[2025-10-19 01:43:52] Importing animation.hMaTJYXqExLDkJHBhMIDIiYch4o=.trap.gz (30 of 138)
+[2025-10-19 01:43:52] Importing animation.py.KnwfpviUcp27Hivug1dgHlneGt0=.trap.gz (31 of 138)
+[2025-10-19 01:43:52] Importing bezier.py.rSw3OyCqzyPGXsZ8dV_EaRoMcew=.trap.gz (32 of 138)
+[2025-10-19 01:43:52] Importing boolean_ops.py.cU9CmXB6TxmSM2N7teYQ2XPSpzc=.trap.gz (33 of 138)
+[2025-10-19 01:43:52] Importing brace.py.I107LDfLVeRufbzCefUy-zDaznA=.trap.gz (34 of 138)
+[2025-10-19 01:43:52] Importing builtins.ucL6uiaICje0aJx6EJIo7OkUjco=.trap.gz (35 of 138)
+[2025-10-19 01:43:52] Importing cache.py.J34a3eggz-TIIUfoTohi0hGqaYU=.trap.gz (36 of 138)
+[2025-10-19 01:43:52] Importing camera.ntDr85dahggmGNB3t_lzFZ7lBPs=.trap.gz (37 of 138)
+[2025-10-19 01:43:52] Importing camera.py.ZOHjOG8iIfD1R57xQEC1yHtb7VY=.trap.gz (38 of 138)
+[2025-10-19 01:43:52] Importing camera_frame.py.VZQSIL_VPrExPvE5YHKdBbZwi2M=.trap.gz (39 of 138)
+[2025-10-19 01:43:52] Importing changing.py.wrWQR-_DleUGygdF9OtMPQ0RsLU=.trap.gz (40 of 138)
+[2025-10-19 01:43:52] Importing collections.76vJVtKBLzpLPcmbdy2IPXRttxc=.trap.gz (41 of 138)
+[2025-10-19 01:43:52] Importing color.py.OP675YnVeo2S3T76YylTuZDdb44=.trap.gz (42 of 138)
+[2025-10-19 01:43:52] Importing composition.py.Kc_lemtrgo4MCwRBcQC8AU4r8bY=.trap.gz (43 of 138)
+[2025-10-19 01:43:52] Importing conf.py.Wx6DBdTLuwqlpN8UhY9M6LXkvuo=.trap.gz (44 of 138)
+[2025-10-19 01:43:52] Importing config.py.z5PqbP5dVVENC0z1r5_HloX2R5g=.trap.gz (45 of 138)
+[2025-10-19 01:43:52] Importing constants.py.cMN3tusUFXK1fgfqSiDL0rnes1Q=.trap.gz (46 of 138)
+[2025-10-19 01:43:52] Importing coordinate_systems.py.gFufbuRp_xVX5UxHuj6GINwPNQ0=.trap.gz (47 of 138)
+[2025-10-19 01:43:52] Importing creation.py.QsiqCadTZBeAU3Q9Q6WT3N-5AXk=.trap.gz (48 of 138)
+[2025-10-19 01:43:52] Importing debug.py.OSFkaKy5ECOI5cLjesOcG__hgyU=.trap.gz (49 of 138)
+[2025-10-19 01:43:52] Importing dict_ops.py.ACxZme3RffJPPp5Oug2x5_qGmKM=.trap.gz (50 of 138)
+[2025-10-19 01:43:52] Importing directories.py.Bqgr2EB93nzOjscEkGwYX8IZVc0=.trap.gz (51 of 138)
+[2025-10-19 01:43:52] Importing docs.hl6-N76e6HIXYo_z-5azcZK1wXY=.trap.gz (52 of 138)
+[2025-10-19 01:43:52] Importing dot_cloud.py.vefny-ZaozZ5UMPr5tTz89GuMq4=.trap.gz (53 of 138)
+[2025-10-19 01:43:52] Importing drawings.py.QvRkFLfSflPl9p5wfJbpG6_dYXY=.trap.gz (54 of 138)
+[2025-10-19 01:43:52] Importing etree.2T04k40030b7niAqEa-LXlNdhWo=.trap.gz (55 of 138)
+[2025-10-19 01:43:52] Importing event_dispatcher.py.GGp9PkKtr3e-VOsDkAaeu72pTd0=.trap.gz (56 of 138)
+[2025-10-19 01:43:52] Importing event_handler.sXw6spPRIh4G9-ZIegU3AIVvsbM=.trap.gz (57 of 138)
+[2025-10-19 01:43:52] Importing event_listner.py.iwYQvoVM7QyXLZPa0K55rO8N904=.trap.gz (58 of 138)
+[2025-10-19 01:43:52] Importing event_type.py.qb9ntbDn5-RA3DRA3SmOzH3ubKs=.trap.gz (59 of 138)
+[2025-10-19 01:43:52] Importing example.py.EzKpNDOuYlfQHodbNvUz1mee5zY=.trap.gz (60 of 138)
+[2025-10-19 01:43:52] Importing example_scenes.py.3sYPH7TurgH1UJq0_PxLVCguW00=.trap.gz (61 of 138)
+[2025-10-19 01:43:52] Importing extract_scene.py.HrWUrvt7hQFPAoDduK7HvGuQX9o=.trap.gz (62 of 138)
+[2025-10-19 01:43:52] Importing fading.py.eDkdBnWqOEJ7hXWNHSFi8W09tIg=.trap.gz (63 of 138)
+[2025-10-19 01:43:52] Importing family_ops.py.sB1mcBRRvf7MKvrq0WNOk_KkB_Q=.trap.gz (64 of 138)
+[2025-10-19 01:43:52] Importing file_ops.py.Lu5NXwS7SPsYl0vqFRxRlR-18uQ=.trap.gz (65 of 138)
+[2025-10-19 01:43:52] Importing frame.py.2dxP9X5oL0IHPtm8BNozP2aCI3A=.trap.gz (66 of 138)
+[2025-10-19 01:43:52] Importing functions.py.L7cqhynkhQVJy7f00Lkz9iry-AQ=.trap.gz (67 of 138)
+[2025-10-19 01:43:52] Importing geometry.py.JMhX-P6GCKPj7HA7vYC1rPW36sw=.trap.gz (68 of 138)
+[2025-10-19 01:43:52] Importing growing.py.ao168X8tPxYIsnABOwpa53--m3I=.trap.gz (69 of 138)
+[2025-10-19 01:43:52] Importing image_mobject.py.HBjlnA63weuokxhZptBiSqP-fDI=.trap.gz (70 of 138)
+[2025-10-19 01:43:52] Importing images.py.3zLupRiPx9SEJAL4x_HeeYY1_p4=.trap.gz (71 of 138)
+[2025-10-19 01:43:52] Importing importlib.BzpYF_wEmiSDodGSPWmD22Nxd3U=.trap.gz (72 of 138)
+[2025-10-19 01:43:52] Importing indication.py.LDqr_TeJTdOOhr-eCI-3gCjeOpE=.trap.gz (73 of 138)
+[2025-10-19 01:43:52] Importing interactive.py.ZCjbyv4etnqUA2HxsCPYhAJW4LY=.trap.gz (74 of 138)
+[2025-10-19 01:43:52] Importing interactive_scene.py.M-AgDraYJrRB4GYp5Z8Sgxo-jrM=.trap.gz (75 of 138)
+[2025-10-19 01:43:52] Importing iterables.py.2Yoqm-wzCpFOYSUjD8qpYR6IaG4=.trap.gz (76 of 138)
+[2025-10-19 01:43:52] Importing itertools.XRzJKBk9aaImoPJfKRKAlcopqPw=.trap.gz (77 of 138)
+[2025-10-19 01:43:52] Importing logger.py.AEU-3g628arktqZrbki4LYvBJlY=.trap.gz (78 of 138)
+[2025-10-19 01:43:52] Importing logging.gpiFtaMU8aumvullNu0-pt_UMIY=.trap.gz (79 of 138)
+[2025-10-19 01:43:52] Importing logo.1oqWgAaKqkWsTG83e_t2JtJcKhY=.trap.gz (80 of 138)
+[2025-10-19 01:43:52] Importing logo.py.maBt3W_Xt0YFQHNNLrf70JGqFcs=.trap.gz (81 of 138)
+[2025-10-19 01:43:52] Importing manim_example_ext.py.LZRrT_rTP56PAkNILL2bRVpcVrk=.trap.gz (82 of 138)
+[2025-10-19 01:43:52] Importing manimlib.BOobFIpwsftcaG0bCBQqrvpD1pM=.trap.gz (83 of 138)
+[2025-10-19 01:43:52] Importing math.uaPeOo9u5HY9oGhCFCVPUVni9Tc=.trap.gz (84 of 138)
+[2025-10-19 01:43:52] Importing matrix.py.Y0v_w4NOY1QBqdZW-9Ele9qVjvA=.trap.gz (85 of 138)
+[2025-10-19 01:43:52] Importing metadata.trap.gz (86 of 138)
+[2025-10-19 01:43:52] Importing mobject.XHJOLUUBv1rXYuhbQO69bge-a7E=.trap.gz (87 of 138)
+[2025-10-19 01:43:52] Importing mobject.py.OiccMr49k8sk3jK0J1akFo3d1yo=.trap.gz (88 of 138)
+[2025-10-19 01:43:52] Importing mobject_update_utils.py.0OE20pLRjREZ1DpAS8Yg-5IF-n4=.trap.gz (89 of 138)
+[2025-10-19 01:43:52] Importing module_loader.py.WtlxxNZcjYIEbmdyq1Gxum2KJ3I=.trap.gz (90 of 138)
+[2025-10-19 01:43:52] Importing movement.py.Z72JsAIM7z2CrC2pKm3aVSpefGQ=.trap.gz (91 of 138)
+[2025-10-19 01:43:52] Importing number_line.py.rlDmxTqCllWtjlEQf6UoKMKo58U=.trap.gz (92 of 138)
+[2025-10-19 01:43:52] Importing numbers.py.O0MVOEKr0cocn4CEmtlf7wF7JPo=.trap.gz (93 of 138)
+[2025-10-19 01:43:52] Importing numbers.py.v7W1WPn5if_qLHO549ylowMKoKY=.trap.gz (94 of 138)
+[2025-10-19 01:43:52] Importing old_tex_mobject.py.Wjw0aoNzMaB-uliFT2v_LtdA5qI=.trap.gz (95 of 138)
+[2025-10-19 01:43:52] Importing paths.py._E0DcolfnJXGp6JGQ2U2b00QI-M=.trap.gz (96 of 138)
+[2025-10-19 01:43:52] Importing point_cloud_mobject.py.Ag4-_PlJT6Njsq_16WIyveZzQSs=.trap.gz (97 of 138)
+[2025-10-19 01:43:52] Importing probability.py.oRKBRrXf-bncPZzMDXsqyMx0qWA=.trap.gz (98 of 138)
+[2025-10-19 01:43:52] Importing rate_functions.py.Q94j2Bvfmh0Zak9reloP_ppZZ-o=.trap.gz (99 of 138)
+[2025-10-19 01:43:52] Importing rotation.py.F5yPBDgamQ9KKnC6xmQEWhRwFPM=.trap.gz (100 of 138)
+[2025-10-19 01:43:52] Importing scene.hYvJUD5QiObjMo8peZEzx8m7tG8=.trap.gz (101 of 138)
+[2025-10-19 01:43:52] Importing scene.py.bZShs2iySdp6eg8rXXcVSapDV9M=.trap.gz (102 of 138)
+[2025-10-19 01:43:52] Importing scene_embed.py.jVX9p8K2lhTvSGRJ7hnTqyyxee8=.trap.gz (103 of 138)
+[2025-10-19 01:43:52] Importing scene_file_writer.py.rqwFm_OpL_P8t9yHGVl7lTxKwG0=.trap.gz (104 of 138)
+[2025-10-19 01:43:53] Importing setup.py.tB71xqUG2uANgv8xMebuVRm5uLg=.trap.gz (105 of 138)
+[2025-10-19 01:43:53] Importing shader_wrapper.py.QAQzRMkk_qt9q1BFh0L6T-_jdz0=.trap.gz (106 of 138)
+[2025-10-19 01:43:53] Importing shaders.py.p_kXwscxji2JGQ_obJkUcDCBFfE=.trap.gz (107 of 138)
+[2025-10-19 01:43:53] Importing shape_matchers.py.FKJB79YbBmulYje0lIB-Z2sC5WI=.trap.gz (108 of 138)
+[2025-10-19 01:43:53] Importing simple_functions.py.oSFvekXtdSAU0_0tHX2qlQNl-DQ=.trap.gz (109 of 138)
+[2025-10-19 01:43:53] Importing sounds.py.-14umDjXQrrEnf-8ahzEaMVoPKY=.trap.gz (110 of 138)
+[2025-10-19 01:43:53] Importing source.Ivcv3wuuWEWrb-LC4ZHys_z8Nfc=.trap.gz (111 of 138)
+[2025-10-19 01:43:53] Importing space_ops.py.fHWtC3s2IUqZtr5T9JNOtgT5Of0=.trap.gz (112 of 138)
+[2025-10-19 01:43:53] Importing special_tex.py.J5Geu_CiRBfUlzbq90uYCk2a0VI=.trap.gz (113 of 138)
+[2025-10-19 01:43:53] Importing specialized.py.4j4FoPyRVIM75L7-i7LF_xlN9TA=.trap.gz (114 of 138)
+[2025-10-19 01:43:53] Importing string_mobject.py.TgNdwtVNSeGdkS3k7WhqluDYvwY=.trap.gz (115 of 138)
+[2025-10-19 01:43:53] Importing surface.py.Sv9w_SYKb3exemy691D-aeVD-JM=.trap.gz (116 of 138)
+[2025-10-19 01:43:53] Importing svg.Oxy066EcW86OAuZi92LX_ldehb0=.trap.gz (117 of 138)
+[2025-10-19 01:43:53] Importing svg_mobject.py.ORK4EgPZ8iNY6JKoCE1W3Scyx-w=.trap.gz (118 of 138)
+[2025-10-19 01:43:53] Importing sys.lYVLH90BMSgrtu9jsEeZZa3fF7c=.trap.gz (119 of 138)
+[2025-10-19 01:43:53] Importing tex.py.j3KvfHA3us-h_knP4KTYuVdk9lU=.trap.gz (120 of 138)
+[2025-10-19 01:43:53] Importing tex_file_writing.py.zjoWYwamA_1YQKyhIWFLiMR1DPk=.trap.gz (121 of 138)
+[2025-10-19 01:43:53] Importing tex_mobject.py.H2Y5BAR7LF7SNXp4442j1K5-_zY=.trap.gz (122 of 138)
+[2025-10-19 01:43:53] Importing tex_to_symbol_count.py.j2aPLR10ZT24S5wURVxH3F7srFU=.trap.gz (123 of 138)
+[2025-10-19 01:43:53] Importing text_mobject.py.fshl0MLkQdv4u-8DhvwW4X6GrGk=.trap.gz (124 of 138)
+[2025-10-19 01:43:53] Importing three_dimensions.py.YN-is7v-3YxdpdW1m5wTwB7MRkQ=.trap.gz (125 of 138)
+[2025-10-19 01:43:53] Importing time.gf5BDIbNipkqUDW2Y1MaSrRL_qE=.trap.gz (126 of 138)
+[2025-10-19 01:43:53] Importing transform.py.KorJQs4US_Q012XpuGr1R9-0dJU=.trap.gz (127 of 138)
+[2025-10-19 01:43:53] Importing transform_matching_parts.py.n5sAF8MRgEWR637BV60qw8aAfl8=.trap.gz (128 of 138)
+[2025-10-19 01:43:53] Importing types.bqsVcyV-SGNJreyt8cxqT93LlD8=.trap.gz (129 of 138)
+[2025-10-19 01:43:53] Importing typing.py.cSnnxGMGqEss9vVM4ycEW-mPwu0=.trap.gz (130 of 138)
+[2025-10-19 01:43:53] Importing update.py.QarBu8LrlXCmKyXrzi8o__RPNn0=.trap.gz (131 of 138)
+[2025-10-19 01:43:53] Importing urllib.Qd9f6rNJVBM5cWeRMaoBbXencsY=.trap.gz (132 of 138)
+[2025-10-19 01:43:53] Importing utils.MDpPEybgzSXCfRWdxA24qjwe2ds=.trap.gz (133 of 138)
+[2025-10-19 01:43:53] Importing value_tracker.py.isNDqtmgEXNdnLrvNbSYMImVqjM=.trap.gz (134 of 138)
+[2025-10-19 01:43:53] Importing vector_field.py.iqdMPb0zazmWzdcipslqDrpZKyk=.trap.gz (135 of 138)
+[2025-10-19 01:43:53] Importing vectorized_mobject.py.nF_4XC_XPjxELXUMCeprLvrsjkk=.trap.gz (136 of 138)
+[2025-10-19 01:43:53] Importing window.py.skrcupX_jqXEtrZq11Qy0In0I4s=.trap.gz (137 of 138)
+[2025-10-19 01:43:53] Importing xml.gcKNTLYFRgIhj7knysMjP_D2QP4=.trap.gz (138 of 138)
+[2025-10-19 01:43:53] [PROGRESS] dataset import> Merging relations
+[2025-10-19 01:43:53] Merging 1 fragment for 'files'.
+[2025-10-19 01:43:53] Merged 230 bytes for 'files'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'folders'.
+[2025-10-19 01:43:53] Merged 106 bytes for 'folders'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'containerparent'.
+[2025-10-19 01:43:53] Merged 242 bytes for 'containerparent'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_flags_versioned'.
+[2025-10-19 01:43:53] Merged 179 bytes for 'py_flags_versioned'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cobjects'.
+[2025-10-19 01:43:53] Merged 7432 bytes (7.26 KiB) for 'py_cobjects'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-10-19 01:43:53] Merged 12654 bytes (12.36 KiB) for 'py_cobjecttypes'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cobject_sources'.
+[2025-10-19 01:43:53] Merged 9699 bytes (9.47 KiB) for 'py_cobject_sources'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cobjectnames'.
+[2025-10-19 01:43:53] Merged 11910 bytes (11.63 KiB) for 'py_cobjectnames'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-10-19 01:43:53] Merged 7301 bytes (7.13 KiB) for 'py_cmembers_versioned'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_special_objects'.
+[2025-10-19 01:43:53] Merged 135 bytes for 'py_special_objects'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_citems'.
+[2025-10-19 01:43:53] Merged 453 bytes for 'py_citems'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'ext_rettype'.
+[2025-10-19 01:43:53] Merged 4025 bytes (3.93 KiB) for 'ext_rettype'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'ext_argtype'.
+[2025-10-19 01:43:53] Merged 6817 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'ext_argreturn'.
+[2025-10-19 01:43:53] Merged 41 bytes for 'ext_argreturn'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'ext_proptype'.
+[2025-10-19 01:43:53] Merged 344 bytes for 'ext_proptype'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'yaml_scalars'.
+[2025-10-19 01:43:53] Merged 2415 bytes (2.36 KiB) for 'yaml_scalars'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'yaml'.
+[2025-10-19 01:43:53] Merged 4565 bytes (4.46 KiB) for 'yaml'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'locations_default'.
+[2025-10-19 01:43:53] Merged 5077 bytes (4.96 KiB) for 'locations_default'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'yaml_locations'.
+[2025-10-19 01:43:53] Merged 1764 bytes (1.72 KiB) for 'yaml_locations'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_Modules'.
+[2025-10-19 01:43:53] Merged 134 bytes for 'py_Modules'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_module_path'.
+[2025-10-19 01:43:53] Merged 283 bytes for 'py_module_path'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'variable'.
+[2025-10-19 01:43:53] Merged 54595 bytes (53.32 KiB) for 'variable'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_extracted_version'.
+[2025-10-19 01:43:53] Merged 128 bytes for 'py_extracted_version'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_stmt_lists'.
+[2025-10-19 01:43:53] Merged 15436 bytes (15.07 KiB) for 'py_stmt_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_stmts'.
+[2025-10-19 01:43:53] Merged 55319 bytes (54.02 KiB) for 'py_stmts'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_scopes'.
+[2025-10-19 01:43:53] Merged 106546 bytes (104.05 KiB) for 'py_scopes'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_alias_lists'.
+[2025-10-19 01:43:53] Merged 2538 bytes (2.48 KiB) for 'py_alias_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_aliases'.
+[2025-10-19 01:43:53] Merged 3701 bytes (3.61 KiB) for 'py_aliases'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_exprs'.
+[2025-10-19 01:43:53] Merged 306947 bytes (299.75 KiB) for 'py_exprs'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_ints'.
+[2025-10-19 01:43:53] Merged 1670 bytes (1.63 KiB) for 'py_ints'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_strs'.
+[2025-10-19 01:43:53] Merged 58456 bytes (57.09 KiB) for 'py_strs'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_variables'.
+[2025-10-19 01:43:53] Merged 81434 bytes (79.53 KiB) for 'py_variables'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_expr_contexts'.
+[2025-10-19 01:43:53] Merged 133356 bytes (130.23 KiB) for 'py_expr_contexts'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_expr_lists'.
+[2025-10-19 01:43:53] Merged 55041 bytes (53.75 KiB) for 'py_expr_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_exports'.
+[2025-10-19 01:43:53] Merged 968 bytes for 'py_exports'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_scope_flow'.
+[2025-10-19 01:43:53] Merged 38043 bytes (37.15 KiB) for 'py_scope_flow'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_flow_bb_node'.
+[2025-10-19 01:43:53] Merged 282832 bytes (276.20 KiB) for 'py_flow_bb_node'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_successors'.
+[2025-10-19 01:43:53] Merged 171905 bytes (167.88 KiB) for 'py_successors'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_idoms'.
+[2025-10-19 01:43:53] Merged 165094 bytes (161.22 KiB) for 'py_idoms'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_ssa_var'.
+[2025-10-19 01:43:53] Merged 26781 bytes (26.15 KiB) for 'py_ssa_var'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_ssa_defn'.
+[2025-10-19 01:43:53] Merged 24160 bytes (23.59 KiB) for 'py_ssa_defn'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_ssa_use'.
+[2025-10-19 01:43:53] Merged 39358 bytes (38.44 KiB) for 'py_ssa_use'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'locations_ast'.
+[2025-10-19 01:43:53] Merged 405087 bytes (395.59 KiB) for 'locations_ast'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_scope_location'.
+[2025-10-19 01:43:53] Merged 6536 bytes (6.38 KiB) for 'py_scope_location'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_comments'.
+[2025-10-19 01:43:53] Merged 3096 bytes (3.02 KiB) for 'py_comments'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_codelines'.
+[2025-10-19 01:43:53] Merged 5551 bytes (5.42 KiB) for 'py_codelines'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_commentlines'.
+[2025-10-19 01:43:53] Merged 4008 bytes (3.91 KiB) for 'py_commentlines'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_docstringlines'.
+[2025-10-19 01:43:53] Merged 3411 bytes (3.33 KiB) for 'py_docstringlines'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_alllines'.
+[2025-10-19 01:43:53] Merged 5576 bytes (5.45 KiB) for 'py_alllines'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'numlines'.
+[2025-10-19 01:43:53] Merged 520 bytes for 'numlines'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_locations'.
+[2025-10-19 01:43:53] Merged 176872 bytes (172.73 KiB) for 'py_locations'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_bools'.
+[2025-10-19 01:43:53] Merged 1308 bytes (1.28 KiB) for 'py_bools'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_true_successors'.
+[2025-10-19 01:43:53] Merged 3798 bytes (3.71 KiB) for 'py_true_successors'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_false_successors'.
+[2025-10-19 01:43:53] Merged 3916 bytes (3.82 KiB) for 'py_false_successors'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_arguments'.
+[2025-10-19 01:43:53] Merged 5118 bytes (5.00 KiB) for 'py_arguments'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_Functions'.
+[2025-10-19 01:43:53] Merged 5583 bytes (5.45 KiB) for 'py_Functions'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-10-19 01:43:53] Merged 3136 bytes (3.06 KiB) for 'py_dict_item_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_dict_items'.
+[2025-10-19 01:43:53] Merged 7857 bytes (7.67 KiB) for 'py_dict_items'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_boolops'.
+[2025-10-19 01:43:53] Merged 840 bytes for 'py_boolops'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-10-19 01:43:53] Merged 2383 bytes (2.33 KiB) for 'py_cmpop_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_cmpops'.
+[2025-10-19 01:43:53] Merged 3308 bytes (3.23 KiB) for 'py_cmpops'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_exception_successors'.
+[2025-10-19 01:43:53] Merged 456 bytes for 'py_exception_successors'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_ssa_phi'.
+[2025-10-19 01:43:53] Merged 2299 bytes (2.25 KiB) for 'py_ssa_phi'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_numbers'.
+[2025-10-19 01:43:53] Merged 19837 bytes (19.37 KiB) for 'py_numbers'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_Classes'.
+[2025-10-19 01:43:53] Merged 1024 bytes (1.00 KiB) for 'py_Classes'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_operators'.
+[2025-10-19 01:43:53] Merged 7059 bytes (6.89 KiB) for 'py_operators'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_parameter_lists'.
+[2025-10-19 01:43:53] Merged 5563 bytes (5.43 KiB) for 'py_parameter_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_unaryops'.
+[2025-10-19 01:43:53] Merged 1551 bytes (1.51 KiB) for 'py_unaryops'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-10-19 01:43:53] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-10-19 01:43:53] Merged 38 bytes for 'py_StringPart_lists'.
+[2025-10-19 01:43:53] Merging 1 fragment for 'py_StringParts'.
+[2025-10-19 01:43:53] Merged 57 bytes for 'py_StringParts'.
+[2025-10-19 01:43:53] Saving string and id pools to disk.
+[2025-10-19 01:43:53] Finished importing TRAP files.
+[2025-10-19 01:43:53] Read 34.06 MiB of uncompressed TRAP data.
+[2025-10-19 01:43:53] Uncompressed relation data size: 10.08 MiB
+[2025-10-19 01:43:53] Relation data size: 2.28 MiB (merge rate: 19.87 MiB/s)
+[2025-10-19 01:43:53] String pool size: 2.41 MiB
+[2025-10-19 01:43:53] ID pool size: 1.19 MiB
+[2025-10-19 01:43:53] [PROGRESS] dataset import> Finished writing database (relations: 2.28 MiB; string pool: 2.41 MiB).
+[2025-10-19 01:43:53] Pausing evaluation to close the cache at sequence stamp o+145
+[2025-10-19 01:43:53] The disk cache is freshly trimmed; leave it be.
+[2025-10-19 01:43:53] Unpausing evaluation
+[2025-10-19 01:43:53] Plumbing command codeql dataset import completed.
+[2025-10-19 01:43:53] [PROGRESS] database finalize> TRAP import complete (1.3s).
+[2025-10-19 01:43:53] Running plumbing command: codeql database cleanup -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db
+[2025-10-19 01:43:53] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-10-19 01:43:53] [PROGRESS] database cleanup> TRAP files cleaned up (18ms).
+[2025-10-19 01:43:53] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-10-19 01:43:53] [PROGRESS] database cleanup> Scratch directory cleaned up (20ms).
+[2025-10-19 01:43:53] Running plumbing command: codeql dataset cleanup -- /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python
+[2025-10-19 01:43:53] [PROGRESS] dataset cleanup> Cleaning up dataset in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python.
+[2025-10-19 01:43:53] Trimming disk cache at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python/default/cache in mode trim.
+[2025-10-19 01:43:53] Sequence stamp origin is -5991228407751361595
+[2025-10-19 01:43:53] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-10-19 01:43:53] Unpausing evaluation
+[2025-10-19 01:43:53] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-10-19 01:43:53] Unpausing evaluation
+[2025-10-19 01:43:53] Trimming completed (1ms): Trimmed disposable data from cache.
+[2025-10-19 01:43:53] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-10-19 01:43:53] The disk cache is freshly trimmed; leave it be.
+[2025-10-19 01:43:53] Unpausing evaluation
+[2025-10-19 01:43:53] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-10-19 01:43:53] [PROGRESS] dataset cleanup> Finalizing dataset in /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python
+[2025-10-19 01:43:53] [DETAILS] dataset cleanup> Finished deleting ID pool from /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db/db-python (1ms).
+[2025-10-19 01:43:53] Plumbing command codeql dataset cleanup completed.
+[2025-10-19 01:43:53] Plumbing command codeql database cleanup completed with status 0.
+[2025-10-19 01:43:53] [PROGRESS] database finalize> Finished zipping source archive (230.99 KiB).
+[2025-10-19 01:43:53] Plumbing command codeql database finalize completed.
+[2025-10-19 01:43:53] [PROGRESS] database create> Successfully created database at /Users/arinmehta/Documents/GitHub/STT/Assignment-2/manim-db.
+[2025-10-19 01:43:53] Terminating normally.
